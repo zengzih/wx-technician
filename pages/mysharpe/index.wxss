@@ -1,0 +1,37 @@
+/* pages/mysharpe/index.wxss */
+.search_box {
+  height: 102rpx;
+  background: #fff;
+  padding-top: 10rpx;
+}
+.wrapper {
+  height: 100%;
+}
+.wrapper .search {
+  width: 712rpx;
+  height: 64rpx;
+  border-radius: 40rpx;
+  background: #F5F5F5FF;
+  color: #919191;
+  margin: 0rpx auto;
+  font-size: 28rpx;
+  position: relative;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  line-height: 64rpx;
+}
+.wrapper .search .icon {
+  position: absolute;
+  font-size: 20px;
+}
+.wrapper .search input {
+  position: absolute;
+  top: 50%;
+  left: 112rpx;
+  width: calc(100% - 150rpx);
+  transform: translateY(-50%);
+}
+.wrapper .content {
+  height: calc(100% - 280rpx);
+  overflow: hidden;
+}

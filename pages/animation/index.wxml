@@ -1,0 +1,7 @@
+<!--pages/animation/index.wxml-->
+<button bindtap='handleToggle'>{{ title }}</button>
+<view>
+  <view class='content' animation='{{animate}}'>
+    <view wx:for='{{ list }}'>{{ item.label }}</view>
+  </view>
+</view>

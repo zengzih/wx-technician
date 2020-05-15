@@ -1,0 +1,15 @@
+<!--pages/prompt/index.wxml-->
+<!--<text>pages/prompt/index.wxml</text>-->
+<view class="wrapper">
+    <v-header></v-header>
+    <view class="content">
+        <image src="../../image/icon/Group.png"></image>
+        <view class="message1">报名已提交</view>
+        <view class="message2">旅途顾问将尽快与您联系</view>
+
+        <view class="btn_group">
+            <view bindtap="handleQueryDetail">查看详情</view>
+            <view bindtap="handleGoHome">返回首页</view>
+        </view>
+    </view>
+</view>

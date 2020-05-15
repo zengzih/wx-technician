@@ -1,0 +1,42 @@
+<!--pages/signUpDetail/index.wxml-->
+<view class="wrapper">
+    <v-header back></v-header>
+    <view class="content">
+        <view class="introduce after_line">
+            <text class="inner">{{ productDetail.productName }}</text>
+             <view class='product'>
+                <text class='product_type'>特价团</text>
+                <text class='product_status'>待确认</text>
+              </view>
+            <view class="date">
+                <view>
+                    <text>团期：</text>
+                    <text>{{ groupStage.departureDate }}</text>
+                </view>
+                <text class="cost">￥{{ groupStage.price }}/人</text>
+            </view>
+        </view>
+          <view class="user_info after_line">
+              <view class="title">联系人信息</view>
+
+              <view class="group {{ item.remake ? 'wx' : '' }}" wx:for='{{ layout }}' wx:key="{{ index }}">
+                  <view class="label {{ item.required ? 'required' : ''  }}">{{ item.label }}</view>
+                  <view class="el-input">{{ signUpData[item.prop] }}</view>
+                  <view class="btn wx_more"></view>
+              </view>
+          </view>
+
+            <view class="person_num after_line">
+                <view class="title">报名人数</view>
+                <view class="person_content">
+                    <view class="label">位数</view>
+                    <view class="operation">{{ signUpData.enrollment }}人</view>
+                </view>
+            </view>
+
+            <view class="note after_line">
+                <view class="label">备注</view>
+                <view class="edit">{{ signUpData.remark }}</view>
+            </view>
+    </view>
+</view>

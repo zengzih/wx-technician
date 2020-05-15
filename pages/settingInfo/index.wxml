@@ -1,0 +1,11 @@
+<view class='wrapper'>
+    <v-header back='{{back}}' title='{{title}}'></v-header>
+
+    <view class="content">
+        <view class="list" wx:for="{{ settings }}" wx:key="{{ index }}">
+            <text>{{ item.label }}</text>
+            <i class="iconfont icon-xiangyou1"></i>
+        </view>
+    </view>
+</view>
+

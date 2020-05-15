@@ -1,0 +1,11 @@
+<!--报名备注-->
+<view class='wrapper'>
+  <v-header back></v-header>
+  <view class='content'>
+    <text>备注</text>
+  <textarea class='{{ isError ? "is-error" : "" }}' placeholder='请输入备注信息' bindinput='handleInput' value='{{ note }}'></textarea>
+  </view>
+  <view class='footer'>
+    <button type="warn" bindtap='handleSubmitNote'>提交</button>
+  </view>
+</view>

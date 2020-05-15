@@ -1,0 +1,22 @@
+import request from "./util";
+
+export const getIndexList = (data = {}) => request.post('list', data);
+
+export const follow = (data = {}) => request.post('follow', data, { 'Content-Type': 'application/json', all: true });
+
+export const unFollow = (data = {}) => request.delete('unFollow', data, { 'Content-Type': 'application/json', all: true });
+
+export const getMyFavorite = (data = {}) => request.get('my_favorite', data);
+
+export const signUp = (data = {}) => request.post('signup', data, { 'Content-Type': 'application/json', all: true });
+
+export const login = (data= {}) => request.post('wx', data);
+
+export const getUserInfo = (data= {}) => request.post('info', data, { all: true });
+
+export const getClassifyDetailList = (data={})=> request.post('classifyList', data);
+
+export const getClassifyDetail = (data={})=> request.post('classifyDetail', data);
+
+
+

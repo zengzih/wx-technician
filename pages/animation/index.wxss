@@ -1,0 +1,17 @@
+/* pages/animation/index.wxss */
+button {
+  margin-top: 100px;
+}
+.content {
+  overflow: hidden;
+}
+.content view {
+  height: 100rpx;
+  width: 100%;
+  line-height: 100rpx;
+  text-align: left;
+  border: 1px solid #ccc;
+  margin-top: -1px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}

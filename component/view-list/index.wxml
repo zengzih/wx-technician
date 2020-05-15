@@ -1,0 +1,9 @@
+<!--component/view-list/index.wxml-->
+<!-- 首页的list-view  -->
+<view>
+  <view style='{{ viewStyle }}' class="view-list" wx:for="{{ data }}" wx:key='{{ item.id }}' data-item="{{ item }}" bindtap="handleViewEvent">
+    <image src="{{ item.imgUrl }}"></image>
+    <view class="title">{{ item.productName }}</view>
+    <view class="instructions">￥{{ item.price }}/人起</view>
+  </view>
+</view>

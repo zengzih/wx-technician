@@ -1,0 +1,49 @@
+/* pages/orderForm/index.wxss */
+.wrapper {
+    height: 100%;
+    background: #fff;
+}
+
+.wrapper .tabs {
+    height: 100rpx;
+    overflow: hidden;
+    border-top: 1px solid #ededed;
+}
+
+.wrapper .tabs .tab {
+    float: left;
+    width: 20%;
+    height: 100%;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 28rpx;
+    position: relative;
+}
+
+.wrapper .tabs .tab:after {
+    content: '';
+    position: absolute;
+    width: 90%;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    transition: all 0.1s linear;
+}
+
+.wrapper .tabs .tab.active:after {
+    background: #f35882;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+/* pages/prompt/index.wxss */
+.content {
+    position: relative;
+    text-align: center;
+}
+.content image {
+    /*position: absolute;
+    left: 50%;
+    top: 136rpx;
+    transform: translateX(-50%);*/
+    display: block;
+    width: 172rpx;
+    height: 172rpx;
+    border-radius: 50%;
+    margin: 100rpx auto;
+}
+.content .message1 {
+    margin-top: 46rpx;
+    font-size:40rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    line-height:56rpx;
+}
+.content .message2 {
+    margin-top: 40rpx;
+    font-size:28rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(136,136,136,1);
+    line-height:40rpx;
+}
+.content .btn_group {
+    width: 613rpx;
+    margin: 136rpx auto;
+}
+.content .btn_group view {
+    height: 86rpx;
+    width: 100%;
+    margin-bottom: 46rpx;
+    font-size:32rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+    line-height: 86rpx;
+    -webkit-background-clip:text;
+    border-radius: 4rpx;
+    text-align: center;
+}
+.content .btn_group view:nth-child(1) {
+    background: #46CF87;
+    color: #fff;
+    border:2rpx solid rgba(5,5,5,0.08);
+}
+.content .btn_group view:nth-child(2) {
+    background: #fff;
+    color:rgba(134,134,134,1);
+    border:2rpx solid rgba(5,5,5,0.1);
+}

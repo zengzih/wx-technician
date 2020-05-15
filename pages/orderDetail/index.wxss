@@ -1,0 +1,787 @@
+/* pages/orderDetail/index.wxss */
+.wrapper {
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+.wrapper .header {
+    height: 500rpx;
+    width: 100%;
+    position: relative;
+    background: #fff;
+}
+
+.wrapper .header .back {
+    height: 62rpx;
+    width: 62rpx;
+    line-height: 62rpx;
+    text-align: center;
+    border-radius: 50%;
+    background: #000;
+    opacity: 0.5;
+    position: absolute;
+    top: 55rpx;
+    left: 15rpx;
+}
+
+.wrapper .header .back i {
+    color: #fff;
+    opacity: 1;
+    font-size: 30rpx;
+}
+
+.wrapper .header .img-box {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.wrapper .header .img-box image {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper>.content {
+    padding: 0 32rpx;
+    box-sizing: border-box;
+    background: #fff;
+}
+
+.wrapper .content .price-content {
+    height: 160rpx;
+    overflow: hidden;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+.wrapper .content .price-content .title {
+    line-height: 90rpx;
+    font-size: 34rpx;
+}
+
+.wrapper .content .price-content .price {
+    font-size: 32rpx;
+    color: #de3925;
+    position: relative;
+    float: left;
+}
+
+.wrapper .content .price-content .price text:first-child {
+    font-size: 28rpx;
+    color: #ca4441;
+    margin-right: 10rpx;
+}
+
+.wrapper .content .price-content .price text:last-child {
+    font-size: 26rpx;
+    color: #888888;
+    margin-right: 10rpx;
+    position: relative;
+}
+
+.wrapper .content .price-content .price text:last-child:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #888888;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+}
+
+.wrapper .content .price-content .order-num {
+    color: #888888;
+    margin-top: 6rpx;
+}
+
+
+.wrapper .content .price-content .price:last-child:after {
+    position: absolute;
+    content: '';
+    height: 1px;
+}
+
+.wrapper .content .price-content .order-num {
+    float: right;
+    font-size: 22rpx;
+}
+
+
+.wrapper .content>.list {
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 1px solid #e7e7e7;
+}
+.wrapper .content>.list:last-child {
+    border-bottom: 0;
+}
+
+
+.wrapper .content .list text {
+    margin-right: 34rpx;
+    font-size: 26rpx;
+}
+
+.wrapper .content .list text:nth-of-type(1) {
+    color: #6d6d6d;
+}
+
+.wrapper .content .list text:nth-of-type(2):not(.more) {
+    display: inline-block;
+    padding: 0 14rpx;
+    background-image: linear-gradient(#fd98ba, #f35284);
+    height: 36rpx;
+    border-radius: 3px;
+    line-height: 36rpx;
+    color: #fff;
+    font-size: 22rpx;
+}
+
+
+/*group*/
+.wrapper .groups {
+    margin-top: 12rpx;
+}
+.wrapper .groups .group {
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-bottom: 12rpx;
+    position: relative;
+    background: #fff;
+    padding: 0 32rpx;
+    box-sizing: border-box;
+}
+
+
+.wrapper .groups .group text, .wrapper .groups .group view{
+    margin-right: 34rpx;
+    font-size: 26rpx;
+}
+
+.wrapper .groups .group text:nth-of-type(1) {
+    color: #6d6d6d;
+}
+
+.wrapper .groups .group view {
+    color: #a3a3a3;
+    float: right;
+    height: 100%;
+    margin-right: 0;
+}
+
+.wrapper .groups .more {
+    background: #ffff;
+    padding: 12rpx 32rpx;
+    box-sizing: border-box;
+    font-size: 26rpx;
+}
+
+.wrapper .groups .more view:first-child {
+  display: inline-block;
+  padding: 10rpx;
+  background-image: linear-gradient(#fd98ba, #f35284);
+  height: 36rpx;
+  border-radius: 3px;
+  line-height: 36rpx;
+  color: #fff;
+  font-size: 22rpx;
+}
+
+
+
+.wrapper>.footer {
+    height: 100rpx;
+    border-top: 1px solid #ede4e5;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.wrapper>.footer .btn {
+    height: 80rpx;
+    width: 400rpx;
+    border-radius: 20px;
+    background: #fe4e7d;
+    line-height: 80rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    right: 44rpx;
+    transform: translateY(-50%);
+    z-index: 999;
+}
+.wrapper >.footer .total-price {
+    line-height: 100rpx;
+    font-size: 34rpx;
+    padding-left: 20rpx;
+}
+.wrapper >.footer .total-price text {
+    color: #e54046;
+    margin-left: 5rpx;
+}
+
+/* 选择项目项目详情 */
+
+.project_detail {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.project_detail .mask {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    background: #000;
+    z-index: 3;
+}
+
+.project_detail .body {
+    background: #fff;
+    position: absolute;
+    z-index: 4;
+    bottom: 0;
+    width: 100%;
+}
+
+.project_detail .body .group {
+    border-bottom: 1px solid #ededed;
+    padding: 0 34rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.project_detail .body .group:nth-of-type(1),
+.project_detail .body .group:nth-of-type(2) {
+    height: 176rpx;
+}
+
+.project_detail .body .group:nth-of-type(1) .img-box {
+    height: 170rpx;
+    width: 170rpx;
+    border-radius: 4px;
+    position: absolute;
+    top: -36rpx;
+    left: 34rpx;
+    background: #fff;
+}
+
+.project_detail .body .group:nth-of-type(1) .img-box image {
+    height: 100%;
+    width: 100%;
+}
+
+.project_detail .body .group:nth-of-type(1)  .close {
+    width: 33rpx;
+    height: 33rpx;
+    text-align: center;
+    line-height: 33rpx;
+    position: absolute;
+    top: 18rpx;
+    right: 30rpx;
+}
+
+.project_detail .body .group:nth-of-type(1)  .close i {
+    font-size: 22rpx;
+    color: #ccc;
+}
+
+.project_detail .body .group:nth-of-type(1) .detail {
+    float: left;
+    margin-left: 238rpx;
+    padding: 10rpx 0;
+    margin-top: 12rpx;
+}
+.project_detail .body .group:nth-of-type(1) .detail .name {
+    font-size: 28rpx;
+    line-height: 32rpx;
+}
+
+.project_detail .body .group:nth-of-type(1) .detail .select {
+    font-size: 24rpx;
+    color: #9e9e9e;
+    line-height: 34rpx;
+}
+
+.project_detail .body .group:nth-of-type(1) .detail .price {
+    font-size: 30rpx;
+    color: #cd222a;
+    line-height: 46rpx;
+}
+
+.project_detail .body .group:nth-of-type(1) .detail .price .time {
+    font-size: 24rpx;
+    color: #868686;
+    margin-left: 40rpx;
+}
+
+/*第二个group*/
+
+.project_detail .body .group:nth-of-type(2) view:first-child {
+    line-height: 95rpx;
+    color: #000;
+    font-size: 28rpx;
+}
+
+
+.project_detail .body .group:nth-of-type(2) view:last-child {
+    height: 52rpx;
+    width: 120rpx;
+    line-height: 52rpx;
+    border: 1px solid #d95586;
+    border-radius: 10px;
+    background: #ffe7f5;
+    text-align: center;
+    font-size: 22rpx;
+    color: #d95586;
+}
+
+.project_detail .body .group:nth-of-type(3) {
+    height: 96rpx;
+    width: 100%;
+    font-size: 25rpx;
+    line-height: 96rpx;
+    position: relative;
+}
+
+.project_detail .body .group:nth-of-type(3) .operation {
+    right: 30rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.project_detail .body .group:nth-of-type(3) .operation view:nth-of-type(2) {
+    margin-top: -26rpx;
+}
+
+.project_detail .body .group:nth-of-type(3) .operation> view {
+    float: left;
+    margin-right: 15rpx;
+}
+
+.project_detail .body .group:nth-of-type(3) .operation .add,
+.project_detail .body .group:nth-of-type(3) .operation .minus {
+    height: 33rpx;
+    width: 33rpx;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.project_detail .body .group:nth-of-type(3) .operation .add i:first-child,
+.project_detail .body .group:nth-of-type(3) .operation .minus i:first-child {
+    width: 80%;
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ccc;
+}
+
+
+.project_detail .body .group:nth-of-type(3) .operation .add i:last-child {
+    height: 80%;
+    width: 1px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ccc;
+}
+
+/*按钮*/
+.project_detail .body .footer {
+    height: 140rpx;
+    width: 100%;
+    position: relative;
+}
+
+.project_detail .body .footer .btn {
+    width: 90%;
+    height: 80rpx;
+    border-radius: 20px;
+    background: #fe4e7d;
+    font-size: 32rpx;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 80rpx;
+    text-align: center;
+}
+
+
+/* 评价  */
+.evaluate {
+    margin-top: 10rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    background: #fff;
+    padding-bottom: 10rpx;
+}
+
+.evaluate>.header {
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.evaluate .header text:first-child {
+    float: left;
+    font-size: 28rpx;
+}
+
+.evaluate .header text:last-child {
+    float: right;
+    font-size: 24rpx;
+    color: #e8e8e8;
+}
+
+.evaluate .list-content .list {
+  margin-bottom: 40rpx;
+}
+
+.evaluate .list-content .list .header {
+    height: 80rpx;
+}
+
+.evaluate .list-content .list .header .icon {
+    float: left;
+    line-height: 95rpx;
+    width: 80rpx;
+}
+
+.evaluate .list-content .list .header .icon i {
+    font-size: 66rpx;
+    margin-right: 17rpx;
+}
+
+.evaluate .list-content .list .header .name {
+    font-size: 24rpx;
+    height: 50rpx;
+    line-height: 60rpx;
+}
+
+.evaluate .list-content .list .header .date {
+    font-size: 20rpx;
+    color: #ccc;
+    height: 26rpx;
+    line-height: 26rpx;
+}
+
+.evaluate .list-content .list .label span {
+    display: inline-block;
+    padding: 6rpx 16rpx;
+    font-size: 24rpx;
+    background: #f2f2f2;
+    color: #838383;
+    margin-right: 20rpx;
+    border-radius: 2px;
+}
+.evaluate .list-content .list > .content {
+    padding: 12rpx 0;
+    padding-left: 80rpx;
+    font-size: 26rpx;
+}
+
+
+/*  技师选择时间段  */
+.project_detail .technician {
+    height: 100%;
+    background: #fff;
+    width: 100%;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 4;
+}
+
+.project_detail .technician>.head {
+    height: 180rpx;
+    line-height: 180rpx;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.project_detail .technician .weeks {
+    padding: 15px 0;
+    padding-top: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+.project_detail .technician .weeks:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4rpx;
+    background: #fbfbfb;
+}
+
+.project_detail .technician .weeks .week {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+
+.project_detail .technician .weeks .week.active {
+  color: #fe4e7d;
+}
+
+.project_detail .technician .weeks .week .label {
+    height: 50rpx;
+    font-size: 22rpx;
+    line-height: 50rpx;
+    color: #a6a6a6;
+}
+
+.project_detail .technician .weeks .week .date {
+    font-size: 22rpx;
+    height: 42rpx;
+    line-height: 42rpx;
+    color: #696969;
+}
+
+.project_detail .technician .weeks .week.active .date,
+.project_detail .technician .weeks .week.active .label {
+    color: #e3608c;
+}
+
+.project_detail .technician .time-box {
+    float: left;
+    width: 25%;
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+    height: 64rpx;
+    line-height: 62rpx;
+}
+
+.project_detail .technician .time-box.active .time {
+  border: 1px solid #fe4e7d;
+  color: #fe4e7d;
+}
+
+
+.project_detail .technician .times {
+    overflow-y: auto;
+    padding: 10rpx 0;
+    height: 460rpx;
+}
+
+.project_detail .technician .times .time {
+    height: 64rpx;
+    line-height: 62rpx;
+    width: 90%;
+    border: 1px solid #ededed;
+    border-radius: 14px;
+    font-size: 22rpx;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.project_detail .technician .person-num {
+    widows: 100%;
+    position: relative;
+    height: 50rpx;
+    text-align: center;
+    margin-top: 15rpx;
+}
+
+.project_detail .technician .person-num:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #e7e7e7;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.project_detail .technician .person-num text {
+    font-size: 24rpx;
+    padding: 0 20rpx;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 100%;
+    line-height: 50rpx;
+    z-index: 4;
+    display: inline-block;
+}
+
+.project_detail .technician  .person-list {
+    height: 320rpx;
+    overflow: auto;
+
+}
+
+.project_detail .technician  .person-list .person {
+    padding: 15rpx;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: all 0.1s linear;
+}
+
+
+.project_detail .technician  .person-list .person.active {
+  border: 1px solid #fe4e7d;
+}
+
+.project_detail .technician  .person-list .person-box {
+    float: left;
+    width: 33.33%;
+    padding: 4rpx;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.project_detail .technician  .person-list .person .head {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 4px;
+    border: 1px solid #ededed;
+    float: left;
+    margin-right: 10rpx;
+}
+
+.project_detail .technician  .person-list .person .head image {
+  height: 100%;
+  width: 100%;
+}
+
+.project_detail .technician  .person-list .person .detail {
+    float: left;
+}
+
+.project_detail .technician  .person-list .person .detail .name {
+    padding: 4rpx 0;
+    font-size: 26rpx;
+}
+
+.project_detail .technician  .person-list .person .detail .num {
+    padding: 4rpx 0;
+    font-size: 22rpx;
+    color: #9c9c9c;
+}
+
+.project_detail .technician  .person-list .person .detail .distance  {
+    font-size: 16rpx;
+    padding: 4rpx 0;
+    color: #9c9c9c;
+}
+
+.project_detail .technician .explain {
+    font-size: 20rpx;
+    text-align: center;
+    color: #6e6e6e;
+}
+
+
+/*  弹窗底部的按钮 */
+.project_detail .technician .footer {
+    height: 120rpx;
+    border-top: 1px solid #ededed;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.project_detail .technician .footer .btn-box {
+    width: 50%;
+    float: left;
+    height: 100%;
+    position: relative;
+}
+
+.project_detail .technician .footer .btn {
+    height: 80rpx;
+    line-height: 80rpx;
+    text-align: center;
+    border-radius: 16px;
+    background: red;
+    color: #fff;
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.project_detail .technician .footer .cancel {
+  background: #ccc;
+}
+
+.project_detail .technician .footer .confirm {
+  background: #fe4e7d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

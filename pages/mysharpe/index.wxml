@@ -1,0 +1,21 @@
+<!--pages/mysharpe/index.wxml-->
+<!-- <text>我的收藏</text> -->
+<view class='wrapper'>
+  <v-header back='{{back}}' title='{{title}}'></v-header>
+  <view class='search_box'>
+    <view class='search'>
+      <view class="icon iconfont icon-sousuo"></view>
+      <input placeholder='搜索更多美好线路' confirm-type='search' bindconfirm='handleSearch'></input>
+    </view>
+  </view>
+  <view class='content'>
+    <scroll-view
+            scroll-y
+            style="height: 100%"
+            bindscrolltoupper="handleUpper"
+            bindscrolltolower="handleLower"
+    >
+      <list-view data='{{ data }}' view-style='{{ viewStyle }}' ></list-view>
+    </scroll-view>
+  </view>
+</view>

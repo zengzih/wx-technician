@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "list-view": "../../component/view-list/index",
+      "v-header": "../../component/header/index"
+  }
+}

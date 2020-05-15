@@ -1,0 +1,2 @@
+<!--pages/userInfo/index.wxml-->
+<button bindgetuserinfo="getUserInfo" open-type="getUserInfo" lang="zh_CN" style='margin-top: 300rpx;'>授权</button>

@@ -1,0 +1,24 @@
+.view-list {
+  width: 100%;
+  padding: 20rpx;
+  padding-bottom: 10rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #F3F3F3;
+  background: #fff;
+}
+.view-list image {
+  width: 100%;
+  height: 364rpx;
+  border-radius: 4rpx;
+}
+.view-list .title {
+  color: #141735;
+  font-size: 30rpx;
+  font-family: 苹方-简 中黑体;
+}
+.view-list .instructions {
+  padding: 8rpx 0;
+  color: #FF5555;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}

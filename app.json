@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/confirmOrderForm/index",
+    "pages/orderDetail/index",
+
+
+    "pages/themeList/index",
+    "pages/index/index",
+    "pages/my/index",
+    "pages/settingInfo/index",
+    "pages/orderForm/index",
+    "pages/journeyState/index",
+    "pages/detail/index",
+    "pages/mysharpe/index",
+    "pages/signUpPreview/index",
+    "pages/prompt/index",
+    "pages/signUpDetail/index",
+    "pages/note/index",
+    "pages/userInfo/index",
+    "pages/logs/logs"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "backgroundColor": "#FAFAFA",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/icon/home.png",
+        "selectedIconPath": "image/icon/home_active.png"
+      },
+      {
+        "pagePath": "pages/journeyState/index",
+        "text": "旅程",
+        "iconPath": "image/icon/journey.png",
+        "selectedIconPath": "image/icon/journey_active.png"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "text": "我的",
+        "iconPath": "image/icon/userInfo.png",
+        "selectedIconPath": "image/icon/userInfo_active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

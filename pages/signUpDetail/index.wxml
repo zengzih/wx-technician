@@ -1,0 +1,55 @@
+<!--pages/signUpDetail/index.wxml-->
+<view class="wrapper">
+    <v-header back></v-header>
+    <view class="content">
+        <view class="introduce">
+            <text class="inner">{{ productDetail.productName }}</text>
+            <view class="date">
+                <view>
+                    <text>团期：</text>
+                    <text>{{ groupStage.departureDate }}</text>
+                </view>
+                <text bindtap='handleCollection' class="follow iconfont icon-biaoxingfill {{ productDetail.followStatus == '1' ? 'active' : '' }}"></text>
+            </view>
+        </view>
+            <view class="user_info">
+                <view class="title">联系人信息</view>
+
+                <view class="group {{ item.remake ? 'wx' : '' }}" wx:for='{{ layout }}' wx:key="{{ index }}">
+                    <view class="label {{ item.required ? 'required' : ''  }}">{{ item.label }}</view>
+                    <view class="el-input">
+                        <input type="text" class='{{ item.error ? "is-error" : "" }}' 
+                        data-reg='{{ item.reg }}' data-label='{{ item.label }}' bindinput='handleInput' bindblur='handleBlur' data-prop="{{ item.prop }}" value='{{ detail[item.prop] }}'/>
+                    </view>
+                    <view wx:if='{{ item.remake }}' class="btn wx_more" bindtap='handleSetWeChat' data-prop='{{ item.prop }}'>{{ item.remake }}</view>
+                </view>
+            </view>
+
+            <view class="person_num">
+                <view class="title">报名人数</view>
+                <view class="person_content">
+                    <view class="label">位数</view>
+                    <view class="operation">
+                        <view class="minus symbol" bindtap='handleMinus'>
+                            <image src="../../image/icon/minus.png"></image>
+                        </view>
+                        <text>{{ detail.enrollment }}</text>
+                        <view class="add symbol" bindtap='handleAdd'>
+                            <image src="../../image/icon/add.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="note" > <!-- bindtap='handleRemake' -->
+                <view class="label">备注</view>
+                <!-- <view class="edit">
+                    <i class="iconfont icon-xiangyou1"></i>
+                </view> -->
+            </view>
+            <view class='note_text'> <!-- {{ noteError ? "is-error" : "" }}-->
+               <textarea value='{{ detail.remark }}' bindinput='handleNoteInput' placeholder='请输入备注信息'></textarea>
+            </view>
+    </view>
+    <view class="submit" bindtap='handleSubmit'>提交</view>
+</view>

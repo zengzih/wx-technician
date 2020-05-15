@@ -1,0 +1,5 @@
+/* pages/confirmOrderForm/index.wxss */
+.wrapper {
+    height: 100%;
+    background: #fff;
+}

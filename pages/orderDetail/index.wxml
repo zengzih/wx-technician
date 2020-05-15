@@ -1,0 +1,181 @@
+<!--订单详情-->
+<view class="wrapper">
+    <view class="header">
+        <view class="back">
+            <i class="iconfont icon-xiangzuo1"></i>
+        </view>
+        <view class="img-box">
+            <image src="{{ formData.image }}"></image>
+        </view>
+    </view>
+
+    <view class="content">
+        <view class="price-content">
+            <view class="title">{{ formData.name }}</view>
+            <view class="price">
+                <text>￥{{ formData.price }}元</text>
+                <text>￥{{ formData.vipPrice }}</text>
+            </view>
+            <view class="order-num">已售{{ formData.alreadyNum }}单</view>
+        </view>
+        <!--<view class="list">
+            <text>会员</text>
+            <text>充返</text>
+            <text>充500送50充2000送400</text>
+        </view>-->
+
+        <!--<view class="list">
+            <text>领券</text>
+            <text>钦点迎新15元</text>
+        </view>-->
+
+        <view class="list">
+            <text>保障</text>
+            <text class="more">{{ formData.securityDesc }}</text>
+        </view>
+    </view>
+
+    <view class="groups">
+        <!--<view class="group">
+            <text>选择</text>
+            <text>全身理疗</text>
+            <view bindtap="selectProject">选择项目 <i class="iconfont icon-xiangyou1"></i></view>
+        </view>-->
+
+        <view class="group">
+            <text>技师</text>
+            <view bindtap="handleShowTechnician">最近可约 <i class="iconfont icon-xiangyou1"></i></view>
+        </view>
+
+        <view class="more">
+            <view>服务介绍/订单须知</view>
+            <view>{{ formData.orderDesc || '' }}</view>
+        </view>
+
+        <view class="evaluate">
+            <view class="header">
+                <text>用户评价</text>
+                <text class="total">{{ formData.evaluateNum }}条评论</text>
+            </view>
+            <view class="list-content" wx:for="{{ formData.evaluateList }}" wx:key="{{ item.id }}">
+                <view class="list">
+                    <view class="header">
+                        <view class="icon">
+                            <i wx:if='{{ !item.userImage }}' class="iconfont icon-yonghu"></i>
+                            <image src="{{ item.userImage }}"></image>
+                        </view>
+                        <view class="name">{{ item.userName }}</view>
+                        <view class="date">{{ item.addTime }}</view>
+                    </view>
+                    <view class="label">
+                        <span wx:for="{{ item.label ? item.label.split(',') : [] }}"> 准时到达</span><span>准时到达</span><span>准时到达</span><span>准时到达</span>
+                    </view>
+                    <view class="content">服务态度非常好</view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="footer">
+        <view class="total-price">待支付<text>250元</text></view>
+        <view class="btn" bindtap="handleDetailSubmit">立即购买</view>
+    </view>
+
+
+    <!--  选择项目项目详情  -->
+    <view class="project_detail" wx:if="{{ projectDetailShow || technicianShow }}">
+        <view class="mask"></view>
+        <view wx:if="{{ projectDetailShow }}" class="body">
+            <view class="group">
+                <view class="img-box">
+                    <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588787551037&di=c56513fb9d97a07afd78f06da807da7a&imgtype=0&src=http%3A%2F%2Fp4.ssl.cdn.btime.com%2Ft01aefa239b9bc91ab3.jpg%3Fsize%3D714x559"></image>
+                </view>
+                <view class="close" bindtap="projectDetailClose">
+                    <i class="iconfont icon-guanbi1"></i>
+                </view>
+                <view class="detail">
+                    <view class="name">{{ formData.name }}</view>
+                    <view class="select">已选:{{ formData.name }}</view>
+                    <view class="price">
+                        <text>598.00元/次</text>
+                        <text class="time">{{ formData.workTime }}分钟</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="group">
+                <view>服务项目</view>
+                <view>{{ formData.name }}</view>
+            </view>
+
+            <view class="group">
+                <text>购买数量</text>
+                <view class="operation">
+                    <view class="add" bindtap="handleAdd">
+                        <i></i>
+                        <i></i>
+                    </view>
+                    <view>{{ projectNum }}</view>
+                    <view class="minus" bindtap="handleMinus">
+                        <i></i>
+                    </view>
+                </view>
+            </view>
+
+           <!-- <view class="footers">
+                <view class="" bindtap="handleDetail">立即购买</view>
+            </view>-->
+        </view>
+
+        <!--  时间、技师的选择  -->
+        <view class="technician" wx:if="{{ technicianShow }}">
+            <view class="head">选择时间</view>
+            <view class="weeks">
+                <view class="week" wx:for="{{ weeks }}">
+                    <view class="label">{{ item.label }}</view>
+                    <view class="date">{{ item.date }}</view>
+                </view>
+            </view>
+
+            <view class="times">
+                <view class="time-box" wx:for="{{ 20 }}">
+                    <view class="time">12:30</view>
+                </view>
+            </view>
+
+            <view class="person-num">
+                <text>该时间段有1个服务人员可选</text>
+            </view>
+
+            <view class="person-list">
+                <view class="person-box" wx:for="{{ 6 }}">
+                    <view class="person">
+                        <view class="head">
+                            <image></image>
+                        </view>
+                        <view class="detail">
+                            <view class="name">小舞</view>
+                            <view class="num">已接1单</view>
+                            <view class="distance">9.19KM</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="explain">实际到达时间可能会在30分钟内浮动</view>
+
+            <view class="footer">
+                <view class="btn-box">
+                    <view class="btn cancel" bindtap="handleSelectTechnician" data-type="cancel">取消</view>
+                </view>
+                <view class="btn-box">
+                    <view class="btn confirm" bindtap="handleSelectTechnician" data-type="confirm">确认</view>
+                </view>
+            </view>
+        </view>
+
+
+    </view>
+
+
+</view>

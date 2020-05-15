@@ -1,0 +1,17 @@
+<!--订单页面-->
+<view class="wrapper">
+    <v-header back='{{back}}' title='{{title}}'></v-header>
+    <view class="tabs">
+        <view
+                wx:for="{{ tabs }}"
+                bindtap="handleTab"
+                data-tab="{{ item }}"
+                class="tab {{ activeTab == item.id ? 'active' : '' }}"
+        >{{ item.label }}</view>
+    </view>
+
+    <!-- 订单详情 -->
+
+
+</view>
+

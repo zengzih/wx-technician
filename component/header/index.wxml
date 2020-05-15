@@ -1,0 +1,9 @@
+<!--component/header/index.wxml-->
+<view class='container_header'>
+    <view class='header'>
+        <view wx:if="{{ back }}" bindtap='handleBack' class="back">
+            <span class="iconfont icon-xiangzuo1"></span>
+        </view>
+        <text class='title'>{{ title }}</text>
+    </view>
+</view>

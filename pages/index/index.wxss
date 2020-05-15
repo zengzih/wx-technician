@@ -1,0 +1,349 @@
+page {
+  height: 100%;
+  width: 100%;
+  background:rgba(243,243,243,1);
+}
+.wrapper {
+  background: #fff;
+  margin-bottom: 10rpx;
+  padding-top: 10rpx;
+}
+.container {
+  height: 100%;
+  overflow: hidden;
+  background: #fff;
+}
+
+.container .position, .container .message {
+  display: inline-block;
+  width: 120rpx;
+}
+
+.container .message {
+  text-align: center;
+  position: relative;
+  top: 15rpx;
+}
+.container .message i {
+  font-size: 50rpx;
+  color: #000;
+}
+
+.container .position {
+  width: 180rpx;
+  font-size:28rpx;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+padding-left: 5px;
+box-sizing: border-box;
+color:rgba(145,145,145,1);
+
+}
+
+
+
+.container .search {
+  display: inline-block;
+  width: calc(100% - 300rpx);
+  text-align: center;
+  position: relative;
+}
+.container .search i {
+  position: absolute;
+  left: 20rpx;
+  top: 14rpx;
+  color:#BFBFBFFF;
+}
+
+.container .search input {
+  display: inline-block;
+  width: 100%;
+  height: 64rpx;
+  padding-left: 60rpx;
+  box-sizing: border-box;
+  border-radius: 40rpx;
+  background:rgba(245,245,245,1);
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(145,145,145,1);
+  text-align: left;
+}
+
+.theme_list {
+  padding: 30rpx;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.theme_list .group {
+  height:180rpx;
+  position: relative;
+  float: left;
+  width: 25%;
+  overflow: hidden;
+  margin-bottom:  15rpx;
+  text-align: center;
+}
+
+.theme_list .group .image_box {
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #fff;
+  margin: 0 auto;
+}
+.theme_list .group .image_box image {
+  width: 100%;
+  height: 100%;
+}
+
+
+
+
+.theme_list .group .introduce {
+  margin-top: 10px;
+  font-size:26rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:#000;
+  position: relative;
+}
+
+.theme_list .group .instructions {
+  position: absolute;
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(225,225,225,1);
+  bottom: 4rpx;
+}
+
+
+.wrapper {
+  background: #fff;
+}
+.wrapper .tabs {
+  height: 84rpx;
+  width: 100%;
+  display: flex;
+  padding-top: 26rpx;
+  transition: all 0.2s linear;
+  background: #fff;
+}
+.wrapper .tabs.tab_fixed_class {
+  position: fixed;
+  top: 168rpx;
+  box-shadow:2rpx 2rpx 2rpx #ccc;
+}
+.wrapper .tabs.tab_fixed_class:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 10rpx;
+  width: 100%;
+  background: #F3F3F3FF;
+}
+
+.wrapper .tabs .panle {
+  flex: 1;
+  text-align: center;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color: #141735;
+  font-size: 30rpx;
+}
+.wrapper .tabs .panle.active {
+  color:rgba(59,198,125,1);
+}
+.wrapper .tabs .panle span {
+  position: relative;
+}
+.wrapper .tabs .panle span:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4rpx;
+  background: #3BC67D;
+  left: 0;
+  bottom: -20rpx;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+.wrapper .tabs .panle.active span:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 4rpx;
+  background: #3BC67D;
+  left: 0;
+  bottom: -20rpx;
+  opacity: 1;
+}
+
+
+/* banner */
+.banner_wrapper {
+  width: 90%;
+  margin: 20rpx auto;
+  height: 300rpx;
+  overflow: hidden;
+}
+
+.banner_wrapper .left, .banner_wrapper .right {
+  width: calc(50% - 10rpx);
+  float: left;
+  height: 100%;
+}
+
+.banner_wrapper .right {
+  margin-left: 20rpx;
+}
+.banner_wrapper .left .item {
+ background: #2782D7;
+ height: 100%;
+ border-radius: 10rpx;
+}
+
+
+.banner_wrapper .right .item {
+  height: calc(50% - 10rpx);
+  width: 100%;
+  background: green;
+  border-radius: 10rpx;
+}
+
+.banner_wrapper .right .item:last-child {
+  margin-top: 20rpx;
+}
+
+/* 轮播图样式 */
+.demo-text-1{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #1AAD19;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+
+.demo-text-1:before{
+  content: 'A';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-2{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #2782D7;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-2:before{
+  content: 'B';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-3{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F1F1;
+  color: #353535;
+  font-size: 36rpx;
+}
+.demo-text-3:before{
+  content: 'C';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.swiper_wrapper {
+  width: 90%;
+  margin: 20px auto;
+  border-radius: 15rpx;
+  overflow: hidden;
+}
+
+.swiper_wrapper .swiper-item {
+  height: 100%;
+}
+
+
+/*  下面的分类  */
+.list-wrapper {
+  margin-top: 40rpx;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.list-wrapper .list-group .head {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.list-wrapper .list-group .head .title {
+  font-size: 40rpx;
+  float: left;
+}
+
+.list-wrapper .list-group .head .more {
+  font-size: 28rpx;
+  color: #a4a4a4;
+  float: right;
+}
+.list-wrapper .list-group .content {
+  margin-top: 10rpx;
+  overflow: auto;
+  height: 290rpx;
+}
+
+.list-wrapper .list-group .content scroll-view {
+  height: 100%;
+}
+
+.list-wrapper .list-group .content .panel {
+  float: left;
+  margin-right: 12rpx;
+  width: 180rpx;
+  overflow: hidden;
+}
+
+.list-wrapper .list-group .content .panel .img-box {
+  height: 180rpx;
+  width: 180rpx;
+  border: 1px solid red;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.list-wrapper .list-group .content .panel .img-box image {
+  height: 100%;
+  width: 100%;
+}
+
+.list-wrapper .list-group .content .panel .name {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.list-wrapper .list-group .content .panel .price {
+   font-size: 24rpx;
+   color: #c4432e;
+}
+
+
+

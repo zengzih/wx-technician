@@ -1,0 +1,237 @@
+/* pages/themeList/index.wxss */
+.wrapper {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+}
+
+.wrapper .content {
+  height: calc(100% - 150rpx);
+  overflow: hidden;
+  position: relative;
+}
+
+.wrapper .content .tabs {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  height: 70rpx;
+}
+
+.wrapper .content .tabs .tab {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  line-height: 70rpx;
+  color: #606266;
+  font-size: 30rpx;
+  transition: all 0.1s linear;
+}
+
+.wrapper .content .tabs .tab i {
+  transition: all 0.1s linear;
+  display: inline-block;
+}
+
+.wrapper .content .tabs .tab.active {
+  color: #fe4e7d;
+}
+
+.wrapper .content .tabs .tab.active i {
+  transform: rotate(180deg);
+}
+
+
+
+.wrapper .mask {
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  top: 71rpx;
+  left: 0;
+}
+
+.filter {
+  background: #fff;
+  overflow: hidden;
+  position: absolute;
+  top: 71rpx;
+  z-index: 100;
+}
+
+.filter .item {
+  height: 90rpx;
+  font-size: 28rpx;
+  width: 50%;
+  float: left;
+  line-height: 90rpx;
+  position: relative;
+}
+
+.filter .item i {
+  font-size: 45rpx;
+  color: #909399;
+  margin-right: 10px;
+  float: left;
+}
+
+.filter .item.active text, .filter .item.active i {
+  color: #fe4e7d;
+}
+
+
+.filter .filter-content {
+  padding: 0 15rpx;
+  overflow: hidden;
+}
+
+.filter .item text {
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.filter .item .label {
+  color: #606266;
+  position: relative;
+  float: left;
+  width: 40%;
+}
+
+.filter .item .score {
+  font-size: 25rpx;
+  color: #d9d399;
+  position: absolute;
+  right: 35px;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.filter .item.active:after {
+  background: #fe4e7d;
+}
+
+.filter .item:after {
+  content: '';
+  width: 85%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #EBEEF5;
+}
+
+
+/* footer */
+.filter .footer {
+  height: 85rpx;
+  border-top: 1px solid #EBEEF5;
+  margin-top: 120rpx;
+  display: flex;
+}
+
+.filter .footer view {
+  flex: 1;
+  line-height: 85rpx;
+  text-align: center;
+}
+
+.filter .footer .confirm {
+  background: #fe4e7d;
+  color: #fff;
+}
+
+
+/* 列表项数据 */
+.list-view .list {
+  overflow: hidden;
+  padding: 30rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+.list-view .list .head-img {
+  width: 163rpx;
+  height: 163rpx;
+  border: 1px solid transparent;
+  float: left;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.list-view .list .head-img image {
+  width: 100%;
+  height: 100%;
+}
+
+.list-view .list .detail {
+  float: left;
+  text-align: left;
+  margin-left: 30rpx;
+  width: calc(100% - 200rpx);
+}
+
+.list-view .list .detail .title {
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+}
+
+.list-view .list .detail .introduce {
+  font-size: 25rpx;
+  color: #838383;
+  margin-bottom: 10rpx;
+}
+
+.list-view .list .detail .price {
+  font-size: 28rpx;
+  color: #dd3b48;
+  margin-bottom: 10rpx;
+}
+
+.list-view .list .detail .price text:last-child {
+  margin-left: 10rpx;
+  color: #909399;
+  position: relative
+}
+
+.list-view .list .detail .price text:last-child:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #909399;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.list-view .list .detail  .more {
+  overflow: hidden;
+  width: 100%;
+  line-height: 24rpx;
+  color: #838383;
+}
+
+.list-view .list .detail .more text {
+  font-size: 20rpx;
+  margin-top: 6rpx;
+}
+
+.list-view .list .detail .more> text {
+  float:left;
+}
+
+.list-view .list .detail .more .r-view {
+  float:right;
+  margin-top: -3rpx;
+}
+
+.list-view .list .detail .more .r-view text {
+  padding: 0 10rpx;
+}
+
+
+
+

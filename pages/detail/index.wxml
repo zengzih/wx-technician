@@ -1,0 +1,105 @@
+<!--pages/detail/index.wxml-->
+<!--详情页-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="wrapper">
+    <v-header back></v-header>
+    <scroll-view scroll-y style="height: calc(100% - 184rpx);" bindscroll='handleScroll'
+                 scroll-with-animation='{{ true }}' enable-back-to-top>
+        <view class="content">
+            <!--  -->
+            <view class="article">
+                <image class="show_img" src="{{detail.imgUrl}}"></image>
+                <view class="inner">
+                    <view class="describe">{{ detail.productName }}</view>
+                    <view class="more" wx:if="{{ false }}">特价团</view>
+                </view>
+                <view class="line"></view>
+
+                <view class="group_stage">
+                    <view class="toggle">
+                        <view class="name">团期:</view>
+                        <view class="oper" bindtap="handleReadStage">
+                            查看团期
+                            <text class="icon iconfont icon-xiangxia1" style='{{ iconStyle }}'></text>
+                        </view>
+                    </view>
+                    <view class="stage_list" animation="{{animate}}">
+                        <view class="list_content" wx:for="{{stageList}}" wx:key="{{ index }}">
+                            <text>{{ item.departureDate }}</text>
+                            <text>{{ item.remainPosition }}</text>
+                            <text>￥{{ item.price }}/人起</text>
+                            <text class="stage_item iconfont icon-yuanxingxuanzhong {{ index == stageIndex ? 'active' : ' ' }}"
+                                  data-item='{{ item }}' data-index='{{ index }}' bindtap='handleDepartData'></text>
+                        </view>
+                    </view>
+                </view>
+                <view class="line"></view>
+
+                <view class="tabs {{ tabFixed ? 'fixed' : '' }}">
+                    <view wx:for="{{ tabList }}" bindtap="handleTabEvent" wx:key="{{item.id}}" data-index="{{ index }}"
+                          data-tab="{{ item }}" class="tab_panel {{ activeIndex == index ? 'active' : '' }}">{{
+                        item.label }}
+                    </view>
+                </view>
+            </view>
+
+            <view class='tab_content'>
+                <view class="panle1" wx:if="{{ activeIndex == '0' }}">
+                    <template is="wxParse" data="{{ wxParseData: description.nodes }}"></template>
+                </view>
+                <view class="panle2" wx:if="{{ activeIndex == '1' }}">
+                    <view class="timer_shaft">
+                        <view class='item' wx:for="{{ arrangements }}" wx:key='{{ index }}'>
+                            <!-- <view class="header">
+                                <text class="title">{{ item.title || '-' }}</text>/
+                                <text class="date">{{ item.travelDate || '-' }}</text>/
+                                <text class="date">{{ item.address || '-' }}</text>
+                            </view>
+                            <view class="content">
+                                {{ item.content || '-' }}
+                            </view> -->
+                            <view class='title'>
+                              <text class='date'>{{ item.travelDate || '-' }}</text>
+                              <text class='address'>{{ item.address || '-' }}</text>
+                            </view>
+                            <view class='content'>
+                              <text class='title'>{{ item.title }}</text>
+                                <view class="content_inner">
+                                    <text class='inner'>{{ item.content }}</text>
+                                </view>
+
+                            </view>
+
+                        </view>
+                    </view>
+                    <!-- <text>{{ arrangements }}</text> -->
+                </view>
+                <view class="panle3" wx:if="{{ activeIndex == '2' }}">
+                    <view>
+                        <view class='title'>费用包含:</view>
+                        <text>{{ cost.expendContains || '' }}</text>
+                    </view>
+                    <view>
+                        <view class='title'>费用不包含:</view>
+                        <text>{{ cost.expendExclusive || '' }}</text>
+                    </view>
+                </view>
+                <view class="panle4" wx:if="{{ activeIndex == '3' }}">
+                    <text>{{ booking }}</text>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view class="footer">
+        <view class="p_money">￥{{detail.price}}/人</view>
+        <view class="collection" bindtap="handleCollection">
+            <i class="iconfont icon-biaoxingfill {{ isCollection == '1' ? 'active' : '' }}"></i>
+            <text>收藏</text>
+        </view>
+        <view class="sign_up">
+            <view bindtap="handleSignUp">立即报名</view>
+        </view>
+    </view>
+</view>
+

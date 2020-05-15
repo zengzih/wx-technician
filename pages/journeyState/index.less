@@ -1,0 +1,38 @@
+page {
+  background: rgba(243,243,243,1);
+  height: 100%;
+  .my_journey{
+    height: 100%;
+    .header {
+      background: #fff;
+    }
+    .wrapper {
+      height: calc(100% - 184rpx);
+      .tabs {
+        height: 100rpx;
+        width: 100%;
+        display: flex;
+        line-height: 100rpx;
+        margin-bottom: 10rpx;
+        background: #fff;
+        .panel {
+          flex: 1;
+          text-align: center;
+          font-size: 28rpx;
+          color: #555555;
+          &.active {
+            color: #46CF87;
+          }
+        }
+      }
+      .content {
+        height: calc(100% - 110rpx);
+        background: #fff;
+        padding: 0 20rpx;
+        padding-top: 30rpx;
+        box-sizing: border-box;
+
+      }
+    }
+  }
+}

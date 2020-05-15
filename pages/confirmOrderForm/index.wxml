@@ -1,0 +1,8 @@
+<!--pages/confirmOrderForm/index.wxml-->
+<view class="wrapper">
+    <v-header back="{{back}}" title="提交订单"></v-header>
+
+    <view class="content">
+
+    </view>
+</view>

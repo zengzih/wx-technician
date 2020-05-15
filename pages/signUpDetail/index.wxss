@@ -1,0 +1,228 @@
+/* pages/signUpDetail/index.wxss */
+.wrapper {
+  height: 100%;
+}
+.content {
+  height: calc(100% - 270rpx) ;
+  overflow: auto;
+  background: #fff;
+}
+.content>view {
+    position: relative;
+}
+.content>view:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10rpx;
+    background: #f0f2f5;
+    z-index: 999;
+}
+.content .introduce {
+    padding: 12rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+.content .introduce .inner {
+    font-size: #222222FF;
+    color: 36rpx;
+    line-height: 50rpx;
+}
+.content .introduce .date {
+    overflow: hidden;
+    margin-top: 40rpx;
+    line-height: 50rpx;
+}
+.content .introduce .date view {
+    float: left;
+}
+.content .introduce .date view text {
+    font-size: 36rpx;
+    color: rgba(255, 74, 57, 1);
+}
+.content .introduce .date .follow {
+    color: #ccc;
+    float: right;
+    font-size: 36rpx;
+    width: 36rpx;
+    height: 36rpx;
+    margin-bottom: 40rpx;
+}
+.content .introduce .date .follow.active {
+  color: #FFC53D;
+}
+.content .introduce .date>text.active {
+    color: #FFC53D;
+}
+
+/*联系人*/
+.content .user_info {
+    padding-bottom: 50rpx;
+}
+.content .user_info .title {
+    padding: 18rpx 12rpx 40rpx 12rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    color:rgba(20,23,53,1);
+    border-bottom: 1px solid rgba(229, 229, 229, 1);
+}
+.content .user_info .group {
+    height: 88rpx;
+    line-height: 88rpx;
+    overflow: hidden;
+    padding: 0 24rpx;
+    border-bottom: 1px solid rgba(229, 229, 229, 1);
+}
+.content .user_info .group .label {
+    font-size: 30rpx;
+    color: #141735FF;
+    width: 30%;
+    float: left;
+    text-align: right;
+}
+.content .user_info .group .label.required:before {
+    content: '*';
+    color: rgba(255, 74, 57, 1);
+    height: 10rpx;
+    width: 10rpx;
+}
+
+.content .user_info .group .el-input {
+    width: 66%;
+    float: left;
+    height: 100%;
+    line-height: 88rpx;
+    box-sizing: border-box;
+    padding: 0 12rpx;
+    margin-left: 10px;
+    position: relative;
+}
+.content .user_info .group .el-input input {
+    position: absolute;
+    height: 80%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding:0 18rpx;
+    box-sizing:border-box;
+    border-radius: 8rpx;
+}
+.content .user_info .group .el-input input.is-error {
+    border: 1rpx solid #FF5555;
+}
+.content .user_info .group.wx {
+    margin-bottom: 10rpx;
+}
+.content .user_info .group .wx_more {
+  float: right;
+}
+.content .user_info .group.wx .el-input{
+    width: calc(70% - 180rpx);
+}
+.content .user_info .group.wx .btn {
+    float: right;
+    width: 140rpx;
+    height: 40rpx;
+    color: #46CF87FF;
+    font-size: 28rpx;
+}
+
+.content .person_num {
+    padding: 0 24rpx;
+}
+
+.content .person_num .title {
+    margin-top: 30rpx;
+    font-size: 30rpx;
+    color: #141735FF;
+    font-weight: 600;
+}
+.content .person_num .person_content {
+    margin-top: 6rpx;
+    height: 110rpx;
+    line-height: 100rpx;
+    overflow: hidden;
+}
+
+.content .person_num .person_content .label {
+    color: #141735FF;
+    font-size: 30rpx;
+    float: left;
+}
+.content .person_num .person_content .operation {
+    float: right;
+}
+.content .person_num .person_content .operation text {
+    display: inline-block;
+    width: 60rpx;
+    text-align: center;
+}
+
+.content .person_num .person_content .operation .symbol {
+    display: inline-block;
+    width: 48rpx;
+    height: 48rpx;
+}
+.content .person_num .person_content .operation .symbol image {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+/*----备注-----*/
+.note {
+    height: 102rpx;
+    line-height: 102rpx;
+    padding: 0 20rpx;
+    overflow: hidden;
+}
+.note .label {
+    font-size: 30rpx;
+    color: #141735FF;
+    float: left;
+}
+.note .edit {
+    height: 100%;
+    float: right;
+    font-size: 24rpx;
+    color: rgba(229, 229, 229, 1);
+}
+
+.note_text {
+  box-sizing: border-box;
+  position: relative;
+  height: 240rpx;
+}
+.note_text textarea {
+  width: 100%;
+  height: 240rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border:2rpx solid rgba(231,231,231,1);
+  padding: 18rpx;
+  box-sizing: border-box;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(119,119,119,1);
+}
+.note_text.is-error textarea {
+  border: 1rpx solid #FF5555;
+  box-sizing: border-box;
+}
+
+.submit {
+    height: 86rpx;
+    line-height: 86rpx;
+    width: 100%;
+    text-align: center;
+    background: #FF5555;
+    color: #fff;
+    font-size: 30rpx;
+    position: fixed;
+    bottom: 0;
+}

@@ -1,0 +1,74 @@
+<!--index.wxml-->
+<view class="container">
+        <v-header></v-header>
+        <scroll-view scroll-y style="height: calc(100% - 170rpx);" bindscroll='handleScroll' bindscrolltoupper="upper" bindscrolltolower="lower"
+                 scroll-into-view="{{toView}}" scroll-with-animation='{{ true }}' enable-back-to-top scroll-top="{{scrollTop}}">
+        <view class='wrapper'>
+            <view class='position'>南航明珠花园南航明珠花园</view>
+            <view class='search'>
+                <i class="iconfont icon-sousuo"></i>
+                <input type='text' confirm-type='search' bindconfirm="handleSearch" placeholder='请输入您感兴趣的旅途' confirm-type="search"></input>
+            </view>
+            <view class='message'><i class='iconfont icon-liuyan'></i></view>
+            <!-- 幻灯片 -->
+            <view class='swiper_wrapper'>
+              <swiper
+                indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+                interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+                <block wx:for="{{bannerList}}" wx:key="*this">
+                  <swiper-item>
+                    <view class="swiper-item {{item.image}}"></view>
+                  </swiper-item>
+                </block>
+              </swiper>
+            </view>
+           <!-- 幻灯片 end -->
+
+            <view class="theme_list">
+                <view class="group" wx:for='{{ classifyOneList }}' wx:key='{{ index }}' data-theme="{{item}}" bindtap="handleThemeEvent">
+                    <view class='image_box'>
+                      <image src='{{ item.image ? item.image : menuIcon }}'></image>
+                    </view>
+                    <view class='introduce'>{{ item.name }}</view>
+                    <!-- <view class='instructions'>2296人参与</view> -->
+                </view>
+            </view>
+        </view>
+
+        <view class='banner_wrapper'>
+              <view class='left'>
+                <view class='item'></view>
+              </view>
+              <view class='right'>
+                <view class='item'></view>
+                <view class='item'></view>
+              </view>
+        </view>
+
+        <!-- 最下面的分类列表 -->
+        <view class="list-wrapper">
+            <view class="list-group" wx:for="{{ indexDetail }}">
+                <view class="head">
+                    <view class="title">{{ item.classifyOneName }}</view>
+                    <view class="more" bindtap="handleShowAll" data-item="{{ item }}">更多></view>
+                </view>
+                <view class="content">
+                    <scroll-view scroll-x style="width: {{ 192 * item.classifyTwoList.length}}rpx">
+                        <view class="panel" wx:for="{{ item.classifyTwoList }}" wx:for-item="child">
+                            <view class="img-box">
+                                <image src="{{ child.image }}"></image>
+                            </view>
+                            <view class="name">{{ child.name }}</view>
+                            <view class="price">{{ child.price }}</view>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+        </view>
+
+
+
+
+
+    </scroll-view>
+</view>

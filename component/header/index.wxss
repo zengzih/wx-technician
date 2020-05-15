@@ -1,0 +1,30 @@
+/* component/header/index.wxss */
+@import "../../app.wxss";
+.container_header .header {
+    /* height: 184rpx; */
+    height: 150rpx;
+    text-align: center;
+    color: #000000;
+    font-size: 36rpx;
+    background: #fff;
+    font-weight: bold;
+    position: relative;
+}
+.container_header .header .back {
+    position: absolute;
+    width: 40rpx;
+    height: 40rpx;
+    top: 50%;
+    left: 20rpx;
+    transform: translate(-50%, -50%);
+    margin-left: 20rpx;
+}
+
+.container_header .header .title {
+    position: absolute;
+    height: 40rpx;
+    padding: 5rpx;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

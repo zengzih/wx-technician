@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+</body>
+<script>
+  // const arr = [
+  //   {
+  //     "id": "4dc59b454ec9f10a19ca15ab06fed767",
+  //     "typeName": "港澳",
+  //     "children": [
+  //       {
+  //         "id": "5f0f126bda632cc9e3440792745e9c8e",
+  //         "typeName": "日本"
+  //       },
+  //       {
+  //         "id": "f819ce80c2af6f3437071a5d897f897f",
+  //         "typeName": "香港"
+  //       }
+  //     ]
+  //   }
+  // ];
+  // function transferData(data, column) {
+  //   const result = []
+  //   let aliasCol = {};
+  //   const trans = (data, column, alias = {})=> {
+  //     if (data instanceof Array) {
+  //       if (alias instanceof Array) {
+  //         var obj = {}
+  //       }
+  //       data.forEach(item=> {
+  //         column.forEach(col => {
+  //           if (item[col.prop] !== undefined && col.alias) {
+  //             if (item[col.prop] instanceof Array) {
+  //               alias[col.alias] = []
+  //               trans(item[col.prop], col.children, alias[col.alias])
+  //             } else {
+  //               if (alias instanceof Array) {
+  //                 obj[col.alias] = item[col.prop]
+  //               } else {
+  //                 alias[col.alias] = item[col.prop]
+  //               }
+  //             }
+  //           }
+  //           if (alias instanceof Array) {
+  //             alias.push(obj)
+  //           }
+  //         })
+  //         result.push(aliasCol)
+  //       })
+  //     }
+  //   }
+  //   trans(data, column, aliasCol)
+  //   return result
+  // }
+  //
+  //
+  // /*function transferData(data, column, childCol = {}) {
+  //   const result = [];
+  //   const trans = (data, column, childCol = {})=> {
+  //     if (data instanceof Array) {
+  //       data.forEach(item => {
+  //         const aliasCol = childCol// JSON.parse(JSON.stringify(childCol));
+  //         column.forEach(col => {
+  //           if (item[col.prop] !== undefined && col.alias) {
+  //             aliasCol[col.alias] = item[col.prop];
+  //             if (item[col.prop] instanceof Array) {
+  //               trans(item[col.prop], col.children, aliasCol[col.alias]);
+  //             }
+  //           }
+  //         });
+  //         result.push(aliasCol)
+  //       })
+  //     }
+  //   }
+  //   trans(data, column, childCol = {})
+  //   return result
+  // }*/
+  // const column = [
+  //     { prop: 'id', alias: 'value' },
+  //     { prop: 'typeName', alias: 'label' },
+  //     { prop: 'children', alias: 'children', children: [
+  //         { prop: 'id', alias: 'value' },
+  //         { prop: 'typeName', alias: 'label' },
+  //       ] }
+  // ]
+  // console.log(transferData(arr, column))
+
+  var str = '^1[3456789]\\d{9}$'
+  var reg = new RegExp(str);
+  var phone = '1868209835'
+  console.log(reg.test(phone));
+</script>
+</html>

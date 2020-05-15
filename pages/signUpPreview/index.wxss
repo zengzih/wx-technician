@@ -1,0 +1,220 @@
+/* pages/signUpDetail/index.wxss */
+page {
+  background: #fff!important;
+}
+.content>view {
+    position: relative;
+}
+.content>view:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10rpx;
+    background: #F5F5F5FF;
+    z-index: 999;
+}
+.content .introduce {
+    padding: 12rpx;
+    box-sizing: border-box;
+    position: relative;
+}
+.content .introduce .product {
+    margin-top: 10px;
+    margin-bottom: 18rpx;
+    height:32rpx;
+    line-height: 32rpx;
+}
+.content .introduce .product .product_type{
+  padding: 0 8rpx;
+  background:rgba(237,238,240,1);
+  border-radius:4rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(64,64,64,1);
+}
+.content .introduce .product .product_status {
+  float: right;
+  font-size:26rpx;
+  line-height: 32rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(255,85,85,1);
+}
+
+
+.content .introduce .inner {
+    font-size: rgb(34, 34, 34);
+    color: 36rpx;
+    line-height: 50rpx;
+}
+.content .introduce .date {
+    overflow: hidden;
+    margin-top: 20rpx;
+    line-height: 50rpx;
+    margin-bottom: 20rpx;
+}
+.content .introduce .cost {
+  float: right;
+  margin-right: 20rpx;
+  font-size: 36rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(255,74,57,1);
+}
+
+.content .introduce .date view {
+    float: left;
+}
+.content .introduce .date view text {
+    font-size: 36rpx;
+    color: rgb(255, 74, 57);
+}
+.content .introduce .date .follow {
+    color: #ccc;
+    float: right;
+    font-size: 36rpx;
+    width: 36rpx;
+    height: 36rpx;
+    margin-bottom: 40rpx;
+}
+.content .introduce .date .follow.active {
+  color: #FFC53D;
+}
+.content .introduce .date>text.active {
+    color: #FFC53D;
+}
+
+/*联系人*/
+.content .user_info {
+    padding-bottom: 50rpx;
+}
+.content .user_info .title {
+    padding: 18rpx 12rpx 40rpx 12rpx;
+    font-size: 30rpx;
+    font-weight: 600;
+    color:rgba(20,23,53,1);
+}
+.content .user_info .group {
+    height: 88rpx;
+    line-height: 88rpx;
+    overflow: hidden;
+    padding: 0 24rpx;
+}
+.content .user_info .group .label {
+    font-size: 30rpx;
+    color: rgb(20, 23, 53);
+    width: 30%;
+    float: left;
+    text-align: right;
+}
+.content .user_info .group .label.required:before {
+    content: '*';
+    color: rgb(255, 74, 57);
+    height: 10rpx;
+    width: 10rpx;
+}
+
+.content .user_info .group .el-input {
+    width: 66%;
+    float: left;
+    height: 100%;
+    line-height: 88rpx;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 0 12rpx;
+    margin-left: 10px;
+    position: relative;
+    font-size:30rpx;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(34,34,34,1);
+}
+.content .user_info .group .el-input input.is-error {
+    border: 1rpx solid #FF5555;
+}
+.content .user_info .group.wx {
+    margin-bottom: 80rpx;
+}
+.content .user_info .group .wx_more {
+  float: right;
+}
+.content .user_info .group.wx .el-input{
+    width: calc(70% - 180rpx);
+}
+.content .user_info .group.wx .btn {
+    float: right;
+    width: 140rpx;
+    height: 40rpx;
+    color: rgb(70, 207, 135);
+    font-size: 28rpx;
+}
+
+.content .person_num {
+    padding: 0 24rpx;
+}
+
+.content .person_num .title {
+    margin-top: 30rpx;
+    font-size: 30rpx;
+    color: rgb(20, 23, 53);
+    font-weight: 600;
+}
+.content .person_num .person_content {
+    margin-top: 6rpx;
+    height: 110rpx;
+    line-height: 100rpx;
+    overflow: hidden;
+}
+
+.content .person_num .person_content .label {
+    color: rgb(20, 23, 53);
+    font-size: 30rpx;
+    float: left;
+}
+.content .person_num .person_content .operation {
+    float: right;
+    font-size:30rpx;
+    font-family:PingFangSC-Medium;
+    font-weight:500;
+    color:rgba(20,23,53,1);
+}
+
+/*----备注-----*/
+.note {
+    height: 102rpx;
+    line-height: 102rpx;
+    padding: 0 20rpx;
+    overflow: hidden;
+}
+.note .label {
+    font-size: 30rpx;
+    color: rgb(19, 22, 51);
+    float: left;
+    width: 100rpx;
+}
+.note .edit {
+    height: 100%;
+    float: right;
+    width: calc(100% - 100rpx);
+    text-align: right;
+    font-size: 24rpx;
+    color: rgb(164, 164, 164);
+    overflow: hidden; /*自动隐藏文字*/
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/
+}
+
+.submit {
+    height: 86rpx;
+    line-height: 86rpx;
+    width: 100%;
+    text-align: center;
+    background: #FF5555;
+    color: #fff;
+    font-size: 30rpx;
+    position: fixed;
+    bottom: 0;
+}

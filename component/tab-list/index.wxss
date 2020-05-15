@@ -1,0 +1,45 @@
+/* component/tab-list/index.wxss */
+.list {
+  margin-bottom: 20rpx;
+}
+.list image {
+  width: 100%;
+  height: 364rpx;
+  border-radius: 4rpx;
+}
+.list .instructions {
+  font-weight: 500;
+  font-size: 30rpx;
+  color: #141735;
+  padding-bottom: 20rpx;
+  border-bottom: 1px solid #F3F3F3;
+}
+.list .more_info {
+  height: 76rpx;
+  line-height: 76rpx;
+  display: flex;
+}
+.list .more_info view {
+  flex: 1;
+  line-height: 76rpx;
+  font-size: 26rpx;
+}
+.list .more_info view:nth-of-type(1) {
+  text-align: left;
+}
+.list .more_info view:nth-of-type(2) {
+  text-align: center;
+}
+.list .more_info view:nth-of-type(3) {
+  text-align: right;
+  font-weight:500;
+}
+.list .more_info .status.comfirm {
+  color: #FF5555FF;
+}
+.list .more_info .status.going {
+  color: #FF5555FF;
+}
+.list .more_info .status.finish {
+  color: #919191FF
+}

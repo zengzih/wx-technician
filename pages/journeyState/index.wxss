@@ -1,0 +1,26 @@
+page {
+  background: #f3f3f3;
+  height: 100%;
+}
+
+.wrapper {
+  height: 100%;
+  position: relative;
+}
+
+.wrapper .map {
+  height: 100%;
+}
+
+.wrapper .map map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-cover-view {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 140rpx;
+  right: 30rpx;
+}
