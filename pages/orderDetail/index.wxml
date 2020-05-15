@@ -1,7 +1,7 @@
 <!--订单详情-->
 <view class="wrapper">
     <view class="header">
-        <view class="back">
+        <view class="back" bindtap="handleBack">
             <i class="iconfont icon-xiangzuo1"></i>
         </view>
         <view class="img-box">

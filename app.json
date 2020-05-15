@@ -1,11 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/confirmOrderForm/index",
     "pages/orderDetail/index",
-
-
     "pages/themeList/index",
-    "pages/index/index",
     "pages/my/index",
     "pages/settingInfo/index",
     "pages/orderForm/index",
@@ -18,13 +16,17 @@
     "pages/note/index",
     "pages/userInfo/index",
     "pages/logs/logs"
-
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "tabBar": {
     "backgroundColor": "#FAFAFA",
@@ -49,5 +51,6 @@
       }
     ]
   },
+  "requiredBackgroundModes": ["location"],
   "sitemapLocation": "sitemap.json"
 }

@@ -10,9 +10,9 @@
       polyline="{{polyline}}" 
       bindregionchange="regionchange" 
       show-location>
-        <cover-view bindtap="getCurrentPos" class="map-cover-view">
+        <view bindtap="getCurrentPos" class="map-cover-view">
           <cover-image src='https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3013269470,4184464141&fm=26&gp=0.jpg' ></cover-image>
-        </cover-view>
+        </view>
       </map>
     
   </view>

@@ -19,8 +19,62 @@ Page({
   },
 
   getLocation() {
+    wx.getSystemInfo({
+      success(res) {
+        console.log(res)
+      }
+    })
+   wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.getLocation({
+            type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+            success (res) {
+              const latitude = res.latitude;
+              const longitude = res.longitude;
+              wx.chooseLocation({
+                latitude,
+                longitude,
+                success(res) {
+                  console.log(res)
+                  _this.setData({
+                    location: res
+                  })
+                }
+              })
+            }
+          })
+          return
+          wx.startLocationUpdateBackground({
+            success(res) {
+              console.log(res);
+            },
+            fail(err) {
+              console.log(err)
+            },
+            complete(complete)  {
+              console.log(complete)
+            }
+          })
+        }
+      }
+    })
+   /* wx.openSetting({
+      success (res) {
+        console.log(res.authSetting)
+        // res.authSetting = {
+        //   "scope.userInfo": true,
+        //   "scope.userLocation": true
+        // }
+      }
+    });*/
     const _this = this;
-    wx.getLocation({
+    // wx.startLocationUpdateBackground({
+    //   success(res) {
+    //     console.log(res);
+    //   }
+    // })
+    /*wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success (res) {
         const latitude = res.latitude;
@@ -29,13 +83,14 @@ Page({
           latitude,
           longitude,
           success(res) {
+            console.log(res)
             _this.setData({
               location: res
             })
           }
         })
       }
-    })
+    })*/
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
