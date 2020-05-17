@@ -3,63 +3,79 @@
     <v-header back="{{back}}"></v-header>
     <view class='content'>
         <view class='tabs'>
-          <view class='tab {{ index == activeIndex ? "active" : "" }}'
-          wx:for='{{ tabs }}' bindtap="handleTab" data-tab='{{ item }}' data-index='{{ index }}'>{{ item.label }}
-            <i class='iconfont icon-xiangxia2'></i>
-          </view>
+            <view class='tab {{ index == activeIndex ? "active" : "" }}'
+                  wx:for='{{ tabs }}' bindtap="handleTab" data-tab='{{ item }}' data-index='{{ index }}'>{{ item.label
+                }}
+                <i class='iconfont icon-xiangxia2'></i>
+            </view>
         </view>
 
         <view class='filter' wx:if='{{ filterShow }}'>
-          <view class='filter-content'>
-            <view wx:for="{{ filterData }}" class='item {{ item.check ? "active" : "" }}' data-item='{{ JSON.stringify({ name: "a", age: 10 }) }}'  bindtap="handleFilter" data-filter='{{ item }}' wx:key='{{ index }}'>
-              <i class='iconfont icon-xiangbao'></i>
-              <text class='label'>{{ item.label }}</text>
-              <text class='score'>{{ item.score || '5分' }}</text>
+            <view class='filter-content'>
+                <view wx:for="{{ filterData }}" class='item {{ item.check ? "active" : "" }}'
+                      data-item='{{ JSON.stringify({ name: "a", age: 10 }) }}' bindtap="handleFilter"
+                      data-filter='{{ item }}' wx:key='{{ index }}'>
+                    <i class='iconfont icon-xiangbao'></i>
+                    <text class='label'>{{ item.label }}</text>
+                    <text class='score'>{{ item.score || '5分' }}</text>
+                </view>
             </view>
-          </view>
 
 
-          <view class='footer'>
-            <view class='reset' bindtap="handleReset">重置</view>
-            <view class='confirm' bindtap="handleSave">保存</view>
-          </view>
+            <view class='footer'>
+                <view class='reset' bindtap="handleReset">重置</view>
+                <view class='confirm' bindtap="handleSave">保存</view>
+            </view>
         </view>
 
         <view class='mask' wx:if='{{ filterShow }}' bindtap="handleCloseFilter"></view>
 
 
-        <scroll-view
-                scroll-y
-                enable-back-to-top
-                scroll-anchoring
-                style="height: calc(100% - 70rpx);"
-                bindscrolltoupper="handleScrollUpper"
-                bindscrolltolower="handleScrollLower"
-        >
 
-            <!-- 列表数据项 -->
-            <view class='list-view'>
-              <view class='list' wx:for='{{ listData }}' wx:key="{{ item.id }}" bindtap="handleSkipDetail" data-item="{{ item }}">
-                <view class='head-img'>
-                  <image src='{{ item.image }}'></image>
-                </view>
-                <view class='detail'>
-                  <view class='title'>{{ item.name }}</view>
-                  <view class='introduce'>{{ item.listData }}</view>
-                  <view class='price'>
-                      <text>{{ item.price }}元/次</text>
-                      <text wx:if="{{ item.vipPrice }}">{{ item.vipPrice }}元/次</text>
-                  </view>
-                  <view class='more'>
-                    <text>热度：{{ item.heat }}</text>
-                    <view class='r-view'>
-                      <text>已售{{ item.alreadyNum }}</text>
-                    <text>好评{{ item.goodRate }}</text>
+        <!--<scroll-view scroll-y="true" class="scoll-h" refresher-enabled="{{true}}" refresher-threshold="{{100}}"
+                     refresher-default-style="black" refresher-background="#f4f5f9" refresher-triggered="{{triggered}}"
+                     bindrefresherrefresh="onRefresh" bindrefresherrestore="onRestore"
+                     style="height: calc(100% - 70rpx);"
+                     bindrefresherpulling="{{refresh.onPulling}}"
+                     scroll-with-animation
+        >-->
+        <scroll-view
+                scroll-y style="width: 100%; height: calc(100% - 70rpx);"
+                refresher-enabled="{{true}}"
+                refresher-threshold="{{100}}"
+                refresher-default-style="black"
+                refresher-background="#f4f5f9"
+                refresher-triggered="{{triggered}}"
+                bindrefresherpulling="onPulling"
+                bindrefresherrefresh="onRefresh"
+                bindscrolltolower="handlebScrolltolower"
+                scroll-top="{{scrollTop}}"
+        >
+                <!-- 列表数据项 -->
+                <view class='list-view'>
+                    <view class='list' wx:for='{{ listData }}' wx:key="{{ item.id }}" bindtap="handleSkipDetail"
+                          data-item="{{ item }}">
+                        <view class='head-img'>
+                            <image src='{{ item.image }}'></image>
+                        </view>
+                        <view class='detail'>
+                            <view class='title'>{{ item.name }}</view>
+                            <view class='introduce'>{{ item.listData }}</view>
+                            <view class='price'>
+                                <text>{{ item.vipPrice  }}元/次</text>
+                                <text wx:if="{{ item.vipPrice }}">{{ item.price}}元/次</text>
+                            </view>
+                            <view class="list-desc">{{ item.listDesc }}</view>
+                            <view class='more'>
+                                <text>热度：{{ item.heat }}</text>
+                                <view class='r-view'>
+                                    <text>已售{{ item.alreadyNum }}</text>
+                                    <text>好评{{ item.goodRate }}</text>
+                                </view>
+                            </view>
+                        </view>
                     </view>
-                  </view>
                 </view>
-              </view>
-            </view>
-        </scroll-view>
+            </scroll-view>
     </view>
 </view>

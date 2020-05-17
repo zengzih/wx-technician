@@ -3,6 +3,8 @@
     "pages/index/index",
     "pages/confirmOrderForm/index",
     "pages/orderDetail/index",
+    "pages/login/index",
+    "pages/loginMobile/index",
     "pages/themeList/index",
     "pages/my/index",
     "pages/settingInfo/index",
@@ -18,7 +20,7 @@
     "pages/logs/logs"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
@@ -51,6 +53,8 @@
       }
     ]
   },
-  "requiredBackgroundModes": ["location"],
+  "requiredBackgroundModes": [
+    "location"
+  ],
   "sitemapLocation": "sitemap.json"
 }

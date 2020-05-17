@@ -1,12 +1,12 @@
 //app.js
 import store from './utils/store'
-import { location } from './utils/util'
+import { location, global } from './utils/util'
 App({
   onLaunch: function () {
     const app_id = 'wx8567c0f287f8d7f5';
     const app_secret = '85d32a4c0a89b2a69ca830c28cdf886f';
     const _this = this;
-    wx.login({
+    /*wx.login({
       success(res) {
         wx.setStorageSync('loginData', res);
         wx.getSetting({
@@ -24,7 +24,7 @@ App({
           }
         });
       }
-    });
+    });*/
   },
   getUserInfo(code) {
     //获取用户信息
@@ -47,8 +47,15 @@ App({
   },
   globalData: {
     location,
+    global,
     userInfo: null,
     token: '',
-    store
+    store,
+    mapLocations: {
+      lat: '',
+      lng: '',
+      text: ''
+    },
+    mobile: ''
   }
 })

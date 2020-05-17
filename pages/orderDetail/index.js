@@ -12,7 +12,43 @@ Page({
     formData: {},
     projectId: 100,
     technicianShow: false,
-    weeks: []
+    weeks: [],
+    timeDetail: [],
+    timeActiveIndex: -1,
+    weekActiveIndex: -1,
+    classifyActiveIndex: -1,
+    classifyDict: {
+      current: 1,
+      size: 10,
+      classifyId: '',
+      addrName: '',
+      weekDay: '',
+      date: ''
+    },
+    classifyInfo: {
+      name: '',
+      month: '',
+      date: '',
+      image: '',
+      id: ''
+    },
+    classifyList: [],
+    submitFormData: {
+      uid: '',
+      serviceId: '',
+      serviceTime: '',
+      realPrice: '',
+      vipDiscount: '',
+      couponPrice: '',
+      coupon: '',
+      payPrice: '',
+      clientAddress: '',
+      clientName: '',
+      clientPhone: '',
+      clientRemark: '2222',
+      classifyId: '',
+      classifyNum: 1
+    }
   },
   
   // 选择项目
@@ -49,7 +85,18 @@ Page({
   
   // 选择项目中的立即购买
   handleDetailSubmit() {
-    const { projectId } = this.data;
+    const { projectId, formData, submitFormData, timeActiveIndex, weekActiveIndex, classifyActiveIndex, timeDetail, weeks, classifyList, classifyInfo } = this.data;
+    // app.store.dispatch('add', {  })
+    if (!this.checkFormSubmit()) {
+      return false;
+    }
+    submitFormData.serviceTime = weeks[weekActiveIndex].date;
+    submitFormData.serviceId = classifyInfo.id;
+    submitFormData.realPrice = formData.price;
+    submitFormData.vipDiscount = formData.vipDiscount;
+    submitFormData.payPrice = formData.vipPrice;
+    wx.setStorageSync('submitFormData', submitFormData);
+    wx.setStorageSync('classifyInfo', classifyInfo);
     wx.navigateTo({
       url: '../confirmOrderForm/index?id=' + projectId
     });
@@ -59,13 +106,104 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const { id } = options;
+    let { id } = options;
     this.setData({
-      projectId: id || 100
+      projectId: id,
+      'classifyDict.classifyId': id
     });
     this.getLocation();
-    this.init();
-    this.getDetail()
+    this.init(id);
+    this.getDetail();
+    // this.getServiceList();
+    this.getWeekList();
+    this.getWeekTap();
+  },
+  
+  // 技师点击事件
+  handleClassifyClick(event) {
+    const { item, index } = event.currentTarget.dataset;
+    this.setData({
+      classifyActiveIndex: index
+    });
+  },
+  
+  
+  // 具体时间的点击事件
+  handleTimeClick(event) {
+    const { index } = event.currentTarget.dataset;
+    this.setData({
+      timeActiveIndex: index,
+      'classifyDict.date': this.data.timeDetail[index],
+      date: this.data.timeDetail[index]
+    });
+    this.getServiceList();
+  },
+  
+  // 星期的点击事件
+  handleWeekClick(event) {
+    const { week, index } = event.currentTarget.dataset;
+    const { weeks, classifyDict } = this.data;
+    classifyDict.weekDay = weeks[index].weekDay;
+    this.setData({
+      month: weeks[index].monthDay,
+      weekActiveIndex: index
+    });
+    classifyDict.date = '';
+    this.setData({ weeks });
+    app.store.dispatch('getTimeShow', { date: week.date }).then(res=> {
+      classifyDict.date = res[0];
+      this.setData({ timeDetail: res, classifyDict });
+      // 服务人员列表
+      this.getServiceList()
+    });
+  },
+  
+  // 获取星期
+  getWeekTap() {
+    app.store.dispatch('getWeekTap').then(res=>{
+      if (res.length) {
+        res[0].active = true;
+      } else {
+        return;
+      }
+      this.setData({
+        weeks: res
+      });
+      this.handleWeekClick({ currentTarget: { dataset: { index: 0, week: res[0] } } });
+      this.setData({
+        'classifyDict.weekDay': res[0].weekDay,
+        'classifyDict.date': res[0].date,
+      });
+      this.getServiceList()
+    });
+  },
+  
+  // 获取服务人员列表
+  getServiceList() {
+    const { mapLocations } = app;
+    app.store.dispatch('getServiceList', this.data.classifyDict).then(res=> {
+      console.log(res); // records
+      const records = res.records || [];
+      records.forEach(elt=> {
+        if (elt.addrX && elt.addrY) {
+          let distance = app.global.distance(mapLocations.lat, mapLocations.lng, elt.addrY, elt.addrX);
+          if (distance) {
+            distance = distance.toFixed(2)
+          }
+          elt.distance = distance
+        }
+      });
+      this.setData({
+        classifyList: res.records || []
+      });
+    });
+  },
+  
+  // 获取时间
+  getWeekList() {
+    app.store.dispatch('getWeekList').then(res=> {
+      console.log(res)
+    });
   },
   
   // 获取当前的位置
@@ -82,16 +220,13 @@ Page({
     })
   },
   
-  init() {
-    const weeks = [
-      { label: '今天', date: '05-13', active: true, activeVal: '13' },
-      { label: '今天', date: '05-14' },
-      { label: '今天', date: '05-15' },
-      { label: '今天', date: '05-16' },
-      { label: '今天', date: '05-17' }
-    ];
+  init(id) {
+    const { submitFormData } = this.data;
+    submitFormData.uid = wx.getStorageSync('uid');
+    debugger;
+    submitFormData.classifyId = id;
     this.setData({
-      weeks
+      submitFormData
     });
   },
   
@@ -107,9 +242,41 @@ Page({
   // 选择技师
   handleSelectTechnician(event) {
     const { type } = event.currentTarget.dataset;
+    const { timeActiveIndex, weekActiveIndex, classifyActiveIndex, timeDetail, weeks, classifyList, classifyInfo } = this.data;
+    if (type == 'confirm') {
+      if (!this.checkFormSubmit()) {
+        return false;
+      }
+      classifyInfo.month = weeks[weekActiveIndex].monthDay;
+      classifyInfo.date = timeDetail[timeActiveIndex];
+      classifyInfo.name = classifyList[classifyActiveIndex].name;
+      classifyInfo.id = classifyList[classifyActiveIndex].id;
+      classifyInfo.image = classifyList[classifyActiveIndex].image;
+    }
     this.setData({
-      technicianShow: false
+      technicianShow: false,
+      classifyInfo
     });
+  },
+  
+  checkFormSubmit() {
+    const { timeActiveIndex, weekActiveIndex, classifyActiveIndex, timeDetail, weeks, classifyList, classifyInfo } = this.data;
+    let check = true;
+    if (timeActiveIndex < 0) {
+      wx.showToast({
+        icon: 'none',
+        title: '请选择服务时间段！',
+      });
+      check = false;
+    }
+    if (classifyActiveIndex < 0) {
+      wx.showToast({
+        icon: 'none',
+        title: '请选择服务技师！',
+      });
+      check = false;
+    }
+    return check
   },
   
   handleShowTechnician() {

@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 import request from '../../utils/util'
-const app = getApp().globalData
+const app = getApp().globalData;
 Page({
   data: {
    
@@ -38,7 +38,9 @@ Page({
     classifyOneList: [],
     // 八大类下面的分类展示
     indexDetail: [],
-
+  
+    // 位置
+    location: '',
 
     // 首页图标
     menuList: [],
@@ -55,9 +57,55 @@ Page({
     // wx.showLoading({
     //   title: '加载中',
     // });
+    this.parsingLocation();
     this.getThemeList();
   },
-
+  
+  getLocation() {
+    const _this = this;
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success (res) {
+        _this.transformPoint(res.latitude, res.longitude)
+      }
+    })
+  },
+  
+  transformPoint(latitude, longitude) {
+    const _this = this;
+    wx.request({
+      url: 'https://api.map.baidu.com/geocoder/v2/?ak=n3vSa43bGAijQgzlY1NBstBTtnDVNbRL&location=' + latitude + ',' + longitude + '&output=json',
+      data: {},
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success(res) {
+        const { formatted_address } = res.data.result;
+        _this.setData({
+          location: formatted_address
+        });
+        app.mapLocations.lat = latitude;
+        app.mapLocations.lng = longitude;
+        app.mapLocations.text = formatted_address;
+      },
+      fail() {
+        // page.city = "获取定位失败"
+      },
+    });
+  },
+  
+  parsingLocation() {
+    const _this = this;
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          _this.getLocation()
+        } else {
+          _this.getLocation()
+        }
+      }
+    });
+  },
   getThemeList() {
     app.store.dispatch('getIndexList').then(data => {
       const { bannerList, classifyOneList, indexDetail } = data;

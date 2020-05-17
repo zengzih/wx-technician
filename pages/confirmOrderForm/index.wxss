@@ -3,3 +3,136 @@
     height: 100%;
     background: #fff;
 }
+
+.wrapper .content {
+    border-top: 1px solid #eeeeee;
+    padding: 0 15rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .content .groups {
+
+}
+
+.wrapper .content .groups .group {
+    padding: 20rpx 0;
+    font-size: 30rpx;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+    overflow: hidden;
+}
+
+.wrapper .content .groups .group .value{
+    color: #fe4e7d;
+}
+
+.wrapper .content .groups .group .value {
+    float: right;
+}
+
+.wrapper .content .groups .group.address i {
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #eeeeee;
+}
+
+.wrapper .content .groups .group.project-info {
+
+}
+
+.wrapper .content .groups .group.project-info .image-box {
+    height: 130rpx;
+    width: 130rpx;
+    border-radius: 4rpx;
+    margin-right: 30rpx;
+    overflow: hidden;
+    float: left;
+}
+
+.wrapper .content .groups .group.project-info .image-box image {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper .content .groups .group.project-info .detail .name {
+    font-size: 26rpx;
+    line-height: 44rpx;
+}
+
+.wrapper .content .groups .group.project-info .detail {
+    overflow: hidden;
+    line-height: 44rpx;
+    float: left;
+}
+
+.wrapper .content .groups .group.project-info .detail text {
+    font-size: 24rpx;
+    color: #bbbbbb;
+}
+
+.wrapper .content .groups .group.project-info .detail text:first-child {
+    float: left;
+}
+
+.wrapper .content .groups .group.project-info .detail text:last-child {
+    float: right;
+    margin-left: 30rpx;
+}
+
+.wrapper .content .groups .group.project-info .detail .price {
+    font-size: 24rpx;
+}
+
+.wrapper .footer {
+    height: 100rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #ededed;
+}
+
+.wrapper .footer view:first-child {
+    float: left;
+    height: 100%;
+    line-height: 100rpx;
+    margin-left: 30rpx;
+    font-size: 34rpx;
+}
+
+.wrapper .footer view:last-child {
+    position: absolute;
+    top: 50%;
+    margin-top: -40rpx;
+    right: 35rpx;
+    height: 80rpx;
+    border-radius: 14px;
+    background: #fe4e7d;
+    line-height: 80rpx;
+    color: #fff;
+    font-size: 36rpx;
+    width: 400rpx;
+    text-align: center;
+}
+
+.wrapper .footer .price {
+    color: #fe4e7d;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

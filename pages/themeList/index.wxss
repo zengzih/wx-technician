@@ -184,10 +184,15 @@
   margin-bottom: 10rpx;
 }
 
+.list-view .list .detail .list-desc {
+  font-size: 20rpx;
+  color: #838383;
+}
+
 .list-view .list .detail .price {
   font-size: 28rpx;
   color: #dd3b48;
-  margin-bottom: 10rpx;
+  /* margin-bottom: 10rpx; */
 }
 
 .list-view .list .detail .price text:last-child {

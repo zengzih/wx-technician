@@ -1,0 +1,16 @@
+<!--pages/loginMobile/index.wxml-->
+<view class="wrapper">
+    <v-header back title="用户注册"></v-header>
+    <view class="content">
+        <view class="mobile">
+            <input type="text" value="{{ formData.mobile }}" bindinput="handleInput" placeholder="请输入手机号"/>
+        </view>
+        <view class="yzm">
+            <input type="text" placeholder="请输入验证码"/>
+            <button size="mini" bindtap="handleYzm" disabled="{{ yzmDisabled }}" class="btn">{{ yzmText }}</button>
+        </view>
+    </view>
+    <view class="footer">
+        <button bindtap="handleSubmit">确认</button>
+    </view>
+</view>

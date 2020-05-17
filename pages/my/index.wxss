@@ -28,6 +28,7 @@
     margin: 150rpx auto;
     text-align: center;
     margin-bottom: 100rpx;
+    overflow: hidden;
 }
 
 .wrapper .header .user-head image{

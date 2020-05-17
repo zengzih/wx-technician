@@ -12,7 +12,10 @@ Page({
       current: 1
     },
     listData: [],
-    scrollType: ''
+    scrollType: '',
+    triggered: false,
+    scrollTop: 0,
+    scrollLower: false
   },
 
   /**
@@ -39,12 +42,17 @@ Page({
       if (scrollType == 'upper' || !scrollType) {
         listData = records;
       }
-      this.setData({ listData });
+      this.setData({
+        listData,
+      });
+      clearTimeout(timer)
+      const timer = setTimeout(()=> {
+        this.setData({ scrollLower: false })
+      }, 500)
     });
   },
   init() {
     const tabs = [
-      { label: '服务商', id: '' },
       { label: '筛选项', id: '' },
       { label: '排序', id: '' }
     ];
@@ -118,6 +126,7 @@ Page({
       scrollType: 'upper'
     });
     this.getClassificationList();
+    
   },
   
   /*---上拉----*/
@@ -129,6 +138,36 @@ Page({
       scrollType: 'lower'
     });
     this.getClassificationList();
+  },
+
+  // 下拉触发
+  onRefresh() {
+    this.handleScrollUpper();
+    if (this._freshing) return
+    this._freshing = true
+    setTimeout(() => {
+      this.setData({
+        triggered: false,
+      });
+      this._freshing = false
+    }, 2000)
+  },
+  // 下拉复位
+  onRestore(event) {
+    this.setData({
+      scrollLower: false
+    });
+  },
+  // 滚动到底部触发
+  handlebScrolltolower() {
+    const { scrollLower } = this.data;
+    if (scrollLower) {
+      return true;
+    }
+    this.handleScrollLower();
+  },
+  bindrefresherrestore(event) {
+    return true;
   },
 
   // 重置
@@ -196,5 +235,12 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  
+  scrollToTop() {
+    console.log(1111);
+    this.setAction({
+      scrollTop: 0
+    })
+  },
 })

@@ -321,7 +321,7 @@ color:rgba(145,145,145,1);
 .list-wrapper .list-group .content .panel .img-box {
   height: 180rpx;
   width: 180rpx;
-  border: 1px solid red;
+  border: 1px solid #ededed;
   border-radius: 4px;
   box-sizing: border-box;
 }

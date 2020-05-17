@@ -35,7 +35,18 @@ export const global = {
   removeSession(key) {
     sessionStorage.removeItem(key)
   },
-}
+  distance: function (la1, lo1, la2, lo2) {
+    var La1 = la1 * Math.PI / 180.0;
+    var La2 = la2 * Math.PI / 180.0;
+    var La3 = La1 - La2;
+    var Lb3 = lo1 * Math.PI / 180.0 - lo2 * Math.PI / 180.0;
+    var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(La3 / 2), 2) + Math.cos(La1) * Math.cos(La2) * Math.pow(Math.sin(Lb3 / 2), 2)));
+    s = s * 6378.137;//地球半径
+    s = Math.round(s * 10000) / 10000;
+    return s
+    
+  }
+};
 
 const requestFields = {
 
@@ -47,7 +58,9 @@ export const location = 'http://hello.dute7liang.com:8080/'
 const sysLocation = 'https://www.scf4.online/rdxx-travel/'
 const requestUrl = {
   index: {
-    list: 'list'
+    list: 'list',
+    week_tab: 'weekTab',
+    getTimeShow: 'getTimeShow'
   },
   login: {
     wx: 'wx'
@@ -61,9 +74,15 @@ const requestUrl = {
   product: {
     classifyList: 'classify/list',
     classifyDetail: 'classify/detail'
+  },
+  service: {
+    service_list: 'list',
+    week_list: 'week/list'
+  },
+  order: {
+    ready: 'ready',
+    add: 'add'
   }
-  // http://localhost/product/classify/list
-  
 };
 const reg = /wx_login/g;
 const getRequestUrl = (url) => {
@@ -80,6 +99,20 @@ const getRequestUrl = (url) => {
     }
   }
   return ''
+};
+
+function requestTntercept(data) {
+  const { code } = data;
+  let bool = true;
+  switch (code) {
+    case 401:
+      wx.navigateTo({
+        url: '../../pages/login/index'
+      });
+      bool = false;
+      break
+  }
+  return bool;
 }
 
 let handler = {
@@ -104,6 +137,9 @@ let handler = {
             header,
             success(res) {
               const { data } = res;
+              if(!requestTntercept(data)){
+                return false;
+              }
               if (requestFields[url]) {
                 const dataName = requestFields[url]['dataName'];
                 resolve(global.transferData(dataName ? res.data.result[dataName] : res.data.result,requestFields[url]['fields']))

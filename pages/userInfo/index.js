@@ -18,7 +18,6 @@ Page({
       parentId: ''
     }).then(data=> {
       const { token, sessionKey} = data;
-      debugger;
       wx.setStorageSync('token', token);
       wx.setStorageSync('sessionKey', sessionKey);
       wx.navigateBack({

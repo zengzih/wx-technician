@@ -1,7 +1,70 @@
 <!--pages/confirmOrderForm/index.wxml-->
 <view class="wrapper">
-    <v-header back="{{back}}" title="提交订单"></v-header>
+    <v-header back="{{back}}" title="确认订单"></v-header>
     <view class="content">
-      
+        <view class="groups">
+            <view class="group address" bindtap="getLocation">
+                <text>{{ location.text }}</text>
+                <i class="iconfont icon-xiangyou1"></i>
+            </view>
+            <view class="group">
+                <input type="text" bindinput="handleInput" data-prop="clientAddress" value="{{ submitFormData.clientAddress }}" placeholder="详细地址"/>
+            </view>
+            <view class="group">
+                <input type="text" bindinput="handleInput" data-prop="clientName" value="{{ submitFormData.clientName }}" placeholder="姓名"/>
+            </view>
+            <view class="group">
+                <input type="text" bindinput="handleInput" data-prop="clientPhone" value="{{ submitFormData.clientPhone }}" placeholder="联系电话"/>
+            </view>
+            <view class="group fw">
+                <text class="label">服务时间</text>
+                <text class="value">{{ submitFormData.serviceTime }}  {{ classifyInfo.date }}</text>
+            </view>
+            <view class="group fw">
+                <text class="label">服务人员</text>
+                <text class="value">
+                    <text>{{ classifyInfo.name }}</text>
+                    <view class="img-box">
+                        <image src="{{ classifyInfo.image }}"></image>
+                    </view>
+                </text>
+            </view>
+
+            <view class="group project-info">
+                <view class="image-box">
+                    <image src="{{ productDetail.image }}"></image>
+                </view>
+                <view class="detail">
+                    <view class="name">{{ productDetail.name }}</view>
+                    <view class="detail">
+                        <text>{{ productDetail.description }}</text>
+                        <text>{{ productDetail.workTime }}</text>
+                    </view>
+                    <view class="price">{{ productDetail.vipPrice }} * 1</view>
+                </view>
+            </view>
+
+            <view class="group">
+                <text class="label">备注</text>
+                <text class="value">
+                    <input type="text"/>
+                </text>
+            </view>
+
+            <view class="group">
+                <text class="label">服务金额</text>
+                <text class="value">{{ submitFormData.payPrice }}</text>
+            </view>
+
+           <!-- <view class="group">
+                <text class="label">夜间交通费</text>
+                <text class="value"></text>
+            </view>-->
+        </view>
+    </view>
+
+    <view class="footer">
+        <view>待支付 <text class="price">{{ submitFormData.payPrice }}</text></view>
+        <view class="btn" bindtap="handleSubmit">立即购买</view>
     </view>
 </view>

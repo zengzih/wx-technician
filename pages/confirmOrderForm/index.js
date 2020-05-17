@@ -1,13 +1,31 @@
 // pages/confirmOrderForm/index.js
+const app = getApp().globalData;
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     back: true,
     address: '',
-    location: {}
+    location: {},
+    submitFormData: {
+      uid: '',
+      serviceId: '',
+      serviceTime: '',
+      realPrice: '',
+      vipDiscount: '',
+      couponPrice: '',
+      coupon: '',
+      payPrice: '',
+      clientAddress: '',
+      clientName: '',
+      clientPhone: '',
+      clientRemark: '',
+      classifyId: '',
+      classifyNum: ''
+    },
+    classifyInfo: {},
+    productDetail: {}
   },
 
   /**
@@ -15,66 +33,87 @@ Page({
    */
   onLoad: function (options) {
     const { id } = options;
-    this.getLocation();
+    this.init();
+    this.getProductInfo();
   },
-
+  
+  // input点击事件
+  handleInput(event) {
+    const { prop } = event.currentTarget.dataset;
+    const { value } = event.detail;
+    const { submitFormData } = this.data;
+    submitFormData[prop] = value;
+    this.setData({
+      submitFormData
+    });
+  },
+  
+  // 查询当前商品的详情
+  getProductInfo() {
+    const { classifyId } = this.data.submitFormData;
+    app.store.dispatch('getClassifyDetail', { id: classifyId }).then(res=> {
+      console.log(res)
+      this.setData({
+        productDetail: res
+      });
+    });
+  },
+  
+  init() {
+    const submitFormData = wx.getStorageSync('submitFormData');
+    const classifyInfo = wx.getStorageSync('classifyInfo');
+    const { mapLocations } = app;
+    this.setData({ submitFormData, classifyInfo, location: mapLocations });
+  },
+  
+  handleSubmit() {
+    const { submitFormData } = this.data;
+    if (this.getCheckFromData()) {
+      app.store.dispatch('submitOrderAdd', submitFormData).then(res=> {
+        console.log('-------submit--------', res);
+      });
+    }
+  },
+  
+  getCheckFromData() {
+    const { submitFormData, location } = this.data;
+    let { clientName, clientAddress, clientPhone } = submitFormData;
+    clientAddress += location.text;
+    if (!clientAddress) {
+      wx.showToast({
+        icon: 'none',
+        title: '请填写地址！',
+      });
+      return false;
+    }
+    if (!clientName) {
+      wx.showToast({
+        icon: 'none',
+        title: '请填姓名！',
+      });
+      return false;
+    }
+    if (!clientPhone) {
+      wx.showToast({
+        icon: 'none',
+        title: '请填写手机号！',
+      });
+      return false;
+    }
+    const reg=/^[1][3457869][0-9]{9}$/;
+    if (!reg.test(clientPhone)) {
+      wx.showToast({
+        icon: 'none',
+        title: '手机号格式不正确！',
+      });
+      return false;
+    }
+    return true;
+  },
+  
   getLocation() {
-    wx.getSystemInfo({
-      success(res) {
-        console.log(res)
-      }
-    })
-   wx.getSetting({
-      success(res) {
-        if (!res.authSetting['scope.userLocation']) {
-          wx.getLocation({
-            type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-            success (res) {
-              const latitude = res.latitude;
-              const longitude = res.longitude;
-              wx.chooseLocation({
-                latitude,
-                longitude,
-                success(res) {
-                  console.log(res)
-                  _this.setData({
-                    location: res
-                  })
-                }
-              })
-            }
-          })
-          return
-          wx.startLocationUpdateBackground({
-            success(res) {
-              console.log(res);
-            },
-            fail(err) {
-              console.log(err)
-            },
-            complete(complete)  {
-              console.log(complete)
-            }
-          })
-        }
-      }
-    })
-   /* wx.openSetting({
-      success (res) {
-        console.log(res.authSetting)
-        // res.authSetting = {
-        //   "scope.userInfo": true,
-        //   "scope.userLocation": true
-        // }
-      }
-    });*/
     const _this = this;
-    // wx.startLocationUpdateBackground({
-    //   success(res) {
-    //     console.log(res);
-    //   }
-    // })
-    /*wx.getLocation({
+    wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success (res) {
         const latitude = res.latitude;
@@ -83,14 +122,17 @@ Page({
           latitude,
           longitude,
           success(res) {
-            console.log(res)
+            const { location } = _this.data;
+            location.text = res.address;
+            location.lng = res.longitude;
+            location.lat = res.latitude;
             _this.setData({
-              location: res
-            })
+              location
+            });
           }
-        })
+        });
       }
-    })*/
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

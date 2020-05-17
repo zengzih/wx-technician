@@ -13,8 +13,8 @@
         <view class="price-content">
             <view class="title">{{ formData.name }}</view>
             <view class="price">
-                <text>￥{{ formData.price }}元</text>
-                <text>￥{{ formData.vipPrice }}</text>
+                <text>￥{{ formData.vipPrice }}元</text>
+                <text>￥{{ formData.price }}</text>
             </view>
             <view class="order-num">已售{{ formData.alreadyNum }}单</view>
         </view>
@@ -44,6 +44,12 @@
 
         <view class="group">
             <text>技师</text>
+            <view class="icon-box" wx:if="classifyInfo.image">
+                <image src="{{ classifyInfo.image }}">{{ classifyInfo.image }}</image>
+            </view>
+            <text class="classify_info" style="margin-left: 80rpx;">{{ classifyInfo.name }}</text>
+            <text class="classify_info">{{ classifyInfo.month }}</text>
+            <text class="classify_info">{{ classifyInfo.date}}</text>
             <view bindtap="handleShowTechnician">最近可约 <i class="iconfont icon-xiangyou1"></i></view>
         </view>
 
@@ -77,7 +83,7 @@
     </view>
 
     <view class="footer">
-        <view class="total-price">待支付<text>250元</text></view>
+        <view class="total-price">待支付<text>{{ formData.vipPrice }}元</text></view>
         <view class="btn" bindtap="handleDetailSubmit">立即购买</view>
     </view>
 
@@ -130,16 +136,19 @@
         <!--  时间、技师的选择  -->
         <view class="technician" wx:if="{{ technicianShow }}">
             <view class="head">选择时间</view>
-            <view class="weeks">
-                <view class="week" wx:for="{{ weeks }}">
-                    <view class="label">{{ item.label }}</view>
-                    <view class="date">{{ item.date }}</view>
-                </view>
+            <view class="scroll-box">
+                <scroll-view scroll-x style="width: {{ weeks.length * 120 }}rpx">
+                    <view class="weeks">
+                        <view class="week {{ index == weekActiveIndex ? 'active' : '' }}" wx:for="{{ weeks }}" bindtap="handleWeekClick" data-index="{{ index }}" data-week="{{ item }}">
+                            <view class="label">{{ item.weekShow }}</view>
+                            <view class="date">{{ item.monthDay }}</view>
+                        </view>
+                    </view>
+                </scroll-view>
             </view>
-
             <view class="times">
-                <view class="time-box" wx:for="{{ 20 }}">
-                    <view class="time">12:30</view>
+                <view class="time-box {{ index == timeActiveIndex ? 'active' : '' }}" bindtap="handleTimeClick" data-index="{{ index }}" wx:for="{{ timeDetail }}">
+                    <view class="time">{{ item }}</view>
                 </view>
             </view>
 
@@ -148,15 +157,15 @@
             </view>
 
             <view class="person-list">
-                <view class="person-box" wx:for="{{ 6 }}">
-                    <view class="person">
+                <view class="person-box" wx:for="{{ classifyList }}" bindtap="handleClassifyClick" data-index="{{ index }}" data-item="{{ item }}">
+                    <view class="person {{ index == classifyActiveIndex ? 'active' : '' }}">
                         <view class="head">
-                            <image></image>
+                            <image src="{{ item.image }}"></image>
                         </view>
                         <view class="detail">
-                            <view class="name">小舞</view>
-                            <view class="num">已接1单</view>
-                            <view class="distance">9.19KM</view>
+                            <view class="name">{{ item.name }}</view>
+                            <view class="num">已接{{ item.orderNum }}单</view>
+                            <view class="distance">{{ item.distance }}KM</view>
                         </view>
                     </view>
                 </view>
