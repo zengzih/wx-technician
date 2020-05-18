@@ -68,7 +68,23 @@ Page({
       });
     }
     app.store.dispatch('login', formData).then(res=> {
-      console.log(res);
+      const { serviceStatus } = res;
+      if (serviceStatus == 0) {
+        // 服务人员需要注册
+        
+      }
+  
+      if (serviceStatus == 2) {
+        return wx.navigateTo({
+          url: '../loginCheck/index?type=check'
+        });
+      }
+  
+      if (serviceStatus == -1) {
+        return wx.navigateTo({
+          url: '../loginCheck/index?type=error'
+        });
+      }
       if (res.hasOwnProperty('token')) {
         wx.setStorageSync('token', res.token);
         wx.showToast({

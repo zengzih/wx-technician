@@ -324,11 +324,11 @@ color:rgba(145,145,145,1);
   border: 1px solid #ededed;
   border-radius: 4px;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .list-wrapper .list-group .content .panel .img-box image {
-  height: 100%;
-  width: 100%;
+ 
 }
 
 .list-wrapper .list-group .content .panel .name {

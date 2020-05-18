@@ -17,7 +17,9 @@
                 interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
                 <block wx:for="{{bannerList}}" wx:key="*this">
                   <swiper-item>
-                    <view class="swiper-item {{item.image}}"></view>
+                    <view class="swiper-item">
+                        <image src="{{item.image}}"></image>
+                    </view>
                   </swiper-item>
                 </block>
               </swiper>

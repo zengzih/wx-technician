@@ -45,7 +45,6 @@ Page({
       orderFormGroup,
       menuList
     });
-    this.getUserInfo()
   },
   
   handleSign() {
