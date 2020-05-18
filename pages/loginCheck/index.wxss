@@ -1,0 +1,76 @@
+/* pages/loginCheck/index.wxss */
+.wrapper {
+    background: #fff;
+    height: 100%;
+    position: relative;
+}
+
+.wrapper .head {
+    width: 65rpx;
+    height: 65rpx;
+    line-height: 65rpx;
+    text-align: center;
+    border: 1px solid #e8e8e8;
+    border-radius: 50%;
+    position: absolute;
+    top: 50rpx;
+    left: 40rpx;
+}
+
+.wrapper .head i {
+    font-size: 32rpx;
+}
+
+.content {
+    width: 750rpx;
+    height: 450rpx;
+    position: absolute;
+    top: 30%;
+}
+
+.content image {
+    width: 210rpx;
+    height: 170rpx;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+}
+
+.content .more {
+    margin: 200rpx auto;
+    width: 560rpx;
+    text-align: center;
+}
+
+.content .more view:first-child {
+    font-size: 32rpx;
+}
+
+.content .more view:last-child {
+    font-size: 26rpx;
+    color: #6f6f6f;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

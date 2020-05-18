@@ -57,5 +57,8 @@ App({
       text: ''
     },
     mobile: ''
+  },
+  onShow() {
+    console.log(this.route)
   }
 })

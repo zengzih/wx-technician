@@ -223,7 +223,6 @@ Page({
   init(id) {
     const { submitFormData } = this.data;
     submitFormData.uid = wx.getStorageSync('uid');
-    debugger;
     submitFormData.classifyId = id;
     this.setData({
       submitFormData

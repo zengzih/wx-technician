@@ -48,10 +48,18 @@ Page({
     this.getUserInfo()
   },
   
+  handleSign() {
+    const token = wx.getStorageSync('token');
+    if (!token) {
+      wx.navigateTo({
+        url: '../login/index'
+      });
+    }
+  },
+  
   getUserInfo() {
     app.store.dispatch('getUserInfo').then(res=> {
       const { name, balance, noPayCommission } = res;
-      console.log(res)
       this.setData({
         name, balance, noPayCommission
       });

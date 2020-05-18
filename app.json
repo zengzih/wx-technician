@@ -1,12 +1,13 @@
 {
   "pages": [
+    "pages/my/index",
     "pages/index/index",
+    "pages/loginCheck/index",
     "pages/confirmOrderForm/index",
     "pages/orderDetail/index",
     "pages/login/index",
     "pages/loginMobile/index",
     "pages/themeList/index",
-    "pages/my/index",
     "pages/settingInfo/index",
     "pages/orderForm/index",
     "pages/journeyState/index",

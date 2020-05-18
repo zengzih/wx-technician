@@ -64,8 +64,13 @@ Page({
   // 跳转到详情
   handleSkipDetail(event) {
     const { item } = event.currentTarget.dataset;
+    const token = wx.getStorageSync('token');
+    let url = '../orderDetail/index?id=' + item.id;
+    if (!token) {
+      url = '../login/index'
+    }
     wx.navigateTo({
-      url: '../orderDetail/index?id=' + item.id
+      url
     });
   },
 

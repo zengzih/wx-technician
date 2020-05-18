@@ -34,11 +34,27 @@ Page({
           iv: detail.iv,
           parentId: ''
         }).then(data=> {
-          if (!data.hasOwnProperty('token')) {
-            wx.navigateTo({
+          debugger;
+          const { serviceStatus } = data;
+          if (serviceStatus == 0) {
+            return wx.navigateTo({
               url: '../loginMobile/index?code=' + code + '&userType=' + userType + '&openId=' + data.openId
             });
           }
+  
+          if (serviceStatus == 2) {
+            return wx.navigateTo({
+              url: '../loginCheck/index?type=check'
+            });
+          }
+  
+          if (serviceStatus == -1) {
+            return wx.navigateTo({
+              url: '../loginCheck/index?type=error'
+            });
+          }
+          
+          
           const { token, sessionKey, uid} = data;
           wx.setStorageSync('token', token);
           wx.setStorageSync('uid', uid);

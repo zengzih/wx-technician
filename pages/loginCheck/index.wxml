@@ -1,0 +1,13 @@
+<!--pages/loginCheck/index.wxml-->
+<view class="wrapper">
+    <view class="head" bindtap="handleBackHome">
+        <i class="iconfont icon-shouye"></i>
+    </view>
+    <view class="content">
+        <image src="../../image/icon/loginicon.png"></image>
+        <view class="more">
+            <view>{{ moreText }}</view>
+            <view>{{ moreText1 }}</view>
+        </view>
+    </view>
+</view>

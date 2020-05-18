@@ -137,9 +137,9 @@ let handler = {
             header,
             success(res) {
               const { data } = res;
-              if(!requestTntercept(data)){
+              /*if(!requestTntercept(data)){
                 return false;
-              }
+              }*/
               if (requestFields[url]) {
                 const dataName = requestFields[url]['dataName'];
                 resolve(global.transferData(dataName ? res.data.result[dataName] : res.data.result,requestFields[url]['fields']))

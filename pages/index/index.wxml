@@ -47,14 +47,14 @@
 
         <!-- 最下面的分类列表 -->
         <view class="list-wrapper">
-            <view class="list-group" wx:for="{{ indexDetail }}">
+            <view class="list-group" wx:for="{{ indexDetail }}" wx:key="{{ item.id }}">
                 <view class="head">
                     <view class="title">{{ item.classifyOneName }}</view>
                     <view class="more" bindtap="handleShowAll" data-item="{{ item }}">更多></view>
                 </view>
                 <view class="content">
                     <scroll-view scroll-x style="width: {{ 192 * item.classifyTwoList.length}}rpx">
-                        <view class="panel" wx:for="{{ item.classifyTwoList }}" wx:for-item="child">
+                        <view class="panel" wx:for="{{ item.classifyTwoList }}" wx:for-item="child" wx:key='{{ child.id }}'>
                             <view class="img-box">
                                 <image src="{{ child.image }}"></image>
                             </view>
