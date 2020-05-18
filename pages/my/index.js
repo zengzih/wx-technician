@@ -57,6 +57,8 @@ Page({
   },
   
   getUserInfo() {
+    const token = wx.getStorageSync('token');
+    if (!token) return;
     app.store.dispatch('getUserInfo').then(res=> {
       const { name, balance, noPayCommission } = res;
       this.setData({
