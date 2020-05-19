@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "v-header": "../../component/header/index",
+    "mp-uploader": "../../component/uploader/uploader",
+    "mp-cells": "../../component/cells/cells",
+    "mp-cell": "../../component/cell/cell"
+  }
+}

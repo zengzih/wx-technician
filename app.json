@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/serviceRegister/index",
     "pages/index/index",
     "pages/my/index",
     "pages/loginCheck/index",

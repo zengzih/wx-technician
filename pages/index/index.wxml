@@ -56,12 +56,17 @@
                 </view>
                 <view class="content">
                     <scroll-view scroll-x style="width: {{ 192 * item.classifyTwoList.length}}rpx">
-                        <view class="panel" wx:for="{{ item.classifyTwoList }}" wx:for-item="child" wx:key='{{ child.id }}'>
+                        <view class="panel" wx:for="{{ item.classifyTwoList }}"
+                              wx:for-item="child"
+                              wx:key='{{ child.id }}'
+                              data-item="{{ child }}"
+                              bindtap="handleProductDetail"
+                        >
                             <view class="img-box">
                                 <image src="{{ child.image }}"></image>
                             </view>
                             <view class="name">{{ child.name }}</view>
-                            <view class="price">{{ child.price }}元/次</view>
+                            <view class="price">￥{{ child.price }}元</view>
                         </view>
                     </scroll-view>
                 </view>

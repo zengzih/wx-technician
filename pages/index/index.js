@@ -94,6 +94,14 @@ Page({
     });
   },
   
+  handleProductDetail(event) {
+    const { item } = event.currentTarget.dataset;
+    const url = '../orderDetail/index?id=' + item.id;
+    wx.navigateTo({
+      url
+    });
+  },
+  
   parsingLocation() {
     const _this = this;
     wx.getSetting({

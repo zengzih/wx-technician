@@ -1,0 +1,76 @@
+<!--pages/serviceRegister/index.wxml-->
+<view class="wrapper">
+    <v-header title="注册" back></v-header>
+
+    <view class="content">
+        <view class="head">
+            <view class="step">
+                <text>1</text>
+                <text>/3</text>
+            </view>
+            <view class="title">请填写以下信息</view>
+            <view class="tip">
+                注：为了便于审核，请您如实填写。
+            </view>
+        </view>
+
+        <view class="body">
+            <view class="group head">
+                <view class="label">头像</view>
+                <view class="con">
+                    <mp-cells>
+                        <mp-cell>
+                            <mp-uploader bindfail="uploadError" bindsuccess="uploadSuccess" select="{{selectFile}}" upload="{{uplaodFile}}" files="{{files}}" max-count="5" title="图片上传" tips="图片上传提示"></mp-uploader>
+                        </mp-cell>
+                    </mp-cells>
+                    <!--<label for="file">
+                        <image src="" alt=""></image>
+                        <input type="file" id="file" />
+                    </label>-->
+                    <i></i>
+                </view>
+                <view class="totip">请上传真实头像</view>
+            </view>
+
+            <view class="group">
+                <view class="label">昵称</view>
+                <view class="con">
+                    <input type="text" placeholder="最多4个中文字符" />
+                </view>
+            </view>
+
+            <view class="group">
+                <view class="label">性别</view>
+                <view class="con">
+                    <radio-group>
+                        <radio>是</radio>
+                        <radio>否</radio>
+                    </radio-group>
+                </view>
+            </view>
+
+            <view class="group">
+                <view class="label">省份</view>
+                <view class="con">
+                    <view class="section">
+                        <view class="section__title">省市区选择器</view>
+                        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                            <view class="picker">
+                                当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+
+            <view class="group">
+                <view class="label">地址</view>
+                <view class="con">
+                    <input type="text" placeholder="请输入详细地址，如街道、楼牌号"/>
+                </view>
+            </view>
+
+
+        </view>
+    </view>
+</view>

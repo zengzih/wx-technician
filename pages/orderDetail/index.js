@@ -17,6 +17,7 @@ Page({
     timeActiveIndex: -1,
     weekActiveIndex: -1,
     classifyActiveIndex: -1,
+    isSignIn: false,
     classifyDict: {
       current: 1,
       size: 10,
@@ -87,6 +88,12 @@ Page({
   handleDetailSubmit() {
     const { projectId, formData, submitFormData, timeActiveIndex, weekActiveIndex, classifyActiveIndex, timeDetail, weeks, classifyList, classifyInfo } = this.data;
     // app.store.dispatch('add', {  })
+    const token = wx.getStorageSync('token');
+    if (!token) {
+      return wx.navigateTo({
+        url: '../login/index'
+      });
+    }
     if (!this.checkFormSubmit()) {
       return false;
     }
@@ -107,7 +114,9 @@ Page({
    */
   onLoad: function (options) {
     let { id } = options;
+    const token = wx.getStorageSync('token');
     this.setData({
+      isSignIn: token ? true : false,
       projectId: id,
       'classifyDict.classifyId': id
     });

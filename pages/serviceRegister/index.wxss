@@ -1,0 +1,79 @@
+/* pages/serviceRegister/index.wxss */
+
+.wrapper {
+    background: #fff;
+}
+
+.wrapper .content {
+    padding: 0 50rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .content .head {
+
+}
+
+.wrapper .content .head .step {
+    height: 60rpx;
+    line-height: 60rpx;
+}
+
+.wrapper .content .head .step text:first-child {
+    font-size: 32rpx;
+}
+
+.wrapper .content .head .step text:first-child {
+    font-size: 32rpx;
+}
+
+.wrapper .content .head .step text:last-child {
+    font-size: 24rpx;
+}
+
+.wrapper .content .head .title {
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 40rpx;
+}
+
+.wrapper .content .head .tip {
+    font-size: 26rpx;
+    color: #d47863;
+}
+
+.wrapper .content .body .group {
+    padding: 20rpx 0;
+    border-bottom: 1px solid #f4f4f4;
+    position: relative;
+}
+
+.wrapper .content .body .group .label {
+    height: 50rpx;
+    line-height: 50rpx;
+    font-size: 28rpx;
+}
+
+.wrapper .content .body .group .con {
+    height: 90rpx;
+}
+
+
+
+.wrapper .content .body .group.head {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
