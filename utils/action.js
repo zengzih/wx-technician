@@ -30,5 +30,7 @@ export const submitOrderAdd = (data={})=> request.post('add', data);
 
 export const submitOrderReady = (data={})=> request.post('ready', data);
 
+export const uploadImage = (data={})=> request.post('upload_image', data);
+
 
 

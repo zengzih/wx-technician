@@ -82,6 +82,9 @@ const requestUrl = {
   order: {
     ready: 'ready',
     add: 'add'
+  },
+  file: {
+    'upload_image': 'upload/image'
   }
 };
 const reg = /wx_login/g;

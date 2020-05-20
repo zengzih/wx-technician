@@ -55,8 +55,6 @@
       }
     ]
   },
-  "requiredBackgroundModes": [
-    "location"
-  ],
+  "requiredBackgroundModes": ["location"],
   "sitemapLocation": "sitemap.json"
 }

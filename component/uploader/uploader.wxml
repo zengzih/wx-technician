@@ -1,12 +1,15 @@
 <view class="weui-uploader {{extClass}}">
     <view class="weui-uploader__hd">
-      <div class="weui-uploader__overview">
-          <view class="weui-uploader__title">{{title}}</view>
-          <view class="weui-uploader__info" wx:if="{{maxCount > 1}}">{{currentFiles.length}}/{{maxCount}}</view>
-
-      </div>
+        <div class="weui-uploader__overview">
+            <view class="weui-uploader__title">{{title}}</view>
+            <view class="weui-uploader__info" wx:if="{{maxCount > 1}}">
+                {{currentFiles.length}}/{{maxCount}}
+            </view>
+        </div>
         <view wx:if="{{tips}}" class="weui-uploader__tips">{{tips}}</view>
-        <view wx:else><slot name="tips"></slot></view>
+        <view wx:else>
+            <slot name="tips"></slot>
+        </view>
     </view>
     <view class="weui-uploader__bd">
         <view class="weui-uploader__files">
@@ -20,7 +23,7 @@
                 <view wx:elif="{{item.loading}}" data-index="{{index}}" bindtap="previewImage" class="weui-uploader__file weui-uploader__file_status">
                     <image class="weui-uploader__img" src="{{item.url}}" mode="aspectFill" />
                     <view class="weui-uploader__file-content">
-                    <view class="weui-loading"></view>
+                        <view class="weui-loading"></view>
                     </view>
                 </view>
                 <view wx:else class="weui-uploader__file" data-index="{{index}}" bindtap="previewImage">
@@ -29,6 +32,7 @@
             </block>
         </view>
         <view wx:if="{{currentFiles.length < maxCount}}" class="weui-uploader__input-box">
+            <i class='iconfont icon-wodefill'></i>
             <view class="weui-uploader__input" bindtap="chooseImage"></view>
         </view>
     </view>

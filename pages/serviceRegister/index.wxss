@@ -9,10 +9,6 @@
     box-sizing: border-box;
 }
 
-.wrapper .content .head {
-
-}
-
 .wrapper .content .head .step {
     height: 60rpx;
     line-height: 60rpx;
@@ -55,25 +51,116 @@
 
 .wrapper .content .body .group .con {
     height: 90rpx;
+    line-height: 90rpx;
+    font-size: 26rpx;
 }
 
+.wrapper .content .body .group .con.upload {
+    color: #ff787e;
+    position: relative;
+}
+
+.wrapper .content .body .group .con.upload .upload-box {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 4px;
+    position: absolute;
+    border: 1px solid #e5e5e5;
+    right: 0;
+    top: -32rpx;
+    overflow: hidden;
+}
+
+.wrapper .content .body .group .con.upload .upload-box image {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .content .body .group .con.upload .upload-box .weui-uploader__bd {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.wrapper .content .body .group .con.upload .upload-box .weui-uploader__hd {
+    display: none;
+}
+
+.wrapper .content .body .group .con.upload .upload-box i {
+    font-size: 88rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+}
+
+.wrapper .content .body .group .con input {
+    height: 100%;
+    padding: 5rpx 0;
+    line-height: 90rpx;
+    font-size: 30rpx;
+}
+
+.wrapper .content .body .group .con radio {
+    margin-right: 100rpx;
+    height: 30rpx;
+
+}
+
+
+/*
 
 
 .wrapper .content .body .group.head {
 }
 
+.wrapper .content .body .group .con {
+    position: relative;
+}
 
+.wrapper .content .body .group .con .con-upload {
+    height: 90rpx;
+    width: 90rpx;
+    line-height: 90rpx;
+    border-radius: 4px;
+}
 
+.wrapper .content .body .group .con .weui-uploader__bd {
+    position: absolute;
+    right: 0;
+}
 
+.wrapper .content .body .group .con mp-cells
+{
+    width: 100%;
+    display: block;
+}
 
+.wrapper .content .body .group .con mp-cell {
+    width: 200rpx;
+    display: block;
+}
+*/
 
+.footer {
+    height: 120rpx;
+    width: 100%;
+    border-top: 1px solid #ededed;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
 
-
-
-
-
-
-
-
-
-
+.footer view {
+    height: 100rpx;
+    width: 90%;
+    background: #fe4e7d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    line-height: 100rpx;
+}
