@@ -58,6 +58,21 @@
     font-size: 26rpx;
 }
 
+.wrapper .content .body .group .con.text-box {
+    height: auto;
+}
+
+.wrapper .content .body .group .con textarea {
+    width: 100%;
+    height: 200rpx;
+    border: 1px solid #e5e5e5;
+    padding: 4rpx;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+
+
 .wrapper .content .body .group .con.upload {
     color: #ff787e;
     position: relative;
@@ -73,6 +88,34 @@
     top: -32rpx;
     overflow: hidden;
 }
+
+.wrapper .content .body .group .con.upload .upload-box:before {
+    content: '';
+    position: absolute;
+    height: 50%;
+    width: 2px;
+    background: #f3f3f3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper .content .body .group .con.upload .upload-box:after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    background: #f3f3f3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
+
+
+
 
 .wrapper .content .body .group .con.upload .upload-box image {
     width: 100%;
@@ -129,6 +172,7 @@
     border-radius: 4px;
     margin: 0 auto;
     overflow: hidden;
+    position: relative;
 }
 
 .wrapper .content .body .group.idcard .con .image-box image {
@@ -141,32 +185,36 @@
 }
 
 .wrapper .content .body .group.certificate .image-box {
-    height: 240rpx;
-    width: 240rpx;
-    background: #f3f3f3;
+    height: 320rpx;
+    width: 530rpx;
+    background: #fff;
     border-radius: 4px;
+    border: 1px solid #ccc;
     margin-top: 20rpx;
     margin: 20px auto;
     position: relative;
+
 }
 
-.wrapper .content .body .group.certificate .image-box.show:before {
+.wrapper .content .body .group.certificate .image-box.show:before,
+.wrapper .content .body .group.idcard .image-box.show:before {
     content: '';
     position: absolute;
     height: 50%;
     width: 2px;
-    background: #fff;
+    background: #f3f3f3;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.wrapper .content .body .group.certificate .image-box.show:after {
+.wrapper .content .body .group.certificate .image-box.show:after,
+.wrapper .content .body .group.idcard .image-box.show:after {
     content: '';
     position: absolute;
     width: 50%;
     height: 2px;
-    background: #fff;
+    background: #f3f3f3;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -196,8 +244,10 @@
 
 .wrapper .content .body .add-group i {
     float: right;
+    font-size: 50rpx;
 }
-    /*
+
+/*
 
 
     .wrapper .content .body .group.head {
@@ -260,8 +310,9 @@
     width: 48%;
     transform: translate(0, -50%);
 }
+
 .footer.sp view:first-child {
-    left: 10rpx!important;
+    left: 10rpx !important;
 }
 
 .footer.sp view:last-child {

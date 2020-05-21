@@ -2,11 +2,12 @@
   "pages": [
     "pages/serviceRegister/index",
     "pages/index/index",
+    "pages/login/index",
+
     "pages/my/index",
     "pages/loginCheck/index",
     "pages/confirmOrderForm/index",
     "pages/orderDetail/index",
-    "pages/login/index",
     "pages/loginMobile/index",
     "pages/themeList/index",
     "pages/settingInfo/index",

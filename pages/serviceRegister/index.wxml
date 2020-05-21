@@ -71,7 +71,6 @@
                 </view>
             </view>
         </view>
-
         <view class="body" style="display: {{ currentStep == 2 ? 'block' : 'none' }}">
             <view class="group">
                 <view class="label">姓名</view>
@@ -79,67 +78,64 @@
                     <input type="text" bindinput="handleInputEvent" data-prop="realName" value="{{ formData.realName }}" placeholder="请输入您的真实姓名" />
                 </view>
             </view>
-
             <view class="group">
                 <view class="label">身份证号</view>
                 <view class="con">
                     <input type="idcard" bindinput="handleInputEvent" data-prop="cardNum" value="{{ formData.cardNum }}" placeholder="请输入18位身份证号码" />
                 </view>
             </view>
-
             <view class="group idcard">
                 <view class="label">上传本人身份证</view>
                 <view class="con" bindtap="handleIdCardImage" data-prop="cardTop">
-                    <view class="image-box">
+                    <view class="image-box {{ formData.cardBottom ? 'hide' : 'show' }}">
                         <image src="{{ formData.cardTop }}"></image>
                     </view>
                     <view>点击上传身份证正面</view>
                 </view>
-
                 <view class="con" bindtap="handleIdCardImage" data-prop="cardBottom">
-                    <view class="image-box">
+                    <view class="image-box {{ formData.cardBottom ? 'hide' : 'show' }}">
                         <image src="{{ formData.cardBottom }}"></image>
                     </view>
                     <view>点击上传身份证反面</view>
                 </view>
+                <view class="con" bindtap="handleIdCardImage" data-prop="workImages">
+                    <view class="image-box {{ formData.cardBottom ? 'hide' : 'show' }}">
+                        <image src="{{ formData.workImages }}"></image>
+                    </view>
+                    <view>点击上传工作照片</view>
+                </view>
             </view>
-
         </view>
-
         <view class="body" style="display: {{ currentStep == 3 ? 'block' : 'none' }}">
             <view class="group">
                 <view class="label">服务项目</view>
                 <view class="con">
-                    <input type="text" bindinput="handleInputEvent" data-prop="bookName" value="{{ formData.bookName }}" placeholder="请输入您的真实姓名" />
+                    <input type="text" bindinput="handleInputEvent" data-prop="classifyIds" value="{{ formData.classifyIds }}" placeholder="请输入您的真实姓名" />
                 </view>
             </view>
-
             <view class="group">
                 <view class="label">个人介绍</view>
-                <view class="con">
-                    <input type="idcard" bindinput="handleInputEvent" data-prop="address" value="{{ formData.address }}" placeholder="请输入18位身份证号码" />
+                <view class="con text-box">
+                    <textarea name="" value="{{ formData.remark }}" bindinput="handleInputEvent" data-prop="remark" placeholder="请输入个人介绍"></textarea>
                 </view>
             </view>
-
             <view class="group certificate" wx:for="{{ professionsList }}" wx:key="{{ index }}">
                 <view class="label">资格证书</view>
                 <view class="con">
-                    <input type="text" bindinput="handleCertificate" data-index="{{ index }}" data-item="{{ item }}" value="{{ item.professionName }}" placeholder="请输入证书名称"/>
+                    <input type="text" bindinput="handleCertificate" data-index="{{ index }}" data-item="{{ item }}" value="{{ item.professionName }}" placeholder="请输入证书名称" />
                     <view class="image-box {{ item.professionImage ? 'hide' : 'show'  }}" bindtap="handleUploadCertificate" data-item="{{ item }}" data-index="{{ index }}">
                         <image src="{{ item.professionImage }}"></image>
                     </view>
                 </view>
             </view>
-
             <view class="add-group">
                 <text>添加资格证</text>
-                <i class="iconfont" bindtap="handleAdd">添加</i>
+                <i class="iconfont icon-jiahao" bindtap="handleAdd"></i>
             </view>
-
         </view>
     </view>
     <view class="footer {{ currentStep > 1 ? 'sp' : '' }}">
-        <view class="btn"  bindtap="handlePrev">上一步</view>
+        <view class="btn" bindtap="handlePrev">上一步</view>
         <view class="btn" bindtap='handleSubmit'>{{ currentStep == 3 ? '提交' : '下一步' }}</view>
     </view>
 </view>
