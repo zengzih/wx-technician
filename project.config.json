@@ -23,9 +23,9 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.0",
+	"libVersion": "2.11.1",
 	"appid": "wx8567c0f287f8d7f5",
-	"projectname": "wx-travel",
+	"projectname": "wx-technician",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

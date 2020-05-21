@@ -4,13 +4,13 @@
     <view class="content">
         <view class="head">
             <view class="step">
-                <text>1</text>
+                <text>{{ currentStep }}</text>
                 <text>/3</text>
             </view>
             <view class="title">请填写以下信息</view>
             <view class="tip">注：为了便于审核，请您如实填写。</view>
         </view>
-        <view class="body">
+        <view class="body" style="display: {{ currentStep == 1 ? 'block' : 'none' }}">
             <view class="group head">
                 <view class="label">头像</view>
                 <view class="con upload">
@@ -31,7 +31,7 @@
                                 <i class="iconfont icon-wodefill"></i>
                             </view>
                         </label> -->
-                        <image src="{{ headUrl }}"></image>
+                        <image src="{{ formData.avatar }}"></image>
                     </view>
                     <i></i>
                     <view class="totip">请上传真实头像</view>
@@ -40,7 +40,7 @@
             <view class="group">
                 <view class="label">昵称</view>
                 <view class="con">
-                    <input type="text" value="{{ formData.bookName }}" placeholder="最多4个中文字符" />
+                    <input type="text" bindinput="handleInputEvent" data-prop="bookName" value="{{ formData.bookName }}" placeholder="最多4个中文字符" />
                 </view>
             </view>
             <view class="group">
@@ -67,12 +67,79 @@
             <view class="group">
                 <view class="label">地址</view>
                 <view class="con">
-                    <input type="text" value="{{ formData.address }}" placeholder="请输入详细地址，如街道、楼牌号" />
+                    <input type="text" bindinput="handleInputEvent" data-prop="address" value="{{ formData.address }}" placeholder="请输入详细地址，如街道、楼牌号" />
                 </view>
             </view>
         </view>
+
+        <view class="body" style="display: {{ currentStep == 2 ? 'block' : 'none' }}">
+            <view class="group">
+                <view class="label">姓名</view>
+                <view class="con">
+                    <input type="text" bindinput="handleInputEvent" data-prop="realName" value="{{ formData.realName }}" placeholder="请输入您的真实姓名" />
+                </view>
+            </view>
+
+            <view class="group">
+                <view class="label">身份证号</view>
+                <view class="con">
+                    <input type="idcard" bindinput="handleInputEvent" data-prop="cardNum" value="{{ formData.cardNum }}" placeholder="请输入18位身份证号码" />
+                </view>
+            </view>
+
+            <view class="group idcard">
+                <view class="label">上传本人身份证</view>
+                <view class="con" bindtap="handleIdCardImage" data-prop="cardTop">
+                    <view class="image-box">
+                        <image src="{{ formData.cardTop }}"></image>
+                    </view>
+                    <view>点击上传身份证正面</view>
+                </view>
+
+                <view class="con" bindtap="handleIdCardImage" data-prop="cardBottom">
+                    <view class="image-box">
+                        <image src="{{ formData.cardBottom }}"></image>
+                    </view>
+                    <view>点击上传身份证反面</view>
+                </view>
+            </view>
+
+        </view>
+
+        <view class="body" style="display: {{ currentStep == 3 ? 'block' : 'none' }}">
+            <view class="group">
+                <view class="label">服务项目</view>
+                <view class="con">
+                    <input type="text" bindinput="handleInputEvent" data-prop="bookName" value="{{ formData.bookName }}" placeholder="请输入您的真实姓名" />
+                </view>
+            </view>
+
+            <view class="group">
+                <view class="label">个人介绍</view>
+                <view class="con">
+                    <input type="idcard" bindinput="handleInputEvent" data-prop="address" value="{{ formData.address }}" placeholder="请输入18位身份证号码" />
+                </view>
+            </view>
+
+            <view class="group certificate" wx:for="{{ professionsList }}" wx:key="{{ index }}">
+                <view class="label">资格证书</view>
+                <view class="con">
+                    <input type="text" bindinput="handleCertificate" data-index="{{ index }}" data-item="{{ item }}" value="{{ item.professionName }}" placeholder="请输入证书名称"/>
+                    <view class="image-box {{ item.professionImage ? 'hide' : 'show'  }}" bindtap="handleUploadCertificate" data-item="{{ item }}" data-index="{{ index }}">
+                        <image src="{{ item.professionImage }}"></image>
+                    </view>
+                </view>
+            </view>
+
+            <view class="add-group">
+                <text>添加资格证</text>
+                <i class="iconfont" bindtap="handleAdd">添加</i>
+            </view>
+
+        </view>
     </view>
-    <view class="footer">
-        <view class="btn" bindtap='handleSubmit'>下一步</view>
+    <view class="footer {{ currentStep > 1 ? 'sp' : '' }}">
+        <view class="btn"  bindtap="handlePrev">上一步</view>
+        <view class="btn" bindtap='handleSubmit'>{{ currentStep == 3 ? '提交' : '下一步' }}</view>
     </view>
 </view>
