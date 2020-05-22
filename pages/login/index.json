@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "list-view": "../../component/view-list/index",
-    "v-header": "../../component/header/index"
+    "v-header": "../../component/header/index",
+    "mp-loading": "../../component/loading/loading"
   }
 }

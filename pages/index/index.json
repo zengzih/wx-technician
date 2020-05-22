@@ -2,6 +2,8 @@
   "enablePullDownRefresh": false,
   "usingComponents": {
     "list-view": "../../component/view-list/index",
-    "v-header": "../../component/header/index"
+    "v-header": "../../component/header/index",
+    "person-index": "../../component/person-index/index",
+    "service-index": "../../component/service-index/index"
   }
 }

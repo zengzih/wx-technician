@@ -23,9 +23,34 @@
     font-size: 28rpx;
     text-align: center;
     margin-bottom: 20rpx;
+    position: relative;
 }
 
-.wrapper .footer view:last-child .btn{
+.wrapper .footer .btn .load-box {
+    width: 100rpx;
+    height: 80rpx;
+    position: absolute;
+}
+
+.wrapper .footer .btn .load-box .wx_loading_view {
+    height: 100%;
+}
+
+.wrapper .footer .btn .load-box .wx_loading_view .weui-loadmore {
+    height: 100%;
+    position: relative;
+    margin: 0 !important;
+}
+
+.wrapper .footer .btn .load-box .wx_loading_view .weui-loadmore .weui-loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -10px;
+}
+
+
+.wrapper .footer view:last-child .btn {
     background: #608efe;
     color: #fff;
 }

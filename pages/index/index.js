@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 import request from '../../utils/util'
+import { Watch } from '../../utils/watch.js'
 const app = getApp().globalData;
 Page({
   data: {
@@ -51,14 +52,19 @@ Page({
   onReady: function () {
   },
   onLoad: function (options) {
-    this.setData({
-      screenWidth: wx.getSystemInfoSync().windowWidth
-    });
-    // wx.showLoading({
-    //   title: '加载中',
-    // });
     this.parsingLocation();
     this.getThemeList();
+    this.initWatch()
+  },
+
+  initWatch() {
+    new Watch({
+      func: (key, value)=> {
+        if (key == 'userType') {
+          console.log('--------------', key, value)
+        }
+      }
+    })
   },
   
   getLocation() {
@@ -104,6 +110,9 @@ Page({
   
   parsingLocation() {
     const _this = this;
+    this.setData({
+      screenWidth: wx.getSystemInfoSync().windowWidth
+    });
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userLocation']) {
@@ -163,12 +172,6 @@ Page({
       });
       wx.hideLoading()
     });
-  },
-  upper() {
-  
-  },
-  lower() {
-  
   },
   handleSearch(event) {
     const { value } = event.detail;

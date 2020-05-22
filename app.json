@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/serviceRegister/index",
     "pages/login/index",
+    "pages/serviceRegister/index",
     "pages/my/index",
     "pages/loginCheck/index",
     "pages/confirmOrderForm/index",
@@ -19,7 +19,8 @@
     "pages/signUpDetail/index",
     "pages/note/index",
     "pages/userInfo/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/serviceIndex/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -55,6 +56,8 @@
       }
     ]
   },
-  "requiredBackgroundModes": ["location"],
+  "requiredBackgroundModes": [
+    "location"
+  ],
   "sitemapLocation": "sitemap.json"
 }

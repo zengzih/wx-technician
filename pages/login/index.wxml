@@ -1,28 +1,30 @@
-<!--pages/login/index.wxml-->
+<!-- pages/login/index.wxml -->
 <view class="wrapper">
     <v-header back="{{ true }}" title="微信授权登录"></v-header>
-
     <view class="content">
-        <view class="header">
-
-        </view>
+        <view class="header"></view>
         <view class="content">
             <view class="bg">
                 <image src="../../image/icon/log-bgk.png"></image>
             </view>
-
-            <view class="terms-of">
-
-            </view>
+            <view class="terms-of"></view>
         </view>
-
         <view class="footer">
             <view bindtap="handleUser">
-                <button bindgetuserinfo="getUserInfo" class="btn" open-type="getUserInfo" plain lang="zh_CN">我是用户</button>
+                <button bindgetuserinfo="getUserInfo" disabled="{{userType == 1}}" loading='{{ userType == 1 }}' class="btn" open-type="getUserInfo" plain lang="zh_CN">
+                    <!-- <view class="load-box">
+                        <mp-loading type="circle" wx:if='{{ userType == 1 }}' tips=''></mp-loading>
+                    </view> -->
+                    我是用户
+                </button>
             </view>
-
             <view bindtap="handleService">
-                <button bindgetuserinfo="getUserInfo" class="btn" open-type="getUserInfo" lang="zh_CN">我是服务人员</button>
+                <button bindgetuserinfo="getUserInfo" disabled="{{userType == 2}}" loading='{{ userType == 2 }}' class="btn" open-type="getUserInfo" lang="zh_CN">
+                    <!-- <view class="load-box">
+                        <mp-loading type="circle" wx:if='{{ userType == 2 }}' tips=''></mp-loading>
+                    </view> -->
+                    我是服务人员
+                </button>
             </view>
         </view>
     </view>

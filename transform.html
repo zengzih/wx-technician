@@ -12,34 +12,42 @@
   </head>
   <body></body>
   <script>
-    // var lng = '113.88308' //百度经度
-    // var lat = '22.55329' //百度纬度
-    // console.log('百度经度：' + lng)
-    // console.log('百度纬度：' + lat)
+    const params = {
+      userType: ''
+    };
 
-    // var myGeo = new BMap.Geocoder({
-    //   ak: '2.0&ak=n3vSa43bGAijQgzlY1NBstBTtnDVNbRL',
-    // })
-    // var point = new BMap.Point(lng, lat)
+    class Watch {
+      constructor({ data, func = Function }) {
+        debugger
+        this.data = data || app.publicParams;
+        this.callbackFunc = func
+        this.initDetail()
+      }
 
-    // myGeo.getLocation(point, function (rs) {
-    //   var addComp = rs.addressComponents
-    //   var address =
-    //     addComp.province +
-    //     addComp.city +
-    //     addComp.district +
-    //     addComp.street +
-    //     addComp.streetNumber
-    //   console.log('百度地址：' + address)
-    // })
-    function fn() {
-      for (let i = 0; i < 5; i++) {
-        if (i > 2) {
-          return false
+      initDetail() {
+        const { data } = this;
+        if (toString.call(data) == '[object Object]') {
+          for (let key in data) {
+            this.defineProperty(data, key, data[key])
+          }
         }
       }
-      console.log(1)
+
+      defineProperty(obj, key, value) {
+        const self = this;
+        Object.defineProperty(obj, key, {
+          get() {
+            return value
+          },
+          set(val) {
+            if (val !== value) {
+              value = val;
+              self.callbackFunc(key, val)
+            }
+          }
+        });
+      }
     }
-    fn()
+
   </script>
 </html>
