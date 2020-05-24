@@ -66,6 +66,12 @@ Page({
               'formData.avatar': data.url,
             })
           },
+          fail(error) {
+            wx.showToast({
+              icon: 'null',
+              title: '图片上传失败！'
+            })
+          }
         })
       },
     })
