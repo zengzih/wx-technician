@@ -368,7 +368,6 @@ Page({
   },
 
   getCurrentWork(id, url) {
-    debugger;
     const { serviceWorkPhoto } = this.data;
     for (let i = 0; i < serviceWorkPhoto.length; i++) {
       if (id == serviceWorkPhoto[i].id) {

@@ -52,7 +52,6 @@ Component({
   onReady: function () {
   },
   attached: function (options) {
-    debugger;
     this.parsingLocation();
     this.getThemeList();
     this.initWatch()
