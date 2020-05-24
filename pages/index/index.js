@@ -10,14 +10,40 @@ Page({
   onReady: function () {
   },
   onLoad: function (options) {
+    this.getUserInfo()
     this.initWatch()
   },
 
+  getUserInfo() {
+    app.store.dispatch('getUserInfo').then(data=> {
+      console.log(data)
+      let { serviceStatus, utype } = data;
+      serviceStatus = 3
+      if (serviceStatus == 2) {
+        return wx.navigateTo({
+          url: '../loginCheck/index?type=check',
+        })
+      }
+
+      if (serviceStatus == -1) {
+        return wx.navigateTo({
+          url: '../loginCheck/index?type=error',
+        })
+      }
+      debugger;
+      app.publicParams.userType = utype
+      this.setData({ userType: utype })
+    });
+  },
+
   initWatch() {
+    const self = this;
     new Watch({
       func: (key, value)=> {
         if (key == 'userType') {
-          console.log('--------------', key, value)
+          self.setData({
+            userType: value
+          });
         }
       }
     })

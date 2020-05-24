@@ -1,4 +1,4 @@
-<!--component/view-list/index.wxml-->
+<!--component/view-listly/index.wxml-->
 <!-- 首页的list-view  -->
 <view>
   <view style='{{ viewStyle }}' class="view-list" wx:for="{{ data }}" wx:key='{{ item.id }}' data-item="{{ item }}" bindtap="handleViewEvent">

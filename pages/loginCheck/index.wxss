@@ -52,6 +52,27 @@
     color: #6f6f6f;
 }
 
+.footer {
+    height: 140rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.footer view {
+    height: 80rpx;
+    width: 80%;
+    line-height: 80rpx;
+    text-align: center;
+    background: #409EFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
 
 
 

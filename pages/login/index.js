@@ -51,7 +51,7 @@ Page({
            /* wx.navigateBack({
               delta: 1,
             })*/
-            wx.navigateTo({
+            wx.switchTab({
               url: '../index/index'
             })
           })

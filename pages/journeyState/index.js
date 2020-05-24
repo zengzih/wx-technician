@@ -2,6 +2,7 @@
 //获取应用实例
 import request from '../../utils/util.js'
 import * as actions from '../../utils/store.js'
+import { Watch } from '../../utils/watch.js'
 const app = getApp().globalData;
 Page({
   data: {
@@ -24,7 +25,8 @@ Page({
       }],
       color: "#FF0000DD",
       width: 2,
-      dottedLine: true
+      dottedLine: true,
+      userType: 1
     }]
   },
   regionchange(e) {
@@ -40,5 +42,17 @@ Page({
   getCurrentPos() {
     let mpCtx = wx.createMapContext("map");
     mpCtx.moveToLocation();
+  },
+
+  onLoad() {
+    this.getCurrentPos();
+    new Watch({
+      func: (key, value)=> {
+        if (key == 'userType') {
+          this.setData({ userType: value });
+        }
+      }
+    });
+    this.setData({ userType: app.publicParams.userType })
   }
 })

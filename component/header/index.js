@@ -6,7 +6,7 @@ Component({
   properties: {
     title: {
       type: String,
-      value: '易游国旅'
+      value: '好易家'
     },
     back: {
       type: Boolean

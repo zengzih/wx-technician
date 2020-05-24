@@ -239,7 +239,14 @@ Page({
   submitForm() {
     const { formData } = this.data
     app.store.dispatch('serviceRegister', formData).then((res) => {
-      console.log(res)
+      wx.showToast({
+        icon: '',
+        title: res.message
+      })
+      if(/成功/.test(res.message)) {}
+      wx.navigateTo({
+        url: '../page/index/index'
+      });
     })
   },
 

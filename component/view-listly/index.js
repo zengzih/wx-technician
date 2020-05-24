@@ -1,4 +1,4 @@
-// component/view-list/index.js
+// component/view-listly/index.js
 const app = getApp().globalData
 Component({
   /**

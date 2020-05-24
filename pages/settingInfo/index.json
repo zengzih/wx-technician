@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "v-header": "../../component/header/index",
-    "tab-list": "../../component/tab-list/index"
+    "v-header": "../../component/header/index"
   }
 }

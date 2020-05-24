@@ -66,7 +66,7 @@ Page({
             })
         }
         app.store.dispatch('login', formData).then((res) => {
-            const {serviceStatus} = res
+            const { serviceStatus, serviceRollbackRemark } = res
             if (serviceStatus == 0) {
                 // 服务人员需要注册
                 return wx.navigateTo({
@@ -82,14 +82,14 @@ Page({
 
             if (serviceStatus == -1) {
                 return wx.navigateTo({
-                    url: '../loginCheck/index?type=error',
+                    url: '../loginCheck/index?type=error&message=' + serviceRollbackRemark,
                 })
             }
 
             if (res.hasOwnProperty('token')) {
                 wx.setStorageSync('token', res.token)
                 wx.showToast({
-                    icon: 'scuccess',
+                    icon: 'success',
                     title: '登录成功',
                     duration: 500,
                 })

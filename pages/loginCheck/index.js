@@ -13,7 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const { type } = options;
+    let { type, message } = options;
     let { moreText, moreText1 } = this.data;
     if (type == 'check') {
       moreText = '提交成功，请等待工作人员审核';
@@ -21,6 +21,9 @@ Page({
     }
     if (type == 'error') {
       moreText = '您的资料审核失败！';
+      if (message) {
+        moreText1 = message;
+      }
     }
     this.setData({
       moreText,
@@ -31,6 +34,12 @@ Page({
   handleBackHome() {
     wx.switchTab({
       url: '../index/index'
+    });
+  },
+
+  handleUserSwitch() {
+    wx.navigateTo({
+      url: '../login/index'
     });
   },
 

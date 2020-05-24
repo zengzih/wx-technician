@@ -1,4 +1,4 @@
-// pages/serviceOrder/index.js
+// pages/service-order/index.js
 Page({
 
     /**
