@@ -87,7 +87,7 @@
             <view class="group idcard">
                 <view class="label">上传本人身份证</view>
                 <view class="con" bindtap="handleIdCardImage" data-prop="cardTop">
-                    <view class="image-box {{ formData.cardBottom ? 'hide' : 'show' }}">
+                    <view class="image-box {{ formData.cardTop ? 'hide' : 'show' }}">
                         <image src="{{ formData.cardTop }}"></image>
                     </view>
                     <view>点击上传身份证正面</view>
