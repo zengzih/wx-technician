@@ -25,7 +25,7 @@
                         <image src="" alt=""></image>
                         <input type="file" id="file" />
                     </label> -->
-                    <view class="upload-box" bindtap="handleUpload">
+                    <view class="upload-box {{ formData.avatar ? 'hide' : 'show' }}" bindtap="handleUpload">
                         <!-- <label for="upload">
                             <view class="icon">
                                 <i class="iconfont icon-wodefill"></i>
@@ -98,19 +98,27 @@
                     </view>
                     <view>点击上传身份证反面</view>
                 </view>
-                <view class="con" bindtap="handleIdCardImage" data-prop="workImages">
-                    <view class="image-box {{ formData.cardBottom ? 'hide' : 'show' }}">
-                        <image src="{{ formData.workImages }}"></image>
+                <view class="con work" wx:for="{{ serviceWorkPhoto }}" wx:key="{{ item.id }}" data-id="{{ item.id }}" data-prop="workImages">
+                    <view class="del" wx:if="{{ serviceWorkPhoto.length > 1 }}" bindtap="handleDelWork" data-id="{{ item.id }}">
+                        <i class="iconfont icon-guanbi2"></i>
+                    </view>
+                    <view class="image-box {{ item.url ? 'hide' : 'show' }}" bindtap="handleWorkImage" data-id="{{ item.id }}">
+                        <image src="{{ item.url }}"></image>
                     </view>
                     <view>点击上传工作照片</view>
+                </view>
+
+                <view class="add-group" wx:if="{{ serviceWorkPhoto.length < 6 }}">
+                    <text>添加工作照片</text>
+                    <i class="iconfont icon-jiahao" bindtap="handleAddWord"></i>
                 </view>
             </view>
         </view>
         <view class="body" style="display: {{ currentStep == 3 ? 'block' : 'none' }}">
-            <view class="group">
+            <view class="group service">
                 <view class="label">服务项目</view>
-                <view class="con">
-                    <view class="tip" bindtap="handleShowServiceDialog" wx:if="{{ !serviceSelectList.length }}">点击选择服务项目</view>
+                <view class="con" bindtap="handleShowServiceDialog">
+                    <view class="tip" wx:if="{{ !serviceSelectList.length }}">点击选择服务项目</view>
                     <view class="service-list" wx:if="{{ serviceSelectList.length }}">
                         <text wx:for="{{ serviceSelectList }}">{{ item }}</text>
                     </view>
@@ -157,9 +165,9 @@
         </view>
 
         <view class="service-footer">
-            <view class="btn-box">
+            <!--<view class="btn-box">
                 <view bindtap="handleServiceSelectCancel">取消</view>
-            </view>
+            </view>-->
 
             <view class="btn-box">
                 <view bindtap="handleServiceConfirm">确定</view>

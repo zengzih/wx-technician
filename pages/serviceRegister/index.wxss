@@ -58,6 +58,13 @@
     font-size: 26rpx;
 }
 
+.wrapper .content .body .group.service .con {
+    height: auto;
+    min-height: 90rpx;
+    line-height: inherit;
+    font-size: 26rpx;
+}
+
 .wrapper .content .body .group .con.text-box {
     height: auto;
 }
@@ -70,8 +77,6 @@
     box-sizing: border-box;
     border-radius: 4px;
 }
-
-
 
 .wrapper .content .body .group .con.upload {
     color: #ff787e;
@@ -89,7 +94,7 @@
     overflow: hidden;
 }
 
-.wrapper .content .body .group .con.upload .upload-box:before {
+.wrapper .content .body .group .con.upload .upload-box.show:before {
     content: '';
     position: absolute;
     height: 50%;
@@ -100,7 +105,7 @@
     transform: translate(-50%, -50%);
 }
 
-.wrapper .content .body .group .con.upload .upload-box:after {
+.wrapper .content .body .group .con.upload .upload-box.show:after {
     content: '';
     position: absolute;
     width: 50%;
@@ -110,11 +115,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-
-
-
-
 
 
 .wrapper .content .body .group .con.upload .upload-box image {
@@ -163,7 +163,8 @@
     border-radius: 2px;
     height: 30rpx;
     line-height: 30rpx;
-    margin-right: 5rpx;
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
 }
 
 
@@ -194,6 +195,30 @@
     width: 100%;
     height: 100%;
 }
+
+
+/*-----上传工作照片-----*/
+.wrapper .content .body .group.idcard .con.work {
+    padding-top: 30rpx;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-bottom: 30rpx;
+}
+
+.wrapper .content .body .group.idcard .con.work .del {
+    position: absolute;
+    right: -47rpx;
+    top: -50rpx;
+    font-size: 80rpx;
+    color: #ccc;
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.wrapper .content .body .group.idcard .con.work .del i {
+    font-size: 50rpx;
+}
+
 
 .wrapper .content .body .group.certificate .con {
     height: auto;
@@ -431,7 +456,7 @@
 }
 
 .service-tree .service-footer .btn-box {
-    width: 50%;
+    width: 100%;
     height: 80rpx;
     float: left;
     position: relative;

@@ -7,7 +7,7 @@ Page({
   data: {
     region: [],
     headUrl: '',
-    currentStep: 3,
+    currentStep: 1,
     professionsList: [],
     formData: {
       openId: '',
@@ -30,7 +30,9 @@ Page({
     serviceDetail: [],
     serviceSelectIds: {},
     serviceSelectList: [],
-    serviceDialog: false
+    serviceDialog: false,
+
+    serviceWorkPhoto: []
   },
 
   /*
@@ -96,6 +98,10 @@ Page({
               resolve(data)
             },
             reject(err) {
+              wx.showToast({
+                icon: 'none',
+                title: '图片上传失败'
+              })
               reject(err)
             },
           })
@@ -144,9 +150,21 @@ Page({
     })
   },
 
+  handleCheckWorkPhoto() {
+    const { serviceWorkPhoto } = this.data;
+    const result = [];
+    serviceWorkPhoto.forEach(elt=> {
+      if (elt.url) {
+        result.push(elt.url)
+      }
+    });
+    return result;
+  },
+
   handleSubmit() {
     // 提交表单
     const { currentStep } = this.data
+    let workPhotoImage = []
     if (currentStep == 1) {
       this.setData({
         'formData.districtsId': this.data.region.join(','),
@@ -170,32 +188,44 @@ Page({
         { label: '身份证正面', prop: 'cardTop' },
         { label: '身份证反面', prop: 'cardBottom' },
       ]
+      workPhotoImage = this.handleCheckWorkPhoto();
+      if (!workPhotoImage.length) {
+        return wx.showToast({
+          icon: 'none',
+          title: '工作照片未上传',
+        })
+      }
       if (this.formDataValidate(verify)) {
         this.setData({ currentStep: 3 })
       }
     }
 
     if (currentStep == 3) {
-      const { professionsList, formData } = this.data
-      let bool = true
+      const { professionsList, formData, serviceSelectIds } = this.data
+      if (JSON.stringify(serviceSelectIds) === '{}') {
+        return wx.showToast({
+          icon: 'none',
+          title: '服务项目未选择！',
+        })
+      }
       for (let i = 0; i < professionsList.length; i++) {
         const professions = professionsList[i]
         if (professions['professionImage'] && !professions['professionName']) {
-          wx.showToast({
+          return wx.showToast({
             icon: 'none',
             title: '第' + i + '个资料证书中缺少证书描述！',
           })
-          return
         }
         if (!professions['professionImage'] && professions['professionName']) {
-          wx.showToast({
+          return wx.showToast({
             icon: 'none',
             title: professions['professionName'] + '中缺少证书图片！',
           })
-          return
         }
       }
-      formData['professionsStr'] = JSON.stringify(professionsList)
+      formData['classifyIds'] = Object.keys(serviceSelectIds).join(',');
+      formData['professionsStr'] = JSON.stringify(professionsList);
+      formData['workImages'] = this.handleCheckWorkPhoto().join(',')
       this.submitForm()
     }
   },
@@ -249,6 +279,11 @@ Page({
       this.setData({
         serviceList: data
       });
+      let firstChild = {};
+      if (data.length) {
+        firstChild = data[0]
+      }
+      this.getServiceDetail(firstChild);
     });
   },
 
@@ -259,6 +294,7 @@ Page({
       serviceIndex: index
     });
   },
+
   getServiceDetail(item) {
     const { serviceList } = this.data;
     for (let i = 0; i < serviceList.length; i++) {
@@ -302,20 +338,52 @@ Page({
     this.setData({ serviceDialog: true });
   },
 
-  // 取消
-  handleServiceSelectCancel() {
-    this.setData({
-      serviceSelectIds: {},
-      serviceDialog: false
-    });
-  },
-
   handleServiceConfirm() {
     this.setData({
       serviceDialog: false
     });
   },
 
+  handleAddWord() {
+    const { serviceWorkPhoto } = this.data;
+    serviceWorkPhoto.push({
+      url: '',
+      id: new Date().getTime()
+    })
+    this.setData({ serviceWorkPhoto });
+  },
+
+  handleDelWork(event) {
+    const { id } = event.currentTarget.dataset;
+    const { serviceWorkPhoto } = this.data;
+    for (let i = 0; i < serviceWorkPhoto.length; i++) {
+      if (serviceWorkPhoto[i].id == id) {
+        serviceWorkPhoto.splice(i, 1)
+        break;
+      }
+    }
+    this.setData({
+      serviceWorkPhoto
+    });
+  },
+
+  getCurrentWork(id, url) {
+    debugger;
+    const { serviceWorkPhoto } = this.data;
+    for (let i = 0; i < serviceWorkPhoto.length; i++) {
+      if (id == serviceWorkPhoto[i].id) {
+        serviceWorkPhoto[i].url = url
+      }
+    }
+    return serviceWorkPhoto;
+  },
+
+  handleWorkImage(event) {
+    const { id } = event.currentTarget.dataset;
+    this.publicUploadImage().then((data) => {
+      this.setData({ serviceWorkPhoto: this.getCurrentWork(id, data.url) })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -325,7 +393,8 @@ Page({
       'formData.openId': openId,
       'formData.mobile': mobile,
     })
-    this.handleAdd()
+    this.handleAdd();
+    this.handleAddWord();
     this.getClassifyTree();
   },
 
