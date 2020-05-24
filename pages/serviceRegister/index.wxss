@@ -152,14 +152,18 @@
     height: 30rpx;
 }
 
+.wrapper .content .body .group .con .tip {
+    color: #e5e5e5;
+}
 
 .wrapper .content .body .group .con .service-list>text{
     display: inline-block;
-    padding: 12rpx;
+    padding: 10rpx;
     background: #EBEEF5;
     border-radius: 2px;
     height: 30rpx;
     line-height: 30rpx;
+    margin-right: 5rpx;
 }
 
 
@@ -447,11 +451,11 @@
     transform: translate(-50%, -50%);
 }
 
-.service-tree .service-footer .btn-box  view:first-child {
+.service-tree .service-footer .btn-box:first-child  view {
     background: #909399;
 }
 
-.service-tree .service-footer .btn-box  view:last-child {
+.service-tree .service-footer .btn-box:last-child  view {
     background: #fe4e7d;
 }
 

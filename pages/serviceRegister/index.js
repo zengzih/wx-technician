@@ -19,12 +19,11 @@ Page({
       address: '',
       remark: '',
       workImages: '',
-      classifyIds: '100,101',
+      classifyIds: '',
       realName: '',
       cardNum: '',
       cardTop: '',
-      cardBottom: '',
-      professions: '',
+      cardBottom: ''
     },
     serviceList: [],
     serviceIndex: 0,
@@ -273,7 +272,8 @@ Page({
 
   // 注册选择服务项目
   handleServicePanelEvent(event) {
-    const { id, item } = event.currentTarget.dataset.item;
+    const { item } = event.currentTarget.dataset;
+    const { id } = item;
     const { serviceSelectIds } = this.data;
     serviceSelectIds[id] = !serviceSelectIds[id];
     this.setServiceSelectList(serviceSelectIds[id], item)
@@ -298,14 +298,22 @@ Page({
     this.setData({ serviceSelectList });
   },
 
+  handleShowServiceDialog() {
+    this.setData({ serviceDialog: true });
+  },
+
   // 取消
   handleServiceSelectCancel() {
     this.setData({
-      serviceSelectIds: {}
+      serviceSelectIds: {},
+      serviceDialog: false
     });
   },
 
   handleServiceConfirm() {
+    this.setData({
+      serviceDialog: false
+    });
   },
 
   /**

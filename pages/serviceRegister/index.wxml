@@ -110,9 +110,9 @@
             <view class="group">
                 <view class="label">服务项目</view>
                 <view class="con">
-                    <!--<view class="tip">点击选择服务项目</view>-->
-                    <view class="service-list">
-                        <text wx:wx:for="{{ serviceSelectList }}">{{ item }}</text>
+                    <view class="tip" bindtap="handleShowServiceDialog" wx:if="{{ !serviceSelectList.length }}">点击选择服务项目</view>
+                    <view class="service-list" wx:if="{{ serviceSelectList.length }}">
+                        <text wx:for="{{ serviceSelectList }}">{{ item }}</text>
                     </view>
                     <!--<input type="text" bindinput="handleInputEvent" data-prop="classifyIds" value="{{ formData.classifyIds }}" placeholder="请输入您的真实姓名" />-->
                 </view>
