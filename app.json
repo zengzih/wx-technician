@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/login/index",
     "pages/serviceRegister/index",
+    "pages/login/index",
     "pages/my/index",
+    "pages/serviceOrder/index",
     "pages/loginCheck/index",
     "pages/confirmOrderForm/index",
     "pages/orderDetail/index",
@@ -21,6 +22,7 @@
     "pages/userInfo/index",
     "pages/logs/logs",
     "pages/serviceIndex/index"
+
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -138,4 +138,19 @@
         <view class="btn" bindtap="handlePrev">上一步</view>
         <view class="btn" bindtap='handleSubmit'>{{ currentStep == 3 ? '提交' : '下一步' }}</view>
     </view>
+
+    <!--  选择服务项目 -->
+    <view class="service-tree">
+        <view class="mask"></view>
+        <view class="service-content">
+            <view class="left-bar">
+                <view class="panel {{ serviceIndex == index ? 'active' : '' }}" bindtap="handlePanelEvent" data-item="{{ item }}" data-index="{{ index }}" wx:for="{{ serviceList }}" wx:key="{{ item.id }}">{{ item.name }}</view>
+            </view>
+            <view class="right-content">
+                <view class="panel-box" wx:for="{{ serviceDetail }}" wx:key="{{ item.id }}">
+                    <view class="panel">{{ item.name }}</view>
+                </view>
+            </view>
+        </view>
+    </view>
 </view>

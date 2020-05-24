@@ -61,7 +61,7 @@ export const global = {
 const requestFields = {}
 
 // export const location = 'http://120.77.34.52:8081/rdxx-travel/travel/'
-export const location = 'http://hello.dute7liang.com:8080/'
+export const location = 'http://8.129.186.208/'
 // const sysLocation = 'http://120.77.34.52:8081/rdxx-travel/'
 const sysLocation = 'https://www.scf4.online/rdxx-travel/'
 const requestUrl = {
@@ -69,6 +69,7 @@ const requestUrl = {
     list: 'list',
     week_tab: 'weekTab',
     getTimeShow: 'getTimeShow',
+    classifyTree: 'classifyTree'
   },
   login: {
     wx: 'wx',

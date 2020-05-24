@@ -1,2 +1,12 @@
 <!--component/service-index/index.wxml-->
-<text>component/service-index/index.wxml</text>
+<view class="wrapper">
+    <view class="head">
+        <image src="../../image/service.png"></image>
+    </view>
+
+    <view class="content">
+        <view class="empty">
+            <image src="../../image/service-bg.png"></image>
+        </view>
+    </view>
+</view>

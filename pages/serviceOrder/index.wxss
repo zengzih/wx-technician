@@ -1,0 +1,35 @@
+/* pages/serviceOrder/index.wxss */
+.wrapper .tabs {
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    text-align: center;
+    background: #fff;
+    font-size: 28rpx;
+}
+
+.wrapper .tabs .tab {
+    flex: 2;
+    position: relative;
+}
+
+.wrapper .tabs .tab.active:after {
+    content: '';
+    width: 80%;
+    height: 6rpx;
+    background: #f4655f;
+    position: absolute;
+    bottom: 10rpx;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wrapper .content .empty {
+    width: 100%;
+    height: 120rpx;
+    line-height: 120rpx;
+    font-size: 28rpx;
+    color: #9f9f9f;
+    text-align: center;
+}
+

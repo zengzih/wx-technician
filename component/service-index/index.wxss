@@ -1,1 +1,37 @@
 /* component/service-index/index.wxss */
+.wrapper {
+
+}
+
+.wrapper .head {
+    height: 386rpx;
+    width: 100%;
+    overflow: hidden;
+}
+.wrapper .head image {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .content {
+}
+
+.wrapper .content .empty {
+    height: 460rpx;
+    width: 100%;
+    margin-top: 100rpx;
+    overflow: hidden;
+}
+
+.wrapper .content .empty image {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+

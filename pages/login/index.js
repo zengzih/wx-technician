@@ -23,7 +23,6 @@ Page({
   getUserInfo(res) {
     const { detail } = res
     const { userType } = this.data
-    return;
     const _this = this
     wx.login({
       success(res) {
@@ -42,15 +41,18 @@ Page({
             if (!data.hasOwnProperty('token')) {
               return wx.navigateTo({
                 url: '../loginMobile/index?code=' + code + '&userType=' + userType + '&openId=' + data.openId,
-              })
+              });
             }
             const { token, sessionKey, uid } = data
             wx.setStorageSync('token', token)
             wx.setStorageSync('uid', uid)
             wx.setStorageSync('sessionKey', sessionKey)
             _this.setTabBar(userType)
-            wx.navigateBack({
+           /* wx.navigateBack({
               delta: 1,
+            })*/
+            wx.navigateTo({
+              url: '../index/index'
             })
           })
       },

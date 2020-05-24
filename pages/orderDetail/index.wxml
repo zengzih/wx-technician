@@ -83,7 +83,7 @@
     </view>
 
     <view class="footer">
-        <view class="total-price" wx:if="isSignIn">待支付<text>{{ formData.vipPrice }}元</text></view>
+        <view class="total-price" wx:if="{{ isSignIn }}">待支付<text>{{ formData.vipPrice }}元</text></view>
         <view class="btn" bindtap="handleDetailSubmit">立即购买</view>
     </view>
 

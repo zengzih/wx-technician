@@ -26,6 +26,9 @@ Page({
       cardBottom: '',
       professions: '',
     },
+    serviceList: [],
+    serviceIndex: 0,
+    serviceDetail: []
   },
 
   /*
@@ -239,6 +242,34 @@ Page({
     })
   },
 
+  getClassifyTree() {
+    app.store.dispatch('getClassifyTree').then(data=> {
+      this.setData({
+        serviceList: data
+      });
+    });
+  },
+
+  handlePanelEvent(event) {
+    const { item, index } = event.currentTarget.dataset;
+    this.getServiceDetail(item);
+    this.setData({
+      serviceIndex: index
+    });
+  },
+  getServiceDetail(item) {
+    const { serviceList } = this.data;
+    for (let i = 0; i < serviceList.length; i++) {
+      debugger;
+      if (item.id == serviceList[i].id) {
+        return this.setData({
+          serviceDetail: serviceList[i].child
+        });
+      }
+    }
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -249,6 +280,7 @@ Page({
       'formData.mobile': mobile,
     })
     this.handleAdd()
+    this.getClassifyTree();
   },
 
   /**

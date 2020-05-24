@@ -1,6 +1,6 @@
 // pages/themeList/index.js
 const app = getApp().globalData
-Page({
+Component({
   data: {
     back: true,
     tabs: [],

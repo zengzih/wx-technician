@@ -1,0 +1,15 @@
+<!--pages/serviceOrder/index.wxml-->
+<view class="wrapper">
+    <v-header title="订单" back></v-header>
+    <view class="tabs">
+        <view class="tab {{ index == activeIndex ? 'active' : '' }}"
+              bindtap="handleTabEvent"
+              data-tab="{{ item }}"
+              data-index='{{ index }}'
+              wx:for="{{ tabs }}"
+              wx:key="{{ item.prop }}">{{ item.label }}</view>
+    </view>
+    <view class="content">
+        <view class="empty">没有更多数据了</view>
+    </view>
+</view>

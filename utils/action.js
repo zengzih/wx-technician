@@ -48,3 +48,5 @@ export const submitOrderReady = (data = {}) => request.post('ready', data)
 export const uploadImage = (data = {}) => request.post('upload_image', data)
 
 export const serviceRegister = (data = {}) => request.post('register', data)
+
+export const getClassifyTree = (data= {})=> request.post('classifyTree', data)

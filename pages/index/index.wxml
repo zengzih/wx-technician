@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
         <v-header></v-header>
-        <person-index></person-index>
+        <person-index wx:if="{{ userType == 1 }}"></person-index>
+        <service-index wx:if="{{ userType == 2 }}"></service-index>
 </view>
