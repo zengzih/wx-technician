@@ -140,7 +140,7 @@
     </view>
 
     <!--  选择服务项目 -->
-    <view class="service-tree">
+    <!--<view class="service-tree">
         <view class="mask"></view>
         <view class="service-content">
             <view class="left-bar">
@@ -152,5 +152,5 @@
                 </view>
             </view>
         </view>
-    </view>
+    </view>-->
 </view>
