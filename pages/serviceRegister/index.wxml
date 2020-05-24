@@ -110,7 +110,11 @@
             <view class="group">
                 <view class="label">服务项目</view>
                 <view class="con">
-                    <input type="text" bindinput="handleInputEvent" data-prop="classifyIds" value="{{ formData.classifyIds }}" placeholder="请输入您的真实姓名" />
+                    <!--<view class="tip">点击选择服务项目</view>-->
+                    <view class="service-list">
+                        <text wx:wx:for="{{ serviceSelectList }}">{{ item }}</text>
+                    </view>
+                    <!--<input type="text" bindinput="handleInputEvent" data-prop="classifyIds" value="{{ formData.classifyIds }}" placeholder="请输入您的真实姓名" />-->
                 </view>
             </view>
             <view class="group">
@@ -140,17 +144,26 @@
     </view>
 
     <!--  选择服务项目 -->
-    <!--<view class="service-tree">
-        <view class="mask"></view>
+    <view class="service-tree" wx:if="{{ serviceDialog }}">
         <view class="service-content">
             <view class="left-bar">
                 <view class="panel {{ serviceIndex == index ? 'active' : '' }}" bindtap="handlePanelEvent" data-item="{{ item }}" data-index="{{ index }}" wx:for="{{ serviceList }}" wx:key="{{ item.id }}">{{ item.name }}</view>
             </view>
             <view class="right-content">
-                <view class="panel-box" wx:for="{{ serviceDetail }}" wx:key="{{ item.id }}">
-                    <view class="panel">{{ item.name }}</view>
+                <view class="panel-box" wx:for="{{ serviceDetail }}" bindtap="handleServicePanelEvent" data-item="{{ item }}" wx:key="{{ item.id }}">
+                    <view class="panel {{ serviceSelectIds[item.id] ? 'active' : '' }}">{{ item.name }}</view>
                 </view>
             </view>
         </view>
-    </view>-->
+
+        <view class="service-footer">
+            <view class="btn-box">
+                <view bindtap="handleServiceSelectCancel">取消</view>
+            </view>
+
+            <view class="btn-box">
+                <view bindtap="handleServiceConfirm">确定</view>
+            </view>
+        </view>
+    </view>
 </view>

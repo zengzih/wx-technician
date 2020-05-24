@@ -150,8 +150,19 @@
 .wrapper .content .body .group .con radio {
     margin-right: 100rpx;
     height: 30rpx;
-
 }
+
+
+.wrapper .content .body .group .con .service-list>text{
+    display: inline-block;
+    padding: 12rpx;
+    background: #EBEEF5;
+    border-radius: 2px;
+    height: 30rpx;
+    line-height: 30rpx;
+}
+
+
 
 .wrapper .content .body .group.idcard {
     margin-bottom: 120rpx;
@@ -343,7 +354,7 @@
 }
 
 .service-tree .service-content {
-    height: 100%;
+    height: calc(100% - 100rpx);
     width: 100%;
     position: relative;
     z-index: 2;
@@ -353,7 +364,7 @@
 .service-tree .service-content .left-bar {
     width: 160rpx;
     height: 100%;
-    border-right: 1px solid red;
+    border-right: 1px solid #EBEEF5;
     box-sizing: border-box;
     float: left;
 }
@@ -371,15 +382,29 @@
     float: left;
     box-sizing: border-box;
     font-size: 24rpx;
+    margin-bottom: 20rpx;
 }
 
 .service-tree .service-content .right-content .panel-box .panel {
-    width: 98%;
+    width: 90%;
     height: 100%;
     border-radius: 4rpx;
     background: #EBEEF5;
-    padding: 20rpx 0;
+    padding: 20rpx 5rpx;
     box-sizing: border-box;
+    font-size: 22rpx;
+    text-align: center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    transition: all 0.1s linear;
+}
+
+.service-tree .service-content .right-content .panel-box .panel.active {
+    color: #fe4e7d;
+    border: 1px solid #fe4e7d;
 }
 
 .service-tree .service-content .left-bar .panel {
@@ -395,7 +420,40 @@
     border-radius: 4px;
 }
 
+.service-tree .service-footer {
+    height: 100rpx;
+    border-top: 1px solid #DCDFE6;
+    background: #fff;
+}
 
+.service-tree .service-footer .btn-box {
+    width: 50%;
+    height: 80rpx;
+    float: left;
+    position: relative;
+    top: 10rpx;
+}
+
+.service-tree .service-footer .btn-box  view {
+    width: 90%;
+    text-align: center;
+    height: 100%;
+    line-height: 80rpx;
+    border-radius: 4px;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.service-tree .service-footer .btn-box  view:first-child {
+    background: #909399;
+}
+
+.service-tree .service-footer .btn-box  view:last-child {
+    background: #fe4e7d;
+}
 
 
 

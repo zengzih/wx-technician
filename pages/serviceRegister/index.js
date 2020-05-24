@@ -19,7 +19,7 @@ Page({
       address: '',
       remark: '',
       workImages: '',
-      classifyIds: '',
+      classifyIds: '100,101',
       realName: '',
       cardNum: '',
       cardTop: '',
@@ -28,7 +28,10 @@ Page({
     },
     serviceList: [],
     serviceIndex: 0,
-    serviceDetail: []
+    serviceDetail: [],
+    serviceSelectIds: {},
+    serviceSelectList: [],
+    serviceDialog: false
   },
 
   /*
@@ -193,7 +196,7 @@ Page({
           return
         }
       }
-      formData['professions'] = professionsList
+      formData['professionsStr'] = JSON.stringify(professionsList)
       this.submitForm()
     }
   },
@@ -260,7 +263,6 @@ Page({
   getServiceDetail(item) {
     const { serviceList } = this.data;
     for (let i = 0; i < serviceList.length; i++) {
-      debugger;
       if (item.id == serviceList[i].id) {
         return this.setData({
           serviceDetail: serviceList[i].child
@@ -269,6 +271,42 @@ Page({
     }
   },
 
+  // 注册选择服务项目
+  handleServicePanelEvent(event) {
+    const { id, item } = event.currentTarget.dataset.item;
+    const { serviceSelectIds } = this.data;
+    serviceSelectIds[id] = !serviceSelectIds[id];
+    this.setServiceSelectList(serviceSelectIds[id], item)
+    if (serviceSelectIds[id]) {}
+    this.setData({
+      serviceSelectIds
+    });
+  },
+
+  setServiceSelectList(bool, item) {
+    const { serviceSelectList } = this.data;
+    for (let i = 0; i < serviceSelectList.length; i++) {
+      const name = serviceSelectList[i]
+      if (name == item.name) {
+        if (!bool) {
+          serviceSelectList.splice(i, 1);
+          i--
+        }
+      }
+    }
+    serviceSelectList.push(item.name);
+    this.setData({ serviceSelectList });
+  },
+
+  // 取消
+  handleServiceSelectCancel() {
+    this.setData({
+      serviceSelectIds: {}
+    });
+  },
+
+  handleServiceConfirm() {
+  },
 
   /**
    * 生命周期函数--监听页面加载
