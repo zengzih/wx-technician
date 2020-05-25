@@ -2,12 +2,24 @@
 <view class="wrapper">
     <v-header back="{{back}}" title="确认订单"></v-header>
     <view class="content">
+        <view class="address-content">
+            <view class="group address" bindtap="handleAddAddress">
+                <view class="phone-name">
+                    <text class="name">冷月</text>
+                    <text class="phone">186500000000</text>
+                    <i class="iconfont icon-fankui"></i>
+                </view>
+                <view class="address">南航明珠花园</view>
+            </view>
+        </view>
+
         <view class="groups">
-            <view class="group address" bindtap="getLocation">
+           <!-- <view class="group address" bindtap="getLocation">
                 <text>{{ location.text }}</text>
                 <i class="iconfont icon-xiangyou1"></i>
-            </view>
-            <view class="group">
+            </view>-->
+
+           <!-- <view class="group">
                 <input type="text" bindinput="handleInput" data-prop="clientAddress" value="{{ submitFormData.clientAddress }}" placeholder="详细地址"/>
             </view>
             <view class="group">
@@ -15,7 +27,7 @@
             </view>
             <view class="group">
                 <input type="text" bindinput="handleInput" data-prop="clientPhone" value="{{ submitFormData.clientPhone }}" placeholder="联系电话"/>
-            </view>
+            </view>-->
             <view class="group fw">
                 <text class="label">服务时间</text>
                 <text class="value">{{ submitFormData.serviceTime }}  {{ classifyInfo.date }}</text>
@@ -53,7 +65,7 @@
 
             <view class="group">
                 <text class="label">服务金额</text>
-                <text class="value">{{ submitFormData.payPrice }}</text>
+                <text class="value">￥{{ submitFormData.payPrice }}</text>
             </view>
 
            <!-- <view class="group">

@@ -1,0 +1,41 @@
+/* pages/manageAddress/index.wxss */
+.wrapper {
+    background: #f8f8f8;
+}
+
+.wrapper .content {
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .content .address-content {
+    margin-top: 20rpx;
+    padding: 20rpx;
+    background: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 20rpx;
+}
+
+.wrapper .content .address-content {
+    font-size: 28rpx;
+}
+
+.wrapper .content .address-content .name, .wrapper .content .address-content .phone {
+    color: #000;
+}
+.wrapper .content .address-content .phone {
+    margin-left: 20rpx;
+}
+
+.wrapper .content .address-content i {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    color: gray;
+}
+
+.wrapper .content .address-content .address {
+    color: #606266;
+}

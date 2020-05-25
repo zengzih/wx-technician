@@ -1,13 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/manageAddress/index",
+    "pages/addAddress/index",
+    "pages/confirmOrderForm/index",
+    "pages/orderDetail/index",
     "pages/loginCheck/index",
     "pages/serviceRegister/index",
     "pages/login/index",
     "pages/my/index",
     "pages/serviceOrder/index",
-    "pages/confirmOrderForm/index",
-    "pages/orderDetail/index",
     "pages/loginMobile/index",
     "pages/themeList/index",
     "pages/settingInfo/index",
@@ -22,7 +24,6 @@
     "pages/userInfo/index",
     "pages/logs/logs",
     "pages/serviceIndex/index"
-
   ],
   "window": {
     "backgroundTextStyle": "dark",

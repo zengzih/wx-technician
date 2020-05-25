@@ -50,3 +50,13 @@ export const uploadImage = (data = {}) => request.post('upload_image', data)
 export const serviceRegister = (data = {}) => request.post('register', data)
 
 export const getClassifyTree = (data= {})=> request.post('classifyTree', data)
+
+export const addAddress = (data= {})=> request.post('addr_add', data, { all: true })
+
+export const getAddressList = (data= {})=> request.post('addr_list', data)
+
+export const editAddress = (data= {})=> request.post('addr_edit', data, { all: true })
+
+export const getAddressDetail = (data= {})=> request.post('addr_detail', data)
+
+export const deleteAddress = (data= {})=> request.post('addr_delete', data, { all: true })

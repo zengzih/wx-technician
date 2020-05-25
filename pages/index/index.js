@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 import request from '../../utils/util'
-import { Watch } from '../../utils/watch.js'
+import { Watch, getLocation } from '../../utils/watch.js'
 const app = getApp().globalData;
 Page({
   data: {
@@ -12,6 +12,7 @@ Page({
   onLoad: function (options) {
     this.getUserInfo()
     this.initWatch()
+    getLocation()
   },
 
   getUserInfo() {
@@ -30,7 +31,6 @@ Page({
           url: '../loginCheck/index?type=error',
         })
       }
-      debugger;
       app.publicParams.userType = utype
       this.setData({ userType: utype })
     });

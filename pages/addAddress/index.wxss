@@ -1,0 +1,103 @@
+/* pages/addAddress/index.wxss */
+.wrapper {
+
+}
+
+.wrapper .content {
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .content .body {
+    background: #fff;
+    border-radius: 4px;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .content .body .group {
+    height: 100rpx;
+    width: 100%;
+    position: relative;
+    border-bottom: 1px solid #f2f2f2;
+    line-height: 100rpx;
+}
+
+.wrapper .content .body .group .label,
+.wrapper .content .body .group .con {
+    float: left;
+    height: 100%;
+    font-size: 28rpx;
+}
+
+.wrapper .content .body .group .label {
+    width: 120rpx;
+}
+
+.wrapper .content .body .group .con {
+    width: calc(100% - 120rpx);
+    position: relative;
+}
+
+
+.wrapper .content .body .group .con input {
+    height: 38rpx;
+    width: 100%;
+    line-height: 38rpx;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.wrapper .content .body .group.address .con {
+}
+
+
+.wrapper .content .body .group.address .con .adr {
+    width: calc(100% - 80rpx);
+}
+
+.wrapper .content .body .group.address .con .adr text{
+    float: right;
+    color: #d2d2d2;
+}
+
+.wrapper .content .body .group.address .con .select {
+    width: 70rpx;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.wrapper .content .body .group.address .con .select i {
+    font-size: 35rpx;
+}
+
+.wrapper .content .set-default-address {
+    text-align: center;
+    margin-top: 40rpx;
+}
+
+.wrapper .content .set-default-address radio {
+    font-size: 28rpx;
+    display: inline-block;
+    height: 35rpx;
+}
+
+.wrapper .content .footer {
+    margin-top: 50rpx;
+}
+
+.wrapper .content .footer button {
+    height: 88rpx;
+    line-height: 88rpx;
+    width: 95%;
+    background: #608efe;
+    color: #fff;
+    font-size: 28rpx;
+}
+
+

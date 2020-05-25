@@ -1,4 +1,5 @@
 // pages/orderDetail/index.js
+import { getLocation } from '../../utils/watch';
 const app = getApp().globalData;
 Page({
 
@@ -48,7 +49,8 @@ Page({
       clientPhone: '',
       clientRemark: '2222',
       classifyId: '',
-      classifyNum: 1
+      classifyNum: 1,
+      yearMonth: ''
     }
   },
   
@@ -102,11 +104,37 @@ Page({
     submitFormData.realPrice = formData.price;
     submitFormData.vipDiscount = formData.vipDiscount;
     submitFormData.payPrice = formData.vipPrice;
+    submitFormData.workTime = formData.workTime;
     wx.setStorageSync('submitFormData', submitFormData);
     wx.setStorageSync('classifyInfo', classifyInfo);
-    wx.navigateTo({
-      url: '../confirmOrderForm/index?id=' + projectId
-    });
+    /*
+    * userAddrId: 用户地址
+    * classifyId: 商品id
+    * classifyNum： 购买数量
+    * serviceId：服务人员id
+    * workTime：服务事件
+    * */
+    const form = { userAddrId: '', classifyId: '', classifyNum: '', serviceId: '', serviceTime: '' }
+    for (let key in form) {
+      if (submitFormData.hasOwnProperty(key)) {
+        form[key] = submitFormData[key]
+      }
+    }
+    const { yearMonth, classifyDict } = this.data;
+    form.serviceTime = yearMonth + ' ' + classifyDict.date;
+    app.store.dispatch('submitOrderReady', form).then(res=> {
+      if (res.code == 200) {
+        wx.setStorageSync('orderFormInfo', res.data);
+        return wx.navigateTo({
+         url: '../confirmOrderForm/index?id=' + projectId
+       });
+      }
+      wx.showToast({
+        icon: 'none',
+        title: res.message
+      })
+    })
+
   },
 
   /**
@@ -114,16 +142,16 @@ Page({
    */
   onLoad: function (options) {
     let { id } = options;
+    id = 100;
     const token = wx.getStorageSync('token');
     this.setData({
       isSignIn: token ? true : false,
       projectId: id,
       'classifyDict.classifyId': id
     });
-    this.getLocation();
+    getLocation()
     this.init(id);
     this.getDetail();
-    // this.getServiceList();
     this.getWeekList();
     this.getWeekTap();
   },
@@ -135,8 +163,7 @@ Page({
       classifyActiveIndex: index
     });
   },
-  
-  
+
   // 具体时间的点击事件
   handleTimeClick(event) {
     const { index } = event.currentTarget.dataset;
@@ -155,6 +182,7 @@ Page({
     classifyDict.weekDay = weeks[index].weekDay;
     this.setData({
       month: weeks[index].monthDay,
+      yearMonth: weeks[index].date,
       weekActiveIndex: index
     });
     classifyDict.date = '';
@@ -213,20 +241,6 @@ Page({
     app.store.dispatch('getWeekList').then(res=> {
       console.log(res)
     });
-  },
-  
-  // 获取当前的位置
-  getLocation() {
-    wx.getLocation({
-      type: 'wgs84',
-      success (res) {
-        console.log(res)
-        const latitude = res.latitude // 纬度
-        const longitude = res.longitude // 经度
-        const speed = res.speed
-        const accuracy = res.accuracy
-      }
-    })
   },
   
   init(id) {

@@ -1,7 +1,7 @@
 /* pages/confirmOrderForm/index.wxss */
 .wrapper {
     height: 100%;
-    background: #fff;
+    background: #E4E7ED;
 }
 
 .wrapper .content {
@@ -10,8 +10,46 @@
     box-sizing: border-box;
 }
 
-.wrapper .content .groups {
+.wrapper .content .address-content {
+}
 
+.wrapper .content .address-content {
+    margin-top: 20rpx;
+    padding: 20rpx;
+    background: #F2F6FC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.wrapper .content .address-content {
+    font-size: 28rpx;
+}
+
+.wrapper .content .address-content .name, .wrapper .content .address-content .phone {
+    color: #000;
+}
+.wrapper .content .address-content .phone {
+    margin-left: 20rpx;
+}
+
+.wrapper .content .address-content i {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    color: gray;
+}
+
+.wrapper .content .address-content .address {
+    color: #606266;
+}
+
+.wrapper .content .groups {
+    background: #fff;
+    padding: 20rpx;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-top: 20rpx;
 }
 
 .wrapper .content .groups .group {
@@ -30,12 +68,8 @@
     float: right;
 }
 
-.wrapper .content .groups .group.address i {
-    position: absolute;
-    right: 0%;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #eeeeee;
+.wrapper .content .groups .group.address {
+
 }
 
 .wrapper .content .groups .group.project-info {

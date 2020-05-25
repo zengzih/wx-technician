@@ -110,29 +110,10 @@ Page({
     }
     return true;
   },
-  
-  getLocation() {
-    const _this = this;
-    wx.getLocation({
-      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success (res) {
-        const latitude = res.latitude;
-        const longitude = res.longitude;
-        wx.chooseLocation({
-          latitude,
-          longitude,
-          success(res) {
-            const { location } = _this.data;
-            location.text = res.address;
-            location.lng = res.longitude;
-            location.lat = res.latitude;
-            _this.setData({
-              location
-            });
-          }
-        });
-      }
-    })
+
+  handleAddAddress() {
+    // 添加地址页面
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

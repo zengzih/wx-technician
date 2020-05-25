@@ -76,6 +76,11 @@ const requestUrl = {
   },
   user: {
     info: 'info',
+    addr_add: 'addr/add',
+    addr_list: 'addr/list',
+    addr_detail: 'addr/detail',
+    addr_edit: 'addr/edit',
+    addr_delete: 'addr/delete',
   },
   theme: {
     preview: 'preview',
