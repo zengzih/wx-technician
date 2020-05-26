@@ -25,16 +25,54 @@ Page({
       classifyNum: ''
     },
     classifyInfo: {},
-    productDetail: {}
+    productDetail: {},
+
   },
 
   /**
    * 生命周期函数--监听页面加载
+   * address: "广东省深圳市宝安区创业一路"
+     defaultStatus: 1
+     id: 10
+     name: "周星星"
+     phone: "18400000000"
+     remark: "机场东"
+   *
    */
   onLoad: function (options) {
-    const { id } = options;
     this.init();
+    this.init_member_address(options)
     this.getProductInfo();
+  },
+
+  init_member_address(options) {
+    const { id, clientName, clientPhone, clientAddress, clientRemark } = options;
+    if (clientName && clientPhone && clientAddress && clientRemark) {
+      this.setData({
+        'submitFormData.clientName': clientName,
+        'submitFormData.clientPhone': clientPhone,
+        'submitFormData.clientAddress': clientAddress,
+        'submitFormData.clientRemark': clientRemark,
+      });
+    }
+  },
+
+  getDefaultAddress() {
+    app.store.dispatch('getAddressList').then(data=> {
+      const { records } = data;
+      if (records.length) {
+        records.forEach(elt=> {
+          if (elt.defaultStatus) {
+            this.setData({
+              'submitFormData.clientName': elt.name,
+              'submitFormData.clientPhone': elt.phone,
+              'submitFormData.clientAddress': elt.address,
+              'submitFormData.clientRemark': elt.remark
+            })
+          }
+        })
+      }
+    });
   },
   
   // input点击事件
@@ -50,7 +88,8 @@ Page({
   
   // 查询当前商品的详情
   getProductInfo() {
-    const { classifyId } = this.data.submitFormData;
+    let { classifyId } = this.data.submitFormData;
+    classifyId = 100
     app.store.dispatch('getClassifyDetail', { id: classifyId }).then(res=> {
       console.log(res)
       this.setData({
@@ -60,19 +99,46 @@ Page({
   },
   
   init() {
-    const submitFormData = wx.getStorageSync('submitFormData');
-    const classifyInfo = wx.getStorageSync('classifyInfo');
+    const orderFormInfo = wx.getStorageSync('orderFormInfo');
     const { mapLocations } = app;
-    this.setData({ submitFormData, classifyInfo, location: mapLocations });
+    this.setData({ submitFormData: orderFormInfo, location: mapLocations });
   },
   
   handleSubmit() {
     const { submitFormData } = this.data;
+    const param = this.getRequestParams(submitFormData)
+    console.log(param)
+    return
     if (this.getCheckFromData()) {
       app.store.dispatch('submitOrderAdd', submitFormData).then(res=> {
         console.log('-------submit--------', res);
       });
     }
+  },
+
+  getRequestParams(submitFormData) {
+    const params = {
+      uid: '',
+      serviceId: '',
+      serviceTime: '',
+      realPrice: '',
+      vipDiscount: '',
+      couponPrice: '',
+      coupon: '',
+      payPrice: '',
+      clientAddress: '',
+      clientName: '',
+      clientPhone: '',
+      clientRemark: '',
+      classifyId: '',
+      classifyNum: ''
+    };
+    for (let key in submitFormData){
+      if (params.hasOwnProperty(key)) {
+        params[key] = submitFormData[key]
+      }
+    }
+    return params;
   },
   
   getCheckFromData() {
@@ -112,8 +178,10 @@ Page({
   },
 
   handleAddAddress() {
-    // 添加地址页面
-
+    // 选择地址页面
+    wx.navigateTo({
+      url: '../manageAddress/index'
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -125,8 +193,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (options) {
+    console.log(options)
   },
 
   /**

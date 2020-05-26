@@ -5,11 +5,11 @@
         <view class="address-content">
             <view class="group address" bindtap="handleAddAddress">
                 <view class="phone-name">
-                    <text class="name">冷月</text>
-                    <text class="phone">186500000000</text>
+                    <text class="name">{{ submitFormData.clientName || '' }}</text>
+                    <text class="phone">{{ submitFormData.clientPhone || '' }}</text>
                     <i class="iconfont icon-fankui"></i>
                 </view>
-                <view class="address">南航明珠花园</view>
+                <view class="address">{{ submitFormData.clientRemark || '' }}</view>
             </view>
         </view>
 
@@ -30,12 +30,12 @@
             </view>-->
             <view class="group fw">
                 <text class="label">服务时间</text>
-                <text class="value">{{ submitFormData.serviceTime }}  {{ classifyInfo.date }}</text>
+                <text class="value">{{ submitFormData.serviceTime }}  {{ submitFormData.date }}</text>
             </view>
             <view class="group fw">
                 <text class="label">服务人员</text>
                 <text class="value">
-                    <text>{{ classifyInfo.name }}</text>
+                    <text>{{ submitFormData.serviceName }}</text>
                     <view class="img-box">
                         <image src="{{ classifyInfo.image }}"></image>
                     </view>

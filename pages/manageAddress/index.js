@@ -19,14 +19,43 @@ Page({
   getAddressList() {
     app.store.dispatch('getAddressList').then(data=> {
       const { records } = data;
+      if (!records.length) {
+        url: '../addAddress/index?type=edit'
+      }
       this.setData({ addressData: records })
     });
   },
 
-  handleClick(event) {
+  handleEditAddress(event) {
     const { id } = event.currentTarget.dataset;
     wx.navigateTo({
-      url: '../addAddress/index?id=' + id
+      url: '../addAddress/index?id=' + id + '&type=edit'
+    })
+  },
+
+  handleAddAddress() {
+    wx.navigateTo({
+      url: '../addAddress/index?type=edit'
+    })
+  },
+
+  /*
+  * address: "广东省深圳市宝安区创业一路"
+    defaultStatus: 1
+    id: 10
+    name: "周星星"
+    phone: "18400000000"
+    remark: "机场东"
+    uid: 123
+  *
+  * */
+
+  // 选择地址
+  handleSelect(event){
+    const { item } = event.currentTarget.dataset;
+    wx.setStorageSync('addressDetail', item)
+    wx.navigateTo({
+      url: '../confirmOrderForm/index?clientAddress=' + item.address + '&clientName=' + item.name + '&clientPhone=' + item.phone + '&clientRemark=' + item.remark + '&addressId=' + item.id
     })
   },
 

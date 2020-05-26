@@ -105,8 +105,6 @@ Page({
     submitFormData.vipDiscount = formData.vipDiscount;
     submitFormData.payPrice = formData.vipPrice;
     submitFormData.workTime = formData.workTime;
-    wx.setStorageSync('submitFormData', submitFormData);
-    wx.setStorageSync('classifyInfo', classifyInfo);
     /*
     * userAddrId: 用户地址
     * classifyId: 商品id
@@ -143,17 +141,21 @@ Page({
   onLoad: function (options) {
     let { id } = options;
     id = 100;
-    const token = wx.getStorageSync('token');
-    this.setData({
-      isSignIn: token ? true : false,
-      projectId: id,
-      'classifyDict.classifyId': id
-    });
     getLocation()
+    this.getCouponList()
     this.init(id);
-    this.getDetail();
+    // this.getDetail();
     this.getWeekList();
     this.getWeekTap();
+  },
+
+  // 优惠券
+  getCouponList() {
+    this.getDetail().then(data=> {
+      app.store.dispatch('getCouponList', { price: data.price }).then(res=> {
+        console.log(res);
+      })
+    })
   },
   
   // 技师点击事件
@@ -245,20 +247,27 @@ Page({
   
   init(id) {
     const { submitFormData } = this.data;
+    const token = wx.getStorageSync('token');
     submitFormData.uid = wx.getStorageSync('uid');
     submitFormData.classifyId = id;
     this.setData({
-      submitFormData
+      submitFormData,
+      isSignIn: token ? true : false,
+      projectId: id,
+      'classifyDict.classifyId': id
     });
   },
   
   getDetail() {
     const { projectId } = this.data;
-    app.store.dispatch('getClassifyDetail', { id: projectId }).then(res=> {
-      this.setData({
-        formData: res
+    return new Promise((resolve)=>{
+      app.store.dispatch('getClassifyDetail', { id: projectId }).then(res=> {
+        this.setData({
+          formData: res
+        });
+        resolve(res)
       });
-    });
+    })
   },
   
   // 选择技师

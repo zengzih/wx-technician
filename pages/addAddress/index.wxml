@@ -45,6 +45,7 @@
 
         <view class="footer">
             <button bindtap="handleSubmit">保存</button>
+            <button wx:if="{{ currentId }}" bindtap="handleDelete">删除</button>
         </view>
 
     </view>

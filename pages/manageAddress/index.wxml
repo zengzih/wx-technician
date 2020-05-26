@@ -2,15 +2,21 @@
     <v-header title="我的地址" back></v-header>
 
     <view class="content">
-        <view class="address-content" bindtap="handleClick" data-id="{{ item.id }}" wx:for="{{ addressData }}" wx:key="{{ item.id }}">
-            <view class="group address" bindtap="handleAddAddress">
+        <view class="address-content" bindtap="handleSelect" data-item="{{ item }}" wx:for="{{ addressData }}" wx:key="{{ item.id }}">
+            <view class="group address" >
                 <view class="phone-name">
                     <text class="name">{{ item.name }}</text>
                     <text class="phone">{{ item.phone }}</text>
+                </view>
+                <view class='edit-box' bindtap="handleEditAddress" data-id="{{ item.id }}">
                     <i class="iconfont icon-fankui"></i>
                 </view>
                 <view class="address">{{ item.remark }}</view>
             </view>
         </view>
+    </view>
+
+    <view class="footer">
+        <button bindtap="handleAddAddress">添加新地址</button>
     </view>
 </view>

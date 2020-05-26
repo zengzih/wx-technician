@@ -16,9 +16,6 @@
     box-sizing: border-box;
     position: relative;
     margin-bottom: 20rpx;
-}
-
-.wrapper .content .address-content {
     font-size: 28rpx;
 }
 
@@ -29,13 +26,32 @@
     margin-left: 20rpx;
 }
 
-.wrapper .content .address-content i {
+.wrapper .content .address-content .edit-box {
     position: absolute;
-    top: 20rpx;
+    top: 10rpx;
     right: 20rpx;
     color: gray;
+    width: 60rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+
 }
 
 .wrapper .content .address-content .address {
     color: #606266;
+}
+
+
+.wrapper .footer button {
+    height: 88rpx;
+    line-height: 88rpx;
+    width: 95%;
+    background: #608efe;
+    color: #fff;
+    font-size: 28rpx;
+    position: fixed;
+    bottom: 40rpx;
+    left: 50%;
+    transform: translateX(-50%);
 }

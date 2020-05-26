@@ -13,7 +13,9 @@ Page({
             remark: '',
             defaultStatus: 0
         },
-        location: ''
+        currentId: '',
+        location: '',
+        type: 'add'
     },
 
     handleRadioChange(event) {
@@ -59,7 +61,7 @@ Page({
           { label: '地址', prop: 'address' },
           { label: '详细地址', prop: 'remark' },
         ];
-        const { formData } = this.data;
+        const { formData, type } = this.data;
         for (let i = 0 ; i < form.length; i++) {
             const { label, prop } = form[i];
             if (!formData[prop]) {
@@ -75,20 +77,41 @@ Page({
                 })
             }
         }
-        console.log(formData)
-        app.store.dispatch('addAddress', formData).then(res=> {
-            console.log(res)
+        let url = 'addAddress'
+        if(type == 'edit') {
+            url = 'editAddress'
+        }
+        app.store.dispatch(url, formData).then(res=> {
             if (res.code == 200) {
                 wx.showToast({
                     icon: 'success',
                     title: res.message
+                });
+                wx.navigateBack({
+                    delta: 1
                 });
             }
         })
 
     },
 
+    handleDelete() {
+        const { currentId } = this.data;
+        app.store.dispatch('deleteAddress', { id: currentId }).then(res=> {
+            if (res.code == 200) {
+                wx.showToast({
+                    icon: 'success',
+                    title: res.message
+                });
+                wx.navigateBack({
+                    delta: 1
+                });
+            }
+        });
+    },
+
     getAddressDetail(id) {
+        if (!id) return;
         app.store.dispatch('getAddressDetail', { id }).then(data=> {
             this.setData({ formData: data });
         });
@@ -98,7 +121,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        const { id } = options;
+        const { id, type } = options;
+        this.setData({ type, currentId: id });
         this.getAddressDetail(id)
     },
 

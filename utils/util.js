@@ -101,6 +101,9 @@ const requestUrl = {
   file: {
     upload_image: 'upload/image',
   },
+  coupon: {
+    coupon_list: 'user/list'
+  }
 }
 const reg = /wx_login/g
 const getRequestUrl = (url) => {

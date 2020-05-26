@@ -100,4 +100,8 @@
     font-size: 28rpx;
 }
 
-
+.wrapper .content .footer button:last-child {
+    background: #fff;
+    color: #608efe;
+    margin-top: 40rpx;
+}

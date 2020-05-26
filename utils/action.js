@@ -43,7 +43,7 @@ export const getTimeShow = (data = {}) => request.post('getTimeShow', data)
 
 export const submitOrderAdd = (data = {}) => request.post('add', data)
 
-export const submitOrderReady = (data = {}) => request.post('ready', data)
+export const submitOrderReady = (data = {}) => request.post('ready', data, { all: true })
 
 export const uploadImage = (data = {}) => request.post('upload_image', data)
 
@@ -60,3 +60,5 @@ export const editAddress = (data= {})=> request.post('addr_edit', data, { all: t
 export const getAddressDetail = (data= {})=> request.post('addr_detail', data)
 
 export const deleteAddress = (data= {})=> request.post('addr_delete', data, { all: true })
+
+export const getCouponList = (data= {})=> request.post('coupon_list', data)
