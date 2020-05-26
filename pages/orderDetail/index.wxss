@@ -783,12 +783,115 @@
 }
 
 
+/*  优惠券 */
+.coupons {
+    height: 800rpx;
+    width: 100%;
+    background: #fff;
+    padding: 20rpx  40rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    box-sizing: border-box;
+}
 
+.coupons .head {
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    font-size: 32rpx;
+    position: relative;
+}
 
+.coupons .head .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+}
 
+.coupons .head .close i {
+    font-size: 24rpx;
+}
 
+.coupons .content {
+    margin-top: 30rpx;
+}
 
+.coupons .content .list {
+    height: 150rpx;
+    background: #fff5f6;
+    border-radius: 4px;
+    overflow: hidden;
+}
 
+.coupons .content .list>view {
+    float: left;
+    padding: 20rpx 0;
+    box-sizing: border-box;
+}
+
+.coupons .content .list .price {
+    width: 150rpx;
+    height: 100%;
+    text-align: center;
+    font-size: 22rpx;
+    color: #f73c45;
+    line-height: 150rpx;
+    border-right: 1px dotted #ccc;
+}
+
+.coupons .content .list .price .num {
+    font-size: 40rpx;
+    margin-right: 0;
+    color: #f73c45;
+}
+
+.coupons .content .list .detail {
+    padding: 0 40rpx;
+    box-sizing: border-box;
+}
+
+.coupons .content .list .detail>view {
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.coupons .content .list .detail .name{
+    font-size: 30rpx;
+}
+
+.coupons .content .list .detail .tip,
+.coupons .content .list .detail .more
+{
+    font-size: 22rpx;
+    color: #a49e9e;
+}
+
+.coupons .content .list .operation {
+    width: 65rpx;
+    padding: 0 18rpx;
+    height: 150rpx;
+    line-height: 30rpx;
+    box-sizing: border-box;
+    background: #e16734;
+    color: #fff;
+    font-size: 24rpx;
+    float: right;
+    position: relative;
+}
+
+.coupons .content .list .operation text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+}
 
 
 

@@ -13,6 +13,7 @@ Page({
     formData: {},
     projectId: 100,
     technicianShow: false,
+    couponsShow: false,
     weeks: [],
     timeDetail: [],
     timeActiveIndex: -1,
@@ -47,11 +48,12 @@ Page({
       clientAddress: '',
       clientName: '',
       clientPhone: '',
-      clientRemark: '2222',
+      clientRemark: '',
       classifyId: '',
       classifyNum: 1,
       yearMonth: ''
-    }
+    },
+    couponList: []
   },
   
   // 选择项目
@@ -152,8 +154,12 @@ Page({
   // 优惠券
   getCouponList() {
     this.getDetail().then(data=> {
-      app.store.dispatch('getCouponList', { price: data.price }).then(res=> {
-        console.log(res);
+      app.store.dispatch('getCouponList', { price: data.price }).then(data=> {
+        data = data || [];
+        data.forEach(elt=> {
+          elt.receive = false;
+        });
+        this.setData({ couponList: data })
       })
     })
   },
@@ -320,6 +326,27 @@ Page({
     wx.navigateBack({
       delta: 1
     });
+  },
+
+  /* 领取优惠券  */
+  handleReceive(event) {
+    const {item} = event;
+    const { couponPrice, id } = item;
+    const { couponList } = this.data;
+    couponList.forEach(elt=> {
+      if (elt.id == id) {
+        elt.receive = true;
+      }
+    });
+    this.setData({
+      'submitFormData.couponPrice': couponPrice,
+      'submitFormData.coupon': id,
+      couponList
+    });
+  },
+
+  handleCloseCouponsShow() {
+    this.setData({ couponsShow: false });
   },
 
   /**

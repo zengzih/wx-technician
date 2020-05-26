@@ -24,10 +24,10 @@
             <text>充500送50充2000送400</text>
         </view>-->
 
-        <!--<view class="list">
+        <view class="list" wx:if="{{  couponList.length }}">
             <text>领券</text>
-            <text>钦点迎新15元</text>
-        </view>-->
+            <text>{{ couponList[0].name }}</text>
+        </view>
 
         <view class="list">
             <text>保障</text>
@@ -89,7 +89,7 @@
 
 
     <!--  选择项目项目详情  -->
-    <view class="project_detail" wx:if="{{ projectDetailShow || technicianShow }}">
+    <view class="project_detail" wx:if="{{ projectDetailShow || technicianShow || couponsShow }}">
         <view class="mask"></view>
         <view wx:if="{{ projectDetailShow }}" class="body">
             <view class="group">
@@ -182,6 +182,34 @@
                 </view>
             </view>
         </view>
+
+        <!-- 优惠券 -->
+        <view class="coupons" wx:if="{{ couponsShow }}">
+            <view class="head">
+                优惠
+                <view class="close" bindtap="handleCloseCouponsShow">
+                    <i class="iconfont icon-guanbi1"></i>
+                </view>
+            </view>
+
+            <view class="content">
+                <view class="list" wx:for="{{ couponList }}" wx:key="{{ item.id }}">
+                    <view class="price">
+                        <text class="num">{{ item.amount }}</text>元
+                    </view>
+
+                    <view class="detail">
+                        <view class="name">{{ item.name }}</view>
+                        <view class="tip">{{ item.condition }}</view>
+                        <view class="more">{{ item.validityShow }}</view>
+                    </view>
+                    <view class="operation">
+                        <text bindtap="handleReceive" data-item="{{ item }}">{{ item.receive ? '已经领取' : '立即领取' }}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
 
 
     </view>
