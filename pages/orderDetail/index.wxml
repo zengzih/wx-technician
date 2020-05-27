@@ -5,7 +5,7 @@
             <i class="iconfont icon-xiangzuo1"></i>
         </view>
         <view class="img-box">
-            <image src="{{ formData.image }}"></image>
+            <image src="{{ rootLocation + formData.image }}"></image>
         </view>
     </view>
 
@@ -45,7 +45,7 @@
         <view class="group">
             <text>技师</text>
             <view class="icon-box" wx:if="classifyInfo.image">
-                <image src="{{ classifyInfo.image }}">{{ classifyInfo.image }}</image>
+                <image src="{{ rootLocation + classifyInfo.image }}">{{ classifyInfo.image }}</image>
             </view>
             <text class="classify_info" style="margin-left: 80rpx;">{{ classifyInfo.name }}</text>
             <text class="classify_info">{{ classifyInfo.month }}</text>
@@ -68,7 +68,7 @@
                     <view class="header">
                         <view class="icon">
                             <i wx:if='{{ !item.userImage }}' class="iconfont icon-yonghu"></i>
-                            <image src="{{ item.userImage }}"></image>
+                            <image src="{{ rootLocation + item.userImage }}"></image>
                         </view>
                         <view class="name">{{ item.userName }}</view>
                         <view class="date">{{ item.addTime }}</view>
@@ -160,7 +160,7 @@
                 <view class="person-box" wx:for="{{ classifyList }}" bindtap="handleClassifyClick" data-index="{{ index }}" data-item="{{ item }}">
                     <view class="person {{ index == classifyActiveIndex ? 'active' : '' }}">
                         <view class="head">
-                            <image src="{{ item.image }}"></image>
+                            <image src="{{ rootLocation + item.image }}"></image>
                         </view>
                         <view class="detail">
                             <view class="name">{{ item.name }}</view>
@@ -209,10 +209,5 @@
                 </view>
             </view>
         </view>
-
-
-
     </view>
-
-
 </view>

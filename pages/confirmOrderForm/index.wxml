@@ -30,21 +30,22 @@
             </view>-->
             <view class="group fw">
                 <text class="label">服务时间</text>
-                <text class="value">{{ submitFormData.serviceTime }}  {{ submitFormData.date }}</text>
+                <text class="value">{{ serviceTime }}</text>
             </view>
+
             <view class="group fw">
                 <text class="label">服务人员</text>
                 <text class="value">
                     <text>{{ submitFormData.serviceName }}</text>
-                    <view class="img-box">
-                        <image src="{{ classifyInfo.image }}"></image>
-                    </view>
+                    <text class="img-box">
+                        <image src="{{ rootLocation + classifyInfo.image }}"></image>
+                    </text>
                 </text>
             </view>
 
             <view class="group project-info">
                 <view class="image-box">
-                    <image src="{{ productDetail.image }}"></image>
+                    <image src="{{ rootLocation + productDetail.image }}"></image>
                 </view>
                 <view class="detail">
                     <view class="name">{{ productDetail.name }}</view>
@@ -57,15 +58,39 @@
             </view>
 
             <view class="group">
-                <text class="label">备注</text>
+                <text class="label">VIP折扣</text>
                 <text class="value">
-                    <input type="text"/>
+                    <text>￥{{ submitFormData.vipDiscount || 0 }}</text>
                 </text>
             </view>
 
             <view class="group">
-                <text class="label">服务金额</text>
+                <text class="label">优惠金额</text>
+                <text class="value">
+                    <text>￥{{ submitFormData.couponPrice || 0 }}</text>
+                </text>
+            </view>
+
+            <view class="group">
+                <text class="label">商品数量</text>
+                <text class="value">{{ submitFormData.classifyNum }}</text>
+            </view>
+
+            <view class="group">
+                <text class="label">商品原价</text>
+                <text class="value">￥{{ submitFormData.realPrice }}</text>
+            </view>
+
+            <view class="group">
+                <text class="label">实际支付金额</text>
                 <text class="value">￥{{ submitFormData.payPrice }}</text>
+            </view>
+
+            <view class="group">
+                <text class="label">备注</text>
+                <text class="value">
+                    <text>{{ submitFormData.clientRemark || '' }}</text>
+                </text>
             </view>
 
            <!-- <view class="group">
@@ -76,7 +101,7 @@
     </view>
 
     <view class="footer">
-        <view>待支付 <text class="price">{{ submitFormData.payPrice }}</text></view>
+        <view>待支付 <text class="price">￥{{ submitFormData.payPrice }}</text></view>
         <view class="btn" bindtap="handleSubmit">立即购买</view>
     </view>
 </view>

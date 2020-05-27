@@ -1,0 +1,44 @@
+<!--pages/myorderList/index.wxml-->
+<view class='wrapper'>
+    <v-header title="我的订单" back></v-header>
+
+    <view class="content">
+        <view class="tabs">
+            <view class="tab {{ index == activeIndex ? 'active' : '' }}"
+                  wx:for="{{ tabs }}"
+                  wx:key="{{ item.prop }}"
+                  bindtap="handleTabEvent"
+                  data-index="{{ index }}"
+                  data-id="{{ item.prop }}"
+            >{{ item.label }}</view>
+        </view>
+
+        <view class="body">
+            <view class="list" wx:for="{{ orderData }}">
+               <!-- <view class="head">
+                    <text class="type">{{ item.orderNum }}</text>
+                    <text class="status">{{ item.statusShow }}</text>
+                </view>-->
+
+                <view class="con">
+                    <view class="photo">
+                        <image src></image>
+                    </view>
+
+                    <view class="detail">
+                        <view class="name">{{ item.classifyName }}</view>
+                        <view class="time">120分钟  <text>{{ item.statusShow }}</text></view>
+                        <view class="price-num">
+                            <text class="num">2</text>
+                            <text class="price">168</text>
+                        </view>
+                        <view class="operation">
+                            <view class="btn cancel" bindtap="handleCancelOrder" data-item="{{ item }}" wx:if="{{ item.status == 0 }}">取消订单</view>
+                            <view class="btn confirm" bindtap="handlePayOrder" data-item="{{ item }}"  wx:if="{{ item.status == 0 }}">{{ item.status == 0 ? '去支付' : (item.status == 3 ? '去评价' : '') }}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

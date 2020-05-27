@@ -1,12 +1,11 @@
 //index.js
 //获取应用实例
-import request from '../../utils/util'
+import request, { location as rootLocation } from '../../utils/util'
 import { Watch } from '../../utils/watch.js'
 const app = getApp().globalData;
 Component({
   data: {
-   
-    motto: 'Hello World',
+    rootLocation: rootLocation,
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),

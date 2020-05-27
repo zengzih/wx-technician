@@ -56,7 +56,7 @@
                     <view class='list' wx:for='{{ listData }}' wx:key="{{ item.id }}" bindtap="handleSkipDetail"
                           data-item="{{ item }}">
                         <view class='head-img'>
-                            <image src='{{ item.image }}'></image>
+                            <image src='{{ rootLocation + item.image }}'></image>
                         </view>
                         <view class='detail'>
                             <view class='title'>{{ item.name }}</view>

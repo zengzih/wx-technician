@@ -59,10 +59,7 @@ export const global = {
 }
 
 const requestFields = {}
-
-// export const location = 'http://120.77.34.52:8081/rdxx-travel/travel/'
-export const location = 'http://8.129.186.208/'
-// const sysLocation = 'http://120.77.34.52:8081/rdxx-travel/'
+export const location = 'http://8.129.186.208'
 const sysLocation = 'https://www.scf4.online/rdxx-travel/'
 const requestUrl = {
   index: {
@@ -97,6 +94,8 @@ const requestUrl = {
   order: {
     ready: 'ready',
     add: 'add',
+    pay: 'pay',
+    order_list: 'list'
   },
   file: {
     upload_image: 'upload/image',
@@ -115,7 +114,7 @@ const getRequestUrl = (url) => {
         if (reg.test(url)) {
           return sysLocation + controller + '/' + second[n]
         }
-        return location + controller + '/' + second[n]
+        return location + '/' + controller + '/' + second[n]
       }
     }
   }

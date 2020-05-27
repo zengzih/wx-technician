@@ -1,5 +1,6 @@
 // pages/orderDetail/index.js
 import { getLocation } from '../../utils/watch';
+import { location } from '../../utils/util'
 const app = getApp().globalData;
 Page({
 
@@ -7,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    rootLocation: location,
     projectDetailShow: false,
     projectNum: 1,
     defaultImage: '',
@@ -154,7 +156,8 @@ Page({
   // 优惠券
   getCouponList() {
     this.getDetail().then(data=> {
-      app.store.dispatch('getCouponList', { price: data.price }).then(data=> {
+      app.store.dispatch('getCouponList', { price: data.price }).then(res=> {
+        let { data } = res;
         data = data || [];
         data.forEach(elt=> {
           elt.receive = false;

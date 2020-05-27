@@ -126,6 +126,7 @@
     left: 0;
     width: 100%;
     border-top: 1px solid #ededed;
+    background: #fff;
 }
 
 .wrapper .footer view:first-child {

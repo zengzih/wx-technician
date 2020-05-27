@@ -45,6 +45,8 @@ export const submitOrderAdd = (data = {}) => request.post('add', data)
 
 export const submitOrderReady = (data = {}) => request.post('ready', data, { all: true })
 
+export const submitOrderPay = (data = {}) => request.post('pay', data, { all: true })
+
 export const uploadImage = (data = {}) => request.post('upload_image', data)
 
 export const serviceRegister = (data = {}) => request.post('register', data)
@@ -62,3 +64,31 @@ export const getAddressDetail = (data= {})=> request.post('addr_detail', data)
 export const deleteAddress = (data= {})=> request.post('addr_delete', data, { all: true })
 
 export const getCouponList = (data= {})=> request.post('coupon_list', data)
+
+export const getOrderList = (data= {})=> request.post('order_list', data)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

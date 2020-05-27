@@ -23,7 +23,7 @@
                     <block wx:for="{{bannerList}}" wx:key="*this">
                         <swiper-item>
                             <view class="swiper-item">
-                                <image src="{{item.image}}"></image>
+                                <image src="{{ rootLocation + item.image}}"></image>
                             </view>
                         </swiper-item>
                     </block>
@@ -35,7 +35,7 @@
                 <view class="group" wx:for='{{ classifyOneList }}' wx:key='{{ index }}' data-theme="{{item}}"
                       bindtap="handleThemeEvent">
                     <view class='image_box'>
-                        <image src='{{ item.image ? item.image : menuIcon }}'></image>
+                        <image src='{{ item.image ? rootLocation + item.image : menuIcon }}'></image>
                     </view>
                     <view class='introduce'>{{ item.name }}</view>
                     <!-- <view class='instructions'>2296人参与</view> -->
@@ -69,7 +69,7 @@
                               bindtap="handleProductDetail"
                         >
                             <view class="img-box">
-                                <image src="{{ child.image }}"></image>
+                                <image src="{{ rootLocation + child.image }}"></image>
                             </view>
                             <view class="name">{{ child.name }}</view>
                             <view class="price">￥{{ child.price }}</view>

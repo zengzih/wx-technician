@@ -1,7 +1,10 @@
 // pages/themeList/index.js
+import { location } from "../../utils/util";
+
 const app = getApp().globalData
 Page({
   data: {
+    rootLocation: location,
     back: true,
     tabs: [],
     filterShow: false,

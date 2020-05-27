@@ -1,5 +1,6 @@
 // pages/confirmOrderForm/index.js
 const app = getApp().globalData;
+import { location  as rootLocation} from "../../utils/util";
 Page({
   /**
    * 页面的初始数据
@@ -24,8 +25,10 @@ Page({
       classifyId: '',
       classifyNum: ''
     },
+    serviceTime: '',
     classifyInfo: {},
     productDetail: {},
+    rootLocation: rootLocation
 
   },
 
@@ -89,7 +92,6 @@ Page({
   // 查询当前商品的详情
   getProductInfo() {
     let { classifyId } = this.data.submitFormData;
-    classifyId = 100
     app.store.dispatch('getClassifyDetail', { id: classifyId }).then(res=> {
       console.log(res)
       this.setData({
@@ -100,19 +102,66 @@ Page({
   
   init() {
     const orderFormInfo = wx.getStorageSync('orderFormInfo');
+    const classifyInfo  = wx.getStorageSync('classifyInfo');
     const { mapLocations } = app;
-    this.setData({ submitFormData: orderFormInfo, location: mapLocations });
+    const serviceTime = this.getServiceTime(orderFormInfo.serviceTime)
+    this.setData({ submitFormData: orderFormInfo, location: mapLocations, classifyInfo, serviceTime });
   },
-  
+
+  getServiceTime(date_num) {
+    const date = new Date(date_num);
+    const serviceTime = this.getDateDetail(date, 'getFullYear') + '-' +
+        this.getDateDetail(date, 'getMonth') + '-' +
+        this.getDateDetail(date, 'getDate') + ' ' +
+        this.getDateDetail(date, 'getHours') + ':' +
+        this.getDateDetail(date, 'getMinutes') + ':' +
+        this.getDateDetail(date, 'getSeconds')
+    return serviceTime
+  },
+
+  getDateDetail(date, property) {
+    let value = date[property]();
+    if (property == 'getMonth'){
+      value += 1
+    }
+    if (value < 10) {
+      return '0' + value
+    }
+    return value
+  },
+
   handleSubmit() {
-    const { submitFormData } = this.data;
-    const param = this.getRequestParams(submitFormData)
-    console.log(param)
-    return
+    const { submitFormData, serviceTime } = this.data;
     if (this.getCheckFromData()) {
-      app.store.dispatch('submitOrderAdd', submitFormData).then(res=> {
-        console.log('-------submit--------', res);
+      const param = this.getRequestParams(submitFormData)
+      param.serviceTime = serviceTime;
+      this.formatParams(param)
+      app.store.dispatch('submitOrderAdd', param).then(data=> {
+        console.log('-------submit--------', data);
+        const { id } = data;
+        this.getPayPrice(id)
       });
+    }
+  },
+
+  getPayPrice(id) {
+    app.store.dispatch('submitOrderPay', { orderId: id, payType: 1 }).then(res=> {
+      console.log(res);
+      if (res.code == 200) {
+        // ...
+      }
+      wx.showToast({
+        icon: 'none',
+        title: res.message
+      });
+    })
+  },
+
+  formatParams(params) {
+    for (let key in params) {
+      if (params[key] === null) {
+        params[key] = ''
+      }
     }
   },
 
