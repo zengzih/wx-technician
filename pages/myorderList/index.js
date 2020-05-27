@@ -2,11 +2,13 @@
 const app = getApp().globalData;
 // 通过状态查询不同订单 0-待付款 1-待处理 2-进行中 3-已完成
 const tabs = [
-  { label: '全部', prop: '' },
+ /* { label: '全部', prop: '' },*/
   { label: '待支付', prop: '0' },
   { label: '待处理', prop: '1' },
   { label: '进行中', prop: '2' },
-  { label: '已完成', prop: '3' }
+  { label: '待确认', prop: '3' },
+  { label: '已完成', prop: '4' },
+  { label: '已取消', prop: '5' }
 ];
 
 Page({
@@ -48,24 +50,42 @@ Page({
     const { status, id } = item;
     switch (status) {
       case 0:
-        app.store.dispatch('submitOrderPay', { orderId: id, payType: 1 }).then(res=> {
-          console.log(res)
-          const { code, message } = res;
-          if (code == 200) {
-            this.getOrderList()
-          }
-          wx.showToast({
-            title: message,
-            icon: 'none',
-            duration: 2000
-          });
-        })
+        this.payOrder(id)
         break
-
       case 3:
-        // 评价
+        this.confirmOrder(id)
         break;
+      case 4:
+        // 评价
+        break
     }
+  },
+
+  confirmOrder(id) {
+    app.store.dispatch('okOrder', { id }).then(res=> {
+      if (res.code == 200) {
+        this.getOrderList()
+      }
+      wx.showToast({
+        icon: 'none',
+        title: res.message
+      });
+    })
+  },
+
+  payOrder(id) {
+    app.store.dispatch('submitOrderPay', { orderId: id, payType: 1 }).then(res=> {
+      console.log(res)
+      const { code, message } = res;
+      if (code == 200) {
+        this.getOrderList()
+      }
+      wx.showToast({
+        title: message,
+        icon: 'none',
+        duration: 2000
+      });
+    })
   },
 
   handleCancelOrder(event) {
@@ -81,6 +101,12 @@ Page({
         // 评价
         break;
     }
+  },
+
+  // 订单点击
+  handleOrderClick(event) {
+    const { id } = event.currentTarget.dataset;
+
   },
 
   /**

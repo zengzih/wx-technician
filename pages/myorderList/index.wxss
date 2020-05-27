@@ -130,7 +130,9 @@
 
 .wrapper .content .body .list .con .detail .price-num .price {
     float: right;
-    font-size: 22rpx;
+    font-size: 28rpx;
+    color: #ff4131;
+    font-weight: bold;
 }
 
 .wrapper .content .body .list .con .detail .operation {

@@ -95,7 +95,8 @@ const requestUrl = {
     ready: 'ready',
     add: 'add',
     pay: 'pay',
-    order_list: 'list'
+    order_list: 'list',
+    ok_order: 'okOrder'
   },
   file: {
     upload_image: 'upload/image',

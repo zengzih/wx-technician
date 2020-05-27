@@ -14,11 +14,11 @@
         </view>
 
         <view class="body">
-            <view class="list" wx:for="{{ orderData }}">
-               <!-- <view class="head">
-                    <text class="type">{{ item.orderNum }}</text>
+            <view class="list" wx:for="{{ orderData }}" wx:key="{{ item.id }}" bindtap="handleOrderClick" data-id="{{ item.id }}">
+                <view class="head">
+                    <text class="type">{{ item.classifyName }}</text>
                     <text class="status">{{ item.statusShow }}</text>
-                </view>-->
+                </view>
 
                 <view class="con">
                     <view class="photo">
@@ -27,14 +27,14 @@
 
                     <view class="detail">
                         <view class="name">{{ item.classifyName }}</view>
-                        <view class="time">120分钟  <text>{{ item.statusShow }}</text></view>
+                        <view class="time">{{ item.classifyName }}({{ item.classifyMin }}分钟)</view>
                         <view class="price-num">
-                            <text class="num">2</text>
-                            <text class="price">168</text>
+                            <text class="num">数量：{{ item.classifyNum }}</text>
+                            <text class="price">￥{{ item.payPrice }}</text>
                         </view>
                         <view class="operation">
                             <view class="btn cancel" bindtap="handleCancelOrder" data-item="{{ item }}" wx:if="{{ item.status == 0 }}">取消订单</view>
-                            <view class="btn confirm" bindtap="handlePayOrder" data-item="{{ item }}"  wx:if="{{ item.status == 0 }}">{{ item.status == 0 ? '去支付' : (item.status == 3 ? '去评价' : '') }}</view>
+                            <view class="btn confirm" bindtap="handlePayOrder" data-item="{{ item }}"  wx:if="{{ item.status == 0 }}">{{ item.status == 0 ? '去支付' : (item.status == 3 ? '确认' : (item.status == 4) ? '去评价' : (item.status == 5 ? '已取消' : '')) }}</view>
                         </view>
                     </view>
                 </view>

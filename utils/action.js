@@ -67,6 +67,9 @@ export const getCouponList = (data= {})=> request.post('coupon_list', data)
 
 export const getOrderList = (data= {})=> request.post('order_list', data)
 
+export const okOrder = (data= {})=> request.post('ok_order', data)
+
+
 
 
 
