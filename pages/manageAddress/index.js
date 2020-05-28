@@ -54,9 +54,9 @@ Page({
   handleSelect(event){
     const { item } = event.currentTarget.dataset;
     wx.setStorageSync('addressDetail', item)
-    wx.navigateTo({
+   /* wx.navigateTo({
       url: '../confirmOrderForm/index?clientAddress=' + item.address + '&clientName=' + item.name + '&clientPhone=' + item.phone + '&clientRemark=' + item.remark + '&addressId=' + item.id
-    })
+    })*/
   },
 
   /**

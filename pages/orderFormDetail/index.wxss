@@ -1,0 +1,191 @@
+.wrapper {
+    color: #000;
+}
+
+.wrapper .content {
+    background: #fff;
+}
+
+.wrapper .content .status-date {
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #fd5384;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .content .status-date text {
+    color: #fff;
+}
+
+.wrapper .content .status-date .status {
+    font-size: 30rpx;
+}
+
+.wrapper .content .status-date .date {
+    float: right;
+    font-size: 20rpx;
+}
+
+/* 主体部分 */
+.wrapper .content .product-pay-info {
+    padding: 0 30rpx;
+}
+
+.wrapper .content .product-pay-info>.name {
+    height: 98rpx;
+    line-height: 98rpx;
+    font-size: 28rpx;
+}
+
+.wrapper .content .product-pay-info .detail {
+    overflow: hidden;
+}
+
+.wrapper .content .product-pay-info .detail .product-box {
+    height: 130rpx;
+}
+
+.wrapper .content .product-pay-info .detail .img-box {
+    height: 130rpx;
+    width: 130rpx;
+    border-radius: 4px;
+    float: left;
+    overflow: hidden;
+    margin-right: 30rpx;
+}
+
+.wrapper .content .product-pay-info .detail .img-box image {
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper .content .product-pay-info .detail .product-info {
+    width: calc(100% - 160rpx);
+    float: right;
+}
+
+.wrapper .content .product-pay-info .detail .product-info .name-money {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 26rpx;
+    margin-bottom: 20rpx;
+}
+
+.wrapper .content .product-pay-info .detail .product-info .name-money .money {
+    float: right;
+    font-size: 18rpx;
+}
+
+.wrapper .content .product-pay-info .detail .product-info .time-money {
+    height: 40rpx;
+    line-height: 40rpx;
+}
+
+.wrapper .content .product-pay-info .detail .product-info .time-money .name {
+    font-size: 22rpx;
+    color: #c5c5c5;
+}
+
+.wrapper .content .product-pay-info .detail .product-info .time-money .money {
+    float: right;
+    font-size: 22rpx;
+    color: #c5c5c5;
+}
+
+/*  list列表  */
+.info-list {
+    height: 72rpx;
+    line-height: 72rpx;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    font-size: 24rpx;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.info-list:first-child {
+    border-top: 1px solid #eeeeee;
+}
+
+.info-list:last-child {
+    border-bottom: 1px solid #eeeeee;
+}
+
+.info-list .label {
+    float: left;
+    color: #a1a1a1;
+}
+
+.info-list .val {
+    float: right;
+    color: #a73e3a;
+}
+
+
+/*  地址描述  */
+.order-address {
+    margin-top: 50rpx;
+}
+
+.order-address .name-phone {
+    height: 40rpx;
+    line-height: 40rpx;
+    position: relative;
+}
+
+.order-address .name-phone i {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.order-address .name-phone .inner {
+    font-size: 20rpx;
+    height: 40rpx;
+    line-height: 40rpx;
+    color: #5c5c5c;
+    position: absolute;
+    top: 0;
+    left: 60rpx;
+}
+
+.order-address .name-phone .inner text {
+    font-size: ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

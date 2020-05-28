@@ -1,0 +1,62 @@
+<!--pages/orderFormDetail/index.wxml-->
+<view class="wrapper">
+    <v-header title="订单详情" back></v-header>
+
+    <view class="content">
+        <view class="status-date">
+            <text class="status">{{ formData.statusShow }}</text>
+            <text class="date">{{ formData.serviceTime }}</text>
+        </view>
+
+        <view class="product-pay-info">
+            <view class="name">{{ formData.classifyName }}</view>
+            <view class="detail">
+                <view class="product-box">
+                    <view class="img-box">
+                        <image src=""></image>
+                    </view>
+                    <view class="product-info">
+                        <view class="name-money">
+                            <text class="name">{{ formData.classifyName }}</text>
+                            <text class="money">{{ formData.classifyPrice }}</text>
+                        </view>
+                        <view class="time-money">
+                            <text class="name">{{ formData.classifyName }}({{ formData.classifyMin }}分钟)</text>
+                            <text class="money">{{ formData.payPrice }}</text>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="info-list" wx:for="{{ infoList }}" wx:key="{{ index }}">
+                    <text class="label">{{ item.label }}</text>
+                    <text class="val">{{ formData[item.prop] }}</text>
+                </view>
+
+                <view class="order-address">
+                    <view class="name-phone">
+                        <i class="iconfont icon-zuobiao"></i>
+                        <text class="user-name">{{ formData.clientName }}</text>
+                        <text class="phone">{{ formData.clientPhone }}</text>
+                    </view>
+                    <view class="address">{{ formData.clientAddress }}</view>
+                </view>
+
+
+                <view class="order-detail">
+                    <view class="title"></view>
+                    <view class="info" wx:for="{{ formInfo }}" wx:key="{{ index }}">
+                        <view class="inner">
+                            <text class="label">{{ item.label }}</text>
+                            <text class="val">{{ formData[item.prop] }}分钟</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="footer">
+
+    </view>
+
+</view>
