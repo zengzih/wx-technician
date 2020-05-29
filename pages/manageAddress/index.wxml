@@ -1,5 +1,5 @@
 <view class="wrapper">
-    <v-header title="我的地址" back></v-header>
+    <v-header title="我的地址" back back-func="{{ headerBackFunc }}"></v-header>
 
     <view class="content">
         <view class="address-content" bindtap="handleSelect" data-item="{{ item }}" wx:for="{{ addressData }}" wx:key="{{ item.id }}">
@@ -8,7 +8,7 @@
                     <text class="name">{{ item.name }}</text>
                     <text class="phone">{{ item.phone }}</text>
                 </view>
-                <view class='edit-box' bindtap="handleEditAddress" data-id="{{ item.id }}">
+                <view class='edit-box' catchtap="handleEditAddress" data-id="{{ item.id }}">
                     <i class="iconfont icon-fankui"></i>
                 </view>
                 <view class="address">{{ item.remark }}</view>

@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/manageAddress/index",
     "pages/index/index",
     "pages/orderFormDetail/index",
     "pages/myorderList/index",
     "pages/confirmOrderForm/index",
+    "pages/manageAddress/index",
     "pages/orderDetail/index",
     "pages/addAddress/index",
     "pages/loginCheck/index",

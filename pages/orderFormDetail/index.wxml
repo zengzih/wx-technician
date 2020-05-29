@@ -13,7 +13,7 @@
             <view class="detail">
                 <view class="product-box">
                     <view class="img-box">
-                        <image src=""></image>
+                        <image src="{{ rootLocation + formData.serviceImage }}"></image>
                     </view>
                     <view class="product-info">
                         <view class="name-money">
@@ -27,7 +27,7 @@
                     </view>
                 </view>
 
-                <view class="info-list" wx:for="{{ infoList }}" wx:key="{{ index }}">
+                <view class="info-list" wx:for="{{ infoList }}" wx:key="index">
                     <text class="label">{{ item.label }}</text>
                     <text class="val">{{ formData[item.prop] }}</text>
                 </view>
@@ -43,11 +43,11 @@
 
 
                 <view class="order-detail">
-                    <view class="title"></view>
-                    <view class="info" wx:for="{{ formInfo }}" wx:key="{{ index }}">
+                    <view class="title">订单信息</view>
+                    <view class="info" wx:for="{{ formInfo }}" wx:key="index">
                         <view class="inner">
-                            <text class="label">{{ item.label }}</text>
-                            <text class="val">{{ formData[item.prop] }}分钟</text>
+                            <text class="label">{{ item.label }}：</text>
+                            <text class="val">{{ formData[item.prop] }} {{ item.prop == 'classifyMin' ? '分钟' : '' }}</text>
                         </view>
                     </view>
                 </view>
@@ -56,7 +56,17 @@
     </view>
 
     <view class="footer">
+        <view class="pay-price">
+            <text>合计￥</text>
+            <text class="total">{{ formData.classifyPrice }}</text>
+        </view>
+        <view>
+            <view class="btn cancel" bindtap="handleCancelOrder"  wx:if="{{ formData.status == 0 }}">取消订单</view>
+        </view>
 
+        <view>
+            <view class="btn confirm" bindtap="handleConfirm"   wx:if="{{ formData.status == 0 }}">{{ formData.status == 0 ? '去支付' : (formData.status == 3 ? '确认' : (formData.status == 4) ? '去评价' : (formData.status == 5 ? '已取消' : '')) }}</view>
+        </view>
     </view>
 
 </view>

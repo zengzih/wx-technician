@@ -1,9 +1,12 @@
 .wrapper {
     color: #000;
+    height: 100%;
 }
 
 .wrapper .content {
     background: #fff;
+    height: calc(100% - 250rpx);
+    overflow: auto;
 }
 
 .wrapper .content .status-date {
@@ -124,7 +127,8 @@
 
 /*  地址描述  */
 .order-address {
-    margin-top: 50rpx;
+    border-bottom: 1px solid #f8f8f8;
+    padding: 40rpx 0;
 }
 
 .order-address .name-phone {
@@ -151,18 +155,104 @@
     left: 60rpx;
 }
 
-.order-address .name-phone .inner text {
-    font-size: ;
+.order-address .name-phone .user-name,
+.order-address .name-phone .phone
+{
+    position: relative;
+    margin-left: 30rpx;
+    font-size: 26rpx;
+    top: -2rpx;
+}
+.order-address .name-phone .user-name {
+    margin-left: 60rpx;
+}
+
+.order-address .address {
+    margin-bottom: 15rpx;
+    font-size: 26rpx;
+    margin-left: 60rpx;
 }
 
 
+/*  最下面的订单信息 */
+.order-detail {
+    padding: 20rpx 30rpx;
+}
+
+.order-detail .title {
+    height: 32rpx;
+    line-height: 32rpx;
+    position: relative;
+    font-size: 28rpx;
+    padding-left: 24rpx;
+    margin-bottom: 5rpx;
+}
+
+.order-detail .title:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 2px;
+    background: #ec5c8d;
+    top: 0;
+    left: 0;
+}
+
+.order-detail .info {
+    height: 45rpx;
+    line-height: 45rpx;
+    padding-left: 24rpx;
+    font-size: 22rpx;
+    color: #7f7f7f
+}
+
+.order-detail .info .label {
+    width: 120rpx;
+    display: inline-block;
+}
 
 
+.footer {
+    height: 96rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid  #f8f8f8;
+    line-height: 96rpx;
+    display: flex;
+    background: #fff;
+}
 
+.footer>view {
+    flex: 2;
+    text-align: center;
+}
 
+.footer .pay-price text {
+    font-size: 26rpx;
+    color: #f36551;
+}
+.footer .pay-price .total {
+    font-size: 34rpx;
+}
 
+.footer .btn {
+    height: 70rpx;
+    line-height: 70rpx;
+    width: 95%;
+    border: 2rpx solid #638eff;
+    color: #638eff;
+    border-radius: 6rpx;
+    font-size: 24rpx;
+    text-align: centere;
+    margin: 13rpx auto;
+}
 
-
+.footer .btn.confirm {
+    background: #638eff;
+    color: #fff;
+}
 
 
 

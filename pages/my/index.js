@@ -67,6 +67,18 @@ Page({
     });
   },
 
+  handleOrderPanelEvent(event) {
+    // 单个的点击事件
+    const { item } = event.currentTarget.dataset;
+
+  },
+
+  handleReadAllOrderForm() {
+    wx.navigateTo({
+      url: '../myorderList/index'
+    });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

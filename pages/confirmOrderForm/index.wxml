@@ -35,12 +35,12 @@
 
             <view class="group fw">
                 <text class="label">服务人员</text>
-                <text class="value">
+                <view class="value">
                     <text>{{ submitFormData.serviceName }}</text>
-                    <text class="img-box">
-                        <image src="{{ rootLocation + classifyInfo.image }}"></image>
-                    </text>
-                </text>
+                    <view class="img-box">
+                        <image src="{{ classifyInfo.image }}" data-image="{{ classifyInfo.image }}"></image>
+                    </view>
+                </view>
             </view>
 
             <view class="group project-info">
@@ -71,10 +71,10 @@
                 </text>
             </view>
 
-            <view class="group">
+           <!-- <view class="group">
                 <text class="label">商品数量</text>
                 <text class="value">{{ submitFormData.classifyNum }}</text>
-            </view>
+            </view>-->
 
             <view class="group">
                 <text class="label">商品原价</text>

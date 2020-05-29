@@ -6,7 +6,7 @@
         <view class="tabs">
             <view class="tab {{ index == activeIndex ? 'active' : '' }}"
                   wx:for="{{ tabs }}"
-                  wx:key="{{ item.prop }}"
+                  wx:key="index"
                   bindtap="handleTabEvent"
                   data-index="{{ index }}"
                   data-id="{{ item.prop }}"
@@ -14,9 +14,10 @@
         </view>
 
         <view class="body">
-            <view class="list" wx:for="{{ orderData }}" wx:key="{{ item.id }}" bindtap="handleOrderClick" data-id="{{ item.id }}">
+            <view class="list" wx:for="{{ orderData }}" wx:key="index" 
+                bindtap="handleOrderClick" data-id="{{ item.id }}">
                 <view class="head">
-                    <text class="type">{{ item.classifyName }}</text>
+                    <text class="type">{{ item.oneName }}</text>
                     <text class="status">{{ item.statusShow }}</text>
                 </view>
 

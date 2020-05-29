@@ -63,7 +63,7 @@
                 <text>用户评价</text>
                 <text class="total">{{ formData.evaluateNum }}条评论</text>
             </view>
-            <view class="list-content" wx:for="{{ formData.evaluateList }}" wx:key="{{ item.id }}">
+            <view class="list-content" wx:for="{{ formData.evaluateList }}" wx:key="index">
                 <view class="list">
                     <view class="header">
                         <view class="icon">
@@ -193,7 +193,7 @@
             </view>
 
             <view class="content">
-                <view class="list" wx:for="{{ couponList }}" wx:key="{{ item.id }}">
+                <view class="list" wx:for="{{ couponList }}" wx:key="index">
                     <view class="price">
                         <text class="num">{{ item.amount }}</text>元
                     </view>

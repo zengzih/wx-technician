@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    addressData: []
+    addressData: [],
+    headerBackFunc: ''
   },
 
   /**
@@ -14,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     this.getAddressList()
+    this.setData({ headerBackFunc: this.headerBackFunc })
   },
 
   getAddressList() {
@@ -28,6 +30,7 @@ Page({
 
   handleEditAddress(event) {
     const { id } = event.currentTarget.dataset;
+    debugger;
     wx.navigateTo({
       url: '../addAddress/index?id=' + id + '&type=edit'
     })
@@ -39,6 +42,12 @@ Page({
     })
   },
 
+
+  headerBackFunc() {
+    wx.navigateTo({
+      url: '../confirmOrderForm/index'
+    })
+  },
   /*
   * address: "广东省深圳市宝安区创业一路"
     defaultStatus: 1
@@ -54,9 +63,10 @@ Page({
   handleSelect(event){
     const { item } = event.currentTarget.dataset;
     wx.setStorageSync('addressDetail', item)
-   /* wx.navigateTo({
+    debugger;
+    wx.navigateTo({
       url: '../confirmOrderForm/index?clientAddress=' + item.address + '&clientName=' + item.name + '&clientPhone=' + item.phone + '&clientRemark=' + item.remark + '&addressId=' + item.id
-    })*/
+    })
   },
 
   /**

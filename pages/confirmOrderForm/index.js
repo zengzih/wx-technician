@@ -93,7 +93,6 @@ Page({
   getProductInfo() {
     let { classifyId } = this.data.submitFormData;
     app.store.dispatch('getClassifyDetail', { id: classifyId }).then(res=> {
-      console.log(res)
       this.setData({
         productDetail: res
       });

@@ -32,7 +32,7 @@
             <!-- 幻灯片 end -->
 
             <view class="theme_list">
-                <view class="group" wx:for='{{ classifyOneList }}' wx:key='{{ index }}' data-theme="{{item}}"
+                <view class="group" wx:for='{{ classifyOneList }}' wx:key='index' data-theme="{{item}}"
                       bindtap="handleThemeEvent">
                     <view class='image_box'>
                         <image src='{{ item.image ? rootLocation + item.image : menuIcon }}'></image>
@@ -55,7 +55,7 @@
 
         <!-- 最下面的分类列表 -->
         <view class="list-wrapper">
-            <view class="list-group" wx:for="{{ indexDetail }}" wx:key="{{ item.id }}">
+            <view class="list-group" wx:for="{{ indexDetail }}" wx:key="index">
                 <view class="head">
                     <view class="title">{{ item.classifyOneName }}</view>
                     <view class="more" bindtap="handleShowAll" data-item="{{ item }}">更多></view>
@@ -64,7 +64,7 @@
                     <scroll-view scroll-x style="width: {{ 192 * item.classifyTwoList.length}}rpx">
                         <view class="panel" wx:for="{{ item.classifyTwoList }}"
                               wx:for-item="child"
-                              wx:key='{{ child.id }}'
+                              wx:key='index'
                               data-item="{{ child }}"
                               bindtap="handleProductDetail"
                         >

@@ -1,10 +1,12 @@
 const app = getApp().globalData;
+import { location } from '../../utils/util'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        rootLocation: location,
         formData: {},
         infoList: [
             {label: '真实的总价', prop: 'realPrice'},
@@ -15,11 +17,11 @@ Page({
             {label: '服务时间', prop: 'serviceTime'}
         ],
         formInfo: [
-            { label: '订单编号', prop: 'serviceId' },
-            { label: '预约时间', prop: 'serviceTime' },
-            { label: '服务人员', prop: 'serviceName' },
-            { label: '服务人员性别', prop: 'serviceSex' },
-            { label: '服务时间', prop: 'classifyMin' }
+            {label: '订单编号', prop: 'serviceId'},
+            {label: '预约时间', prop: 'serviceTime'},
+            {label: '技师姓名', prop: 'serviceName'},
+            {label: '技师性别', prop: 'serviceSex'},
+            {label: '服务时间', prop: 'classifyMin'}
         ]
     },
 
@@ -31,7 +33,7 @@ Page({
     },
 
     getOrderDetailInfo() {
-        app.store.dispatch('getOrderDetail', {orderId: 5}).then(data => {
+        app.store.dispatch('getOrderDetail', {orderId: 4}).then(data => {
             data.serviceTime = this.getServiceTime(data.serviceTime)
             this.setData({formData: data});
         });
@@ -50,13 +52,21 @@ Page({
 
     getDateDetail(date, property) {
         let value = date[property]();
-        if (property == 'getMonth'){
+        if (property == 'getMonth') {
             value += 1
         }
         if (value < 10) {
             return '0' + value
         }
         return value
+    },
+
+    handleConfirm() {
+
+    },
+
+    handleCancelOrder() {
+
     },
 
 

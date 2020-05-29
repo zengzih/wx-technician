@@ -10,6 +10,9 @@ Component({
     },
     back: {
       type: Boolean
+    },
+    backFunc: {
+      type: Function
     }
   },
 
@@ -25,6 +28,11 @@ Component({
    */
   methods: {
     handleBack() {
+      const { backFunc } = this.data;
+      debugger;
+      if (typeof(backFunc) == 'function') {
+        return backFunc()
+      }
       wx.navigateBack({
         delta: 1
       })

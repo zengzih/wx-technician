@@ -32,7 +32,7 @@
         </view>
 
         <view class='order-form-panel'>
-            <view class='group' wx:for='{{ orderFormGroup }}' wx:key="{{ index }}">
+            <view class='group' wx:for='{{ orderFormGroup }}' bindtap="handleOrderPanelEvent" data-item="{{ item }}" wx:key="index">
                 <view class='icon'>
                     <i class='iconfont {{ item.icon }}'></i>
                 </view>
@@ -41,7 +41,7 @@
         </view>
 
         <view class="menu-panel">
-            <view class="panel" wx:for="{{ menuList }}" wx:key="{{ index }}">
+            <view class="panel" wx:for="{{ menuList }}" wx:key="index">
                 <view class="img-box">
                     <image src=""></image>
                 </view>
