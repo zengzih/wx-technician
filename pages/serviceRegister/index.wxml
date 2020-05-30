@@ -31,7 +31,7 @@
                                 <i class="iconfont icon-wodefill"></i>
                             </view>
                         </label> -->
-                        <image src="{{ formData.avatar }}"></image>
+                        <image src="{{ rootLocation + formData.avatar }}"></image>
                     </view>
                     <i></i>
                     <view class="totip">请上传真实头像</view>
@@ -88,13 +88,13 @@
                 <view class="label">上传本人身份证</view>
                 <view class="con" bindtap="handleIdCardImage" data-prop="cardTop">
                     <view class="image-box {{ formData.cardTop ? 'hide' : 'show' }}">
-                        <image src="{{ formData.cardTop }}"></image>
+                        <image src="{{ rootLocation + formData.cardTop }}"></image>
                     </view>
                     <view>点击上传身份证正面</view>
                 </view>
                 <view class="con" bindtap="handleIdCardImage" data-prop="cardBottom">
                     <view class="image-box {{ formData.cardBottom ? 'hide' : 'show' }}">
-                        <image src="{{ formData.cardBottom }}"></image>
+                        <image src="{{ rootLocation + formData.cardBottom }}"></image>
                     </view>
                     <view>点击上传身份证反面</view>
                 </view>
@@ -103,7 +103,7 @@
                         <i class="iconfont icon-guanbi2"></i>
                     </view>
                     <view class="image-box {{ item.fileName ? 'hide' : 'show' }}" bindtap="handleWorkImage" data-id="{{ item.id }}">
-                        <image src="{{ item.fileName }}"></image>
+                        <image src="{{ rootLocation + item.fileName }}"></image>
                     </view>
                     <view>点击上传工作照片</view>
                 </view>
@@ -136,7 +136,7 @@
                 <view class="con">
                     <input type="text" bindinput="handleCertificate" data-index="{{ index }}" data-item="{{ item }}" value="{{ item.professionName }}" placeholder="请输入证书名称" />
                     <view class="image-box {{ item.professionImage ? 'hide' : 'show'  }}" bindtap="handleUploadCertificate" data-item="{{ item }}" data-index="{{ index }}">
-                        <image src="{{ item.professionImage }}"></image>
+                        <image src="{{ rootLocation + item.professionImage }}"></image>
                     </view>
                 </view>
             </view>
@@ -159,7 +159,7 @@
             </view>
             <view class="right-content">
                 <view class="panel-box" wx:for="{{ serviceDetail }}" bindtap="handleServicePanelEvent" data-item="{{ item }}" wx:key="{{ item.id }}">
-                    <view class="panel {{ serviceSelectIds[item.id] ? 'active' : '' }}">{{ item.name }}</view>
+                    <view class="panel {{  serviceSelectIds[item.id] ? 'active' : '' }}">{{ item.name }}</view>
                 </view>
             </view>
         </view>

@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/my/index",
     "pages/index/index",
+    "pages/serviceRegister/index",
+    "pages/my/index",
     "pages/orderFormDetail/index",
     "pages/myorderList/index",
     "pages/confirmOrderForm/index",
@@ -9,7 +10,6 @@
     "pages/orderDetail/index",
     "pages/addAddress/index",
     "pages/loginCheck/index",
-    "pages/serviceRegister/index",
     "pages/login/index",
     "pages/serviceOrder/index",
     "pages/loginMobile/index",

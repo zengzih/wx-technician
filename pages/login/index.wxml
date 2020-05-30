@@ -11,7 +11,7 @@
         </view>
         <view class="footer">
             <view bindtap="handleUser">
-                <button bindgetuserinfo="getUserInfo" wx:if="{{ sourceType === 0 }}" disabled="{{userType == 1}}" loading='{{ userType == 1 }}' class="btn" open-type="getUserInfo" plain lang="zh_CN">
+                <button bindgetuserinfo="getUserInfo" wx:if="{{ sourceType == 2 }}" disabled="{{userType == 1}}" loading='{{ userType == 1 }}' class="btn" open-type="getUserInfo" plain lang="zh_CN">
                     <!-- <view class="load-box">
                         <mp-loading type="circle" wx:if='{{ userType == 1 }}' tips=''></mp-loading>
                     </view> -->
@@ -19,7 +19,7 @@
                 </button>
             </view>
             <view bindtap="handleService">
-                <button bindgetuserinfo="getUserInfo" wx:wx:if="{{ sourceType === 1 }}" disabled="{{userType == 2}}" loading='{{ userType == 2 }}' class="btn" open-type="getUserInfo" lang="zh_CN">
+                <button bindgetuserinfo="getUserInfo" wx:if="{{ sourceType == 1 }}" disabled="{{userType == 2}}" loading='{{ userType == 2 }}' class="btn" open-type="getUserInfo" lang="zh_CN">
                     <!-- <view class="load-box">
                         <mp-loading type="circle" wx:if='{{ userType == 2 }}' tips=''></mp-loading>
                     </view> -->

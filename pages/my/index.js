@@ -99,9 +99,9 @@ Page({
   },
 
   handleSwitchRole() {
-    const { userType } = this.data.userInfo;
+    const { utype } = this.data.userInfo;
     wx.navigateTo({
-      url: '../login/index?source=' + userType
+      url: '../login/index?source=' + utype
     });
   },
 

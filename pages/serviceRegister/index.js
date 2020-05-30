@@ -1,10 +1,12 @@
 // pages/serviceRegister/index.js
+import { location } from "../../utils/util";
 const app = getApp().globalData
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    rootLocation: location,
     region: [],
     headUrl: '',
     currentStep: 1,
@@ -57,13 +59,14 @@ Page({
           header: {
             Authorization: token,
           },
-          url: app.location + 'file/upload/image',
+          url: app.location + '/file/upload/image',
           filePath: tempFilePaths[0],
           name: 'file',
           success(res) {
+            console.log(res);
             const { data } = JSON.parse(res.data)
             self.setData({
-              'formData.avatar': data.url,
+              'formData.avatar': data.fileName,
             })
           },
           fail(error) {
@@ -92,11 +95,12 @@ Page({
         sourceType: ['album', 'camera'],
         success(res) {
           const { tempFilePaths } = res
+          debugger;
           wx.uploadFile({
             header: {
               Authorization: token,
             },
-            url: url || app.location + 'file/upload/image',
+            url: url || app.location + '/file/upload/image',
             filePath: tempFilePaths[0],
             name: 'file',
             success(res) {
@@ -160,8 +164,8 @@ Page({
     const { serviceWorkPhoto } = this.data;
     const result = [];
     serviceWorkPhoto.forEach(elt=> {
-      if (elt.url) {
-        result.push(elt.url)
+      if (elt.fileName) {
+        result.push(elt.fileName)
       }
     });
     return result;
@@ -219,7 +223,7 @@ Page({
         if (professions['professionImage'] && !professions['professionName']) {
           return wx.showToast({
             icon: 'none',
-            title: '第' + i + '个资料证书中缺少证书描述！',
+            title: '第' + (i + 1) + '个资料证书中缺少证书描述！',
           })
         }
         if (!professions['professionImage'] && professions['professionName']) {
@@ -244,8 +248,8 @@ Page({
         title: res.message
       })
       if(/成功/.test(res.message)) {}
-      wx.navigateTo({
-        url: '../page/index/index'
+      wx.switchTab({
+        url: '../index/index',
       });
     })
   },
