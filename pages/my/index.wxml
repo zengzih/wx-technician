@@ -1,5 +1,4 @@
-<!--pages/my/index.wxml-->
-<view class='wrapper'>
+<!-- <view class='wrapper'>
     <view class='header'>
         <view class='setting'>
             <i class='iconfont icon-shezhi'></i>
@@ -10,15 +9,15 @@
         </view>
         <view class='group-info'>
             <view class='group'>
-                <view class='num'>{{ orderNum || '--' }}</view>
+                <view class='num'>{{ orderNum ||}}</view>
                 <view class='label'>订单数</view>
             </view>
             <view class='group'>
-                <view class='num'>{{ balance || '--'}}</view>
+                <view class='num'>{{ balance || }}</view>
                 <view class='label'>账户余额</view>
             </view>
             <view class='group'>
-                <view class='num'>--</view>
+                <view class='num'</view>
                 <view class='label'>代金券数</view>
             </view>
         </view>
@@ -46,6 +45,65 @@
                     <image src=""></image>
                 </view>
                 <view class="label">{{ item.label }}</view>
+            </view>
+        </view>
+    </view>
+</view>-->
+
+<view class="wrapper">
+    <v-header title="我的"></v-header>
+    <view class="head">
+        <view class="bgm"></view>
+        <view class="con">
+            <view class="icon-info">
+                <view class="icon" bindtap="handleSignIn">
+                    <image src="{{ userInfo.image || '../../image/icon/default-icon.png' }}"></image>
+                </view>
+                <view class="info">
+                    <view class="name">{{ userInfo.name || '登录' }}</view>
+                    <view class="phone">{{ userInfo.mobile }}</view>
+                </view>
+            </view>
+            <view class="con-list">
+                <view class="list">
+                    <view wx:for="{{ headerList }}">
+                        <view class="num">{{ !userInfo[item.prop] && userInfo[item.prop] !== 0  ? '--' : userInfo[item.prop] }}</view>
+                        <view class="label">{{ item.label }}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="order-content" wx:if="{{ token }}">
+        <view class="content">
+            <view class='group' wx:for='{{ orderFormGroup }}' bindtap="handleOrderPanelEvent" data-item="{{ item }}" data-index="{{ index }}" wx:key="index">
+                <view class='icon'>
+                    <i class='iconfont {{ item.icon }}'></i>
+                </view>
+                <view class='name'>{{ item.label }}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="list-content">
+        <view class="list-group" wx:for="{{ menuList }}" wx:key="index">
+            <text>{{ item.label }}</text>
+            <i class="iconfont icon-xiangyou1"></i>
+        </view>
+    </view>
+
+    <view class="content" wx:if="{{ token }}">
+        <view class="con" bindtap="handleSwitchRole">
+            <view class="list-group">
+                <view class="btn">{{ userInfo.utype == 1 ? '切换为技师' : '切换为用户' }}</view>
+            </view>
+        </view>
+
+        <view class="con">
+            <view class="list-group">
+                <view class="btn" bindtap="handleLogOut">退出登录</view>
             </view>
         </view>
     </view>

@@ -120,7 +120,7 @@ Page({
     const { prop } = event.currentTarget.dataset
     const { formData } = this.data
     this.publicUploadImage().then((data) => {
-      formData[prop] = data.url
+      formData[prop] = data.fileName
       this.setData({ formData })
     })
   },
@@ -151,7 +151,7 @@ Page({
     const { index } = event.currentTarget.dataset
     const { professionsList } = this.data
     this.publicUploadImage().then((data) => {
-      professionsList[index]['professionImage'] = data.url
+      professionsList[index]['professionImage'] = data.fileName
       this.setData({ professionsList })
     })
   },
@@ -384,7 +384,7 @@ Page({
     const { serviceWorkPhoto } = this.data;
     for (let i = 0; i < serviceWorkPhoto.length; i++) {
       if (id == serviceWorkPhoto[i].id) {
-        serviceWorkPhoto[i].url = url
+        serviceWorkPhoto[i].fileName = url
       }
     }
     return serviceWorkPhoto;
@@ -393,7 +393,7 @@ Page({
   handleWorkImage(event) {
     const { id } = event.currentTarget.dataset;
     this.publicUploadImage().then((data) => {
-      this.setData({ serviceWorkPhoto: this.getCurrentWork(id, data.url) })
+      this.setData({ serviceWorkPhoto: this.getCurrentWork(id, data.fileName) })
     })
   },
   /**

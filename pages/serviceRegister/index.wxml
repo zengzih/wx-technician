@@ -102,8 +102,8 @@
                     <view class="del" wx:if="{{ serviceWorkPhoto.length > 1 }}" bindtap="handleDelWork" data-id="{{ item.id }}">
                         <i class="iconfont icon-guanbi2"></i>
                     </view>
-                    <view class="image-box {{ item.url ? 'hide' : 'show' }}" bindtap="handleWorkImage" data-id="{{ item.id }}">
-                        <image src="{{ item.url }}"></image>
+                    <view class="image-box {{ item.fileName ? 'hide' : 'show' }}" bindtap="handleWorkImage" data-id="{{ item.id }}">
+                        <image src="{{ item.fileName }}"></image>
                     </view>
                     <view>点击上传工作照片</view>
                 </view>

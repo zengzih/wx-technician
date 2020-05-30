@@ -33,6 +33,7 @@ Component({
       if (typeof(backFunc) == 'function') {
         return backFunc()
       }
+      console.log('---------------header-----------------')
       wx.navigateBack({
         delta: 1
       })

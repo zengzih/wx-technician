@@ -1,6 +1,6 @@
 <!--pages/myorderList/index.wxml-->
 <view class='wrapper'>
-    <v-header title="我的订单" back></v-header>
+    <v-header title="我的订单" back back-func="{{ backFunc }}"></v-header>
 
     <view class="content">
         <view class="tabs">
@@ -23,7 +23,7 @@
 
                 <view class="con">
                     <view class="photo">
-                        <image src></image>
+                        <image src="{{ rootLocation + item.classifyImage }}"></image>
                     </view>
 
                     <view class="detail">

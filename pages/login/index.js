@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    sourceType: '',
     userType: 0,
   },
   handleService() {
@@ -13,6 +14,7 @@ Page({
       userType: 2,
     })
   },
+
   handleUser() {
     app.publicParams.userType = 1
     this.setData({
@@ -75,7 +77,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    const { sourceType } = options;
+    this.setData({ sourceType })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

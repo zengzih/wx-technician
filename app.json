@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/my/index",
     "pages/index/index",
     "pages/orderFormDetail/index",
     "pages/myorderList/index",
@@ -10,7 +11,6 @@
     "pages/loginCheck/index",
     "pages/serviceRegister/index",
     "pages/login/index",
-    "pages/my/index",
     "pages/serviceOrder/index",
     "pages/loginMobile/index",
     "pages/themeList/index",

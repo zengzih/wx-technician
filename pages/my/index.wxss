@@ -1,181 +1,195 @@
 .wrapper {
+    height: 100%;
+    background: #f8f8f8;
+}
+
+.wrapper .head {
+    height: 416rpx;
     position: relative;
-    padding: 0 32rpx;
-    box-sizing: border-box;
-}
-
-.wrapper .header {
-    position: relative;
-}
-
-.wrapper .header .setting {
-    position: absolute;
-    top: -70rpx;
-    left: 30rpx;
-}
-
-.wrapper .header .setting i {
-    font-size: 50rpx;
-    color: #000;
-}
-
-.wrapper .header .user-head {
-    height: 180rpx;
-    width: 180rpx;
-    border: 2px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 50%;
-    margin: 150rpx auto;
-    text-align: center;
-    margin-bottom: 100rpx;
-}
-
-.wrapper .header .user-head image{
-    height: 180rpx;
-    width: 180rpx;
-}
-
-.wrapper .header .user-head .user_name {
-    font-size: 24rpx;
-    color: #000;
-    margin-top: 15rpx;
-}
-
-
-.wrapper .header .group-info {
-    margin-top: 20rpx;
-    overflow: hidden;
-}
-
-.wrapper .header .group-info .group {
-    float: left;
-    width: 33.33%;
-    position: relative;
-    text-align: center;
-}
-
-.wrapper .header .group-info .group:nth-of-type(2):before {
-    content: '';
-    height: 95%;
-    position: absolute;
-    width: 1px;
-    background: #ccc;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-}
-
-.wrapper .header .group-info .group:nth-of-type(2):after {
-    content: '';
-    height: 95%;
-    position: absolute;
-    width: 1px;
-    background: #ccc;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-}
-
-
-.wrapper .header .group-info .group .num {
-    height: 40rpx;
-    line-height: 40rpx;
-    font-size: 32rpx;
-    color: #db6188;
     margin-bottom: 20rpx;
 }
 
-.wrapper .header .group-info .group .label {
-    font-size: 24rpx;
-    color: #000;
+.wrapper .head .bgm {
+    position: absolute;
+    height: 358rpx;
+    width: 100%;
+    background: #0077aa;
+    top: 0;
+    left: 0;
 }
 
-
-/*  我的订单 */
-.menu_content {
-    margin-top: 30rpx;
+.wrapper .head .con {
+    height: 330rpx;
+    width: 710rpx;
+    position: relative;
+    top: 85rpx;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 4px;
 }
 
-.menu_content .order-form {
+.wrapper .head .con .icon {
+    position: absolute;
+    top: -48rpx;
+    width: 156rpx;
+    height: 156rpx;
+    border-radius: 4px;
+    left: 26rpx;
     overflow: hidden;
-    height: 80rpx;
-    line-height: 80rpx;
+    background: #fff;
 }
 
-.menu_content .order-form text:first-child {
-    float: left;
-    font-size: 30rpx;
-    color: #000;
-}
-
-.menu_content .order-form .read-all {
-    float: right;
-    font-size: 22rpx;
-    color: #a9a9a9;
+.wrapper .head .con .icon image {
+    width: 100%;
     height: 100%;
 }
 
 
-/*  代付款状态栏 */
-
-.order-form-panel {
-    overflow: hidden;
-    height: 160rpx;
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 2rpx 12rpx 0 rgba(0, 0, 0, 0.1)
-}
-.order-form-panel .group {
-    float: left;
-    width: 25%;
-    box-sizing: border-box;
-    text-align: center;
+.wrapper .head .con .icon-info {
+    height: 165rpx;
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-
 }
 
-.order-form-panel .group .icon {
+.wrapper .head .con .info {
+    position: absolute;
+    left: 210rpx;
+    top: 0;
+    height: 120rpx;
+    padding-top: 20rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .head .con .info .name {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-bottom: 20rpx;
+}
+
+.wrapper .head .con .info .phone {
+    font-size: 22rpx;
+    color: #6b6b6b;
+}
+
+.wrapper .head .con-list .list {
+    display: flex;
+}
+
+.wrapper .head .con-list .list>view {
+    flex: 2;
+    text-align: center;
+}
+
+.wrapper .head .con-list .list>view .num {
+    font-size: 28rpx;
+    margin-bottom: 18rpx;
+}
+
+.wrapper .head .con-list .list>view .label {
+    font-size: 22rpx;
+    color: #999999;
+}
+
+/*   订单    */
+.order-content {
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+}
+
+.order-content .content {
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+    padding: 20rpx 0;
+}
+
+.order-content .group {
+    flex: 2;
+}
+
+.order-content .group {
+    text-align: center;
+}
+
+.order-content .group .icon {
     width: 60rpx;
     height: 50rpx;
     overflow: hidden;
-    margin-bottom: 22rpx;
+    margin-bottom: 18rpx;
     display: inline-block;
 }
 
-.order-form-panel .group .icon  i {
+
+.order-content .group .icon i {
     font-size: 50rpx;
 }
 
-.order-form-panel .group .name {
+.order-content .group .name {
     font-size: 26rpx;
     color: #969696;
 }
 
 
-/*底部的栏目*/
 
-.menu-panel {
-    overflow: hidden;
-    margin-top: 40rpx;
+/*  end */
+
+.content {
+    padding: 0 20rpx;
+    border-radius: 4rpx;
+    margin-bottom: 20rpx;
 }
 
-.menu-panel .panel {
-    float: left;
-    width: 33.33%;
-    height: 170rpx;
-    text-align: center;
+.content .con {
     margin-bottom: 30rpx;
+    background: #fff;
 }
 
-.menu-panel .panel .img-box {
-    width: 100%;
-    height: 140rpx;
-    overflow: hidden;
-}
-
-.menu-panel .panel .label {
+.content .con .list-group {
+    padding: 0 28rpx;
+    height: 100rpx;
+    text-align: center;
+    border: 1px solid 1px solid #f7f7f7;
+    box-sizing: border-box;
+    line-height: 100rpx;
     font-size: 30rpx;
-
 }
+
+
+/*  功能列表 */
+.list-content {
+    padding: 0 20rpx;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+}
+
+.list-content .list-group {
+    background: #fff;
+    padding: 0 28rpx;
+    height: 100rpx;
+    text-align: left;
+    box-sizing: border-box;
+    line-height: 100rpx;
+    border-bottom: 1px solid #f7f7f7;
+    font-size: 30rpx;
+}
+
+.list-content .list-group i {
+    float: right;
+    font-size: 24rpx;
+    color: #d3d3d3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

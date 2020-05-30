@@ -95,6 +95,9 @@
 .wrapper .content .body .list .con .detail {
     float: left;
     width: calc(100% - 180rpx);
+    padding-left: 20rpx;
+    box-sizing: border-box;
+
 }
 
 .wrapper .content .body .list .con .detail .name {
@@ -126,6 +129,7 @@
     float: left;
     font-size: 22rpx;
     color: #939393;
+    margin-right: 10rpx;
 }
 
 .wrapper .content .body .list .con .detail .price-num .price {

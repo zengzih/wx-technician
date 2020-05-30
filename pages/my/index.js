@@ -9,14 +9,16 @@ Page({
     userInfo: {},
     // 订单分类
     orderFormGroup: [],
-    
+    headerList: [],
     name: '',
     balance: '',
     noPayCommission: '',
     orderNum: '',
+    userType: '',
     
     // 底部的菜单分类
-    menuList: []
+    menuList: [],
+    token: ''
   },
   
 
@@ -24,12 +26,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const { userInfo } = app;
+    const headerList = [
+      { label: '余额', prop: 'balance' },
+      { label: '未提现金额', prop: 'noPayCommission' },
+      { label: '订单数', prop: 'orderNum' },
+    ]
     const orderFormGroup = [
-      { label: '待付款', icon: 'icon-dingdan' },
-      { label: '待处理', icon: 'icon-dingdan' },
-      { label: '进行中', icon: 'icon-dingdan' },
-      { label: '已完成', icon: 'icon-dingdan' },
+      { label: '全部', icon: 'icon-dingdan', prop: '' },
+      { label: '待付款', icon: 'icon-dingdan', prop: 0 },
+      { label: '待处理', icon: 'icon-dingdan', prop: 1 },
+      { label: '已完成', icon: 'icon-dingdan', prop: 4 },
     ];
   
     const menuList = [
@@ -40,28 +46,38 @@ Page({
       { label: '我的足迹' },
       { label: '联系客户' },
     ];
+    this.getUserInfo()
     this.setData({
-      userInfo,
       orderFormGroup,
-      menuList
+      menuList,
+      headerList
     });
   },
-  
-  handleSign() {
+
+  handleSignIn() {
     const token = wx.getStorageSync('token');
+    this.setData({token});
     if (!token) {
       wx.navigateTo({
         url: '../login/index'
       });
     }
   },
+
+  handleLogOut() {
+    wx.clearStorage();
+    this.onLoad();
+  },
+
   
   getUserInfo() {
     const token = wx.getStorageSync('token');
+    this.setData({token});
     if (!token) return;
     app.store.dispatch('getUserInfo').then(res=> {
       const { name, balance, noPayCommission } = res;
       this.setData({
+        userInfo: res,
         name, balance, noPayCommission
       });
     });
@@ -69,13 +85,23 @@ Page({
 
   handleOrderPanelEvent(event) {
     // 单个的点击事件
-    const { item } = event.currentTarget.dataset;
+    const { item, index } = event.currentTarget.dataset;
+    wx.navigateTo({
+      url: '../myorderList/index?id=' + item.prop + '&activeIndex=' + index
+    })
 
   },
 
   handleReadAllOrderForm() {
     wx.navigateTo({
       url: '../myorderList/index'
+    });
+  },
+
+  handleSwitchRole() {
+    const { userType } = this.data.userInfo;
+    wx.navigateTo({
+      url: '../login/index?source=' + userType
     });
   },
 

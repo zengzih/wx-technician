@@ -1,14 +1,13 @@
 // pages/myorderList/index.js
+import { location } from '../../utils/util'
 const app = getApp().globalData;
 // 通过状态查询不同订单 0-待付款 1-待处理 2-进行中 3-已完成
 const tabs = [
  /* { label: '全部', prop: '' },*/
-  { label: '待支付', prop: '0' },
-  { label: '待处理', prop: '1' },
-  { label: '进行中', prop: '2' },
-  { label: '待确认', prop: '3' },
-  { label: '已完成', prop: '4' },
-  { label: '已取消', prop: '5' }
+  { label: '全部', prop: '' },
+  { label: '待付款', prop: 0 },
+  { label: '待处理', prop: 1 },
+  { label: '已完成', prop: 4 },
 ];
 
 Page({
@@ -16,6 +15,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    rootLocation: location,
     tabs: tabs,
     params: {
       size: 10,
@@ -26,7 +26,8 @@ Page({
     activeIndex: 0,
     orderData: [],
     confirmReg: '',
-    getConfirmShow: ''
+    getConfirmShow: '',
+    backFunc: ''
   },
 
   handleTabEvent(event) {
@@ -115,14 +116,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { confirmReg, getConfirmShow } = this.data;
+    const { id, activeIndex } = options;
+    let { confirmReg, getConfirmShow, params } = this.data;
+    if (id) {
+      params.status = id;
+      params.current = 1;
+    }
     this.setData({
+      params,
+      activeIndex,
+      backFunc: this.backFunc,
       getConfirmShow: function (item) {
         console.log(111)
         console.log(item)
       }
     })
     this.getOrderList();
+  },
+
+  backFunc() {
+    wx.switchTab({
+      url: '../my/index'
+    });
   },
 
   /**
