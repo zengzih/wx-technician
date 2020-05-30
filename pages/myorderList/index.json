@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "v-header": "../../component/header/index"
+    "v-header": "../../component/header/index",
+    "customer-order-list": "../../component/customer-order-list/index"
   }
 }

@@ -79,7 +79,6 @@ Page({
    */
   onLoad: function (options) {
     const { source } = options;
-    debugger;
     this.setData({ sourceType: source })
   },
 

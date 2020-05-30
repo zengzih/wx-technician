@@ -1,8 +1,6 @@
 <!--pages/myorderList/index.wxml-->
 <view class='wrapper'>
-    <v-header title="我的订单" back back-func="{{ backFunc }}"></v-header>
-    <customer-order-list></customer-order-list>
-    <!--<view class="content">
+  <view class="content">
         <view class="tabs">
             <view class="tab {{ index == activeIndex ? 'active' : '' }}"
                   wx:for="{{ tabs }}"
@@ -41,5 +39,5 @@
                 </view>
             </view>
         </view>
-    </view>-->
+    </view>
 </view>

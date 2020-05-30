@@ -97,7 +97,8 @@ const requestUrl = {
     pay: 'pay',
     order_list: 'list',
     ok_order: 'okOrder',
-    order_detail: 'detail'
+    order_detail: 'detail',
+    rejectOrder: 'rejectOrder'
   },
   file: {
     upload_image: 'upload/image',

@@ -4,6 +4,6 @@
     "list-view": "../../component/view-listly/index",
     "v-header": "../../component/header/index",
     "person-index": "../../component/person-index/index",
-    "service-index": "../../component/service-index/index"
+    "service-order-list": "../../component/service-order-list/index"
   }
 }
