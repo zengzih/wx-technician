@@ -29,11 +29,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.getOrderDetailInfo()
+        const { id } = options;
+        this.getOrderDetailInfo(id)
     },
 
-    getOrderDetailInfo() {
-        app.store.dispatch('getOrderDetail', {orderId: 4}).then(data => {
+    getOrderDetailInfo(orderId) {
+        app.store.dispatch('getOrderDetail', {orderId}).then(data => {
             data.serviceTime = this.getServiceTime(data.serviceTime)
             this.setData({formData: data});
         });

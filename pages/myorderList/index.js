@@ -106,7 +106,9 @@ Page({
   // 订单点击
   handleOrderClick(event) {
     const { id } = event.currentTarget.dataset;
-
+    wx.navigateTo({
+      url: '../orderFormDetail/index?id=' + id,
+    })
   },
 
   /**
