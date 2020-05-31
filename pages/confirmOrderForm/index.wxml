@@ -9,7 +9,7 @@
                     <text class="phone">{{ submitFormData.clientPhone || '' }}</text>
                     <i class="iconfont icon-fankui"></i>
                 </view>
-                <view class="address">{{ submitFormData.clientRemark || '' }}</view>
+                <!--<view class="address">{{ submitFormData.clientRemark || '' }}</view>-->
             </view>
         </view>
 
@@ -50,11 +50,17 @@
                 <view class="detail">
                     <view class="name">{{ productDetail.name }}</view>
                     <view class="detail">
-                        <text>{{ productDetail.description }}</text>
-                        <text>{{ productDetail.workTime }}</text>
+                        <text>{{ productDetail.securityDesc }}</text>
+                        <text>{{ productDetail.workTime }}分钟</text>
                     </view>
                     <view class="price">{{ productDetail.vipPrice }} * 1</view>
                 </view>
+            </view>
+
+
+            <view class="group">
+                <text class="label">商品原价</text>
+                <text class="value">￥{{ submitFormData.realPrice }}</text>
             </view>
 
             <view class="group">
@@ -77,26 +83,41 @@
             </view>-->
 
             <view class="group">
-                <text class="label">商品原价</text>
-                <text class="value">￥{{ submitFormData.realPrice }}</text>
-            </view>
-
-            <view class="group">
-                <text class="label">实际支付金额</text>
+                <text class="label">支付金额</text>
                 <text class="value">￥{{ submitFormData.payPrice }}</text>
             </view>
 
-            <view class="group">
+            <view class="group remark">
                 <text class="label">备注</text>
-                <text class="value">
-                    <text>{{ submitFormData.clientRemark || '' }}</text>
-                </text>
+                <view class="value">
+<!--                    {{ submitFormData.clientRemark || '' }}-->
+                    <textarea value="{{ submitFormData.clientRemark }}" bindinput="handleRemarkEvent"></textarea>
+                </view>
             </view>
 
            <!-- <view class="group">
                 <text class="label">夜间交通费</text>
                 <text class="value"></text>
             </view>-->
+        </view>
+    </view>
+
+    <view class="pay-box" wx:if="{{ payBoxShow }}">
+        <view class="mask"></view>
+        <view class="content">
+            <view class="title">
+                <text>支付详情</text>
+                <i bindtap="handleClosePayBox" class="iconfont icon-guanbi1"></i>
+            </view>
+            <view class="price">
+                <text>￥</text>
+                <text>{{ submitFormData.payPrice }}</text>
+            </view>
+
+            <view class="pay-footer">
+                <view class="btn" bindtap="handlePayEvent" data-paytype="1">余额支付</view>
+                <view class="btn" bindtap="handlePayEvent" data-paytype="2">微信支付</view>
+            </view>
         </view>
     </view>
 

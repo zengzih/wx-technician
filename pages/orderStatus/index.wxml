@@ -1,0 +1,14 @@
+<!--pages/orderStatus/index.wxml-->
+<view class="wrapper">
+    <v-header title="支付结果"></v-header>
+
+    <view class="content">
+        <view class="img-box">
+            <image src="{{ url }}"></image>
+        </view>
+        <view class="msg">{{ msg }}</view>
+
+        <view class="btn" bindtap="handlePayOrder">{{ btnText }}</view>
+    </view>
+
+</view>

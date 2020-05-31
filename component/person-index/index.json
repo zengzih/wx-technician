@@ -1,7 +1,8 @@
 {
   "enablePullDownRefresh": false,
+  "component": true,
   "usingComponents": {
     "list-view": "../view-listly/index",
-    "v-header": "../../component/header/index"
+    "v-header": "../header/index"
   }
 }

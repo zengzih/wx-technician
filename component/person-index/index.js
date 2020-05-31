@@ -85,9 +85,10 @@ Component({
           'Content-Type': 'application/json'
         },
         success(res) {
+          const { city } = res.data.result.addressComponent;
           const { formatted_address } = res.data.result;
           _this.setData({
-            location: formatted_address
+            location: city
           });
           app.mapLocations.lat = latitude;
           app.mapLocations.lng = longitude;

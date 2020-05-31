@@ -1,6 +1,7 @@
 // pages/orderDetail/index.js
 import { getLocation } from '../../utils/watch';
 import { location } from '../../utils/util'
+const wxParse = require('../../wxParse/wxParse.js');
 const app = getApp().globalData;
 Page({
 
@@ -55,6 +56,8 @@ Page({
       classifyNum: 1,
       yearMonth: ''
     },
+    showTimerBox: false,
+    showServiceBox: false,
     couponList: []
   },
   
@@ -236,7 +239,7 @@ Page({
         if (elt.addrX && elt.addrY) {
           let distance = app.global.distance(mapLocations.lat, mapLocations.lng, elt.addrY, elt.addrX);
           if (distance) {
-            distance = distance.toFixed(2)
+            distance = parseInt(distance)
           }
           elt.distance = distance
         }
@@ -271,6 +274,8 @@ Page({
     const { projectId } = this.data;
     return new Promise((resolve)=>{
       app.store.dispatch('getClassifyDetail', { id: projectId }).then(res=> {
+        wxParse.wxParse('description', 'html', res.description, this, 0)
+        res.evaluateList = res.evaluateList.slice(2);
         this.setData({
           formData: res
         });
@@ -282,16 +287,20 @@ Page({
   // 选择技师
   handleSelectTechnician(event) {
     const { type } = event.currentTarget.dataset;
-    const { timeActiveIndex, weekActiveIndex, classifyActiveIndex, timeDetail, weeks, classifyList, classifyInfo } = this.data;
+    const { timeActiveIndex, weekActiveIndex, classifyActiveIndex, timeDetail, weeks, classifyList, classifyInfo, showTimerBox, showServiceBox } = this.data;
     if (type == 'confirm') {
       if (!this.checkFormSubmit()) {
         return false;
       }
-      classifyInfo.month = weeks[weekActiveIndex].monthDay;
-      classifyInfo.date = timeDetail[timeActiveIndex];
-      classifyInfo.name = classifyList[classifyActiveIndex].name;
-      classifyInfo.id = classifyList[classifyActiveIndex].id;
-      classifyInfo.image = classifyList[classifyActiveIndex].image;
+      if (showTimerBox) {
+        classifyInfo.month = weeks[weekActiveIndex].monthDay;
+        classifyInfo.date = timeDetail[timeActiveIndex];
+      }
+      if (showServiceBox) {
+        classifyInfo.name = classifyList[classifyActiveIndex].name;
+        classifyInfo.id = classifyList[classifyActiveIndex].id;
+        classifyInfo.image = classifyList[classifyActiveIndex].image;
+      }
     }
     this.setData({
       technicianShow: false,
@@ -300,16 +309,17 @@ Page({
   },
   
   checkFormSubmit() {
-    const { timeActiveIndex, weekActiveIndex, classifyActiveIndex, timeDetail, weeks, classifyList, classifyInfo } = this.data;
+    const { timeActiveIndex, classifyActiveIndex,  showTimerBox, showServiceBox } = this.data;
     let check = true;
-    if (timeActiveIndex < 0) {
+
+    if (showTimerBox && timeActiveIndex < 0) {
       wx.showToast({
         icon: 'none',
         title: '请选择服务时间段！',
       });
       check = false;
     }
-    if (classifyActiveIndex < 0) {
+    if (showServiceBox && classifyActiveIndex < 0) {
       wx.showToast({
         icon: 'none',
         title: '请选择服务技师！',
@@ -319,10 +329,23 @@ Page({
     return check
   },
   
-  handleShowTechnician() {
-    this.setData({
-      technicianShow: true
-    });
+  handleShowTechnician(event) {
+    const { type } = event.currentTarget.dataset;
+    if (type == 'selectService') {
+      this.setData({
+        showServiceBox: true,
+        showTimerBox: false,
+        technicianShow: true
+      });
+    }
+
+    if (type == 'selectTime') {
+      this.setData({
+        showServiceBox: false,
+        showTimerBox: true,
+        technicianShow: true
+      });
+    }
   },
 
   handleBack() {

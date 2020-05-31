@@ -199,8 +199,9 @@ color:rgba(145,145,145,1);
 }
 
 .banner_wrapper .right {
-  margin-left: 20rpx;
+  margin-left: 19rpx;
 }
+
 .banner_wrapper .left .item {
  background: #2782D7;
  height: 100%;
@@ -275,6 +276,11 @@ color:rgba(145,145,145,1);
 }
 
 .swiper_wrapper .swiper-item {
+  height: 100%;
+}
+
+.swiper_wrapper .swiper-item image {
+  width: 100%;
   height: 100%;
 }
 

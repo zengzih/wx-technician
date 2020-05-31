@@ -1,13 +1,14 @@
 {
   "pages": [
+    "pages/confirmOrderForm/index",
+    "pages/orderDetail/index",
+    "pages/orderStatus/index",
     "pages/index/index",
     "pages/myorderList/index",
     "pages/serviceRegister/index",
     "pages/my/index",
     "pages/orderFormDetail/index",
-    "pages/confirmOrderForm/index",
     "pages/manageAddress/index",
-    "pages/orderDetail/index",
     "pages/addAddress/index",
     "pages/loginCheck/index",
     "pages/login/index",
@@ -26,7 +27,6 @@
     "pages/userInfo/index",
     "pages/logs/logs",
     "pages/serviceIndex/index"
-
   ],
   "window": {
     "backgroundTextStyle": "dark",

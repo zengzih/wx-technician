@@ -1,0 +1,53 @@
+/* pages/orderStatus/index.wxss */
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    background: #fff;
+}
+
+.wrapper .content {
+    padding-top: 200rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .content .img-box {
+    margin: 0 auto;
+    width: 336rpx;
+    height: 293rpx;
+}
+
+.wrapper .content .img-box image {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper .content .msg {
+    margin-top: 20rpx;
+    font-size: 28rpx;
+    color: #676767;
+    text-align: center;
+}
+
+.wrapper .content .btn {
+    margin: 250rpx auto;
+    width: 280rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 4px;
+    font-size: 28rpx;
+    text-align: center;
+    color: #fff;
+    background: #628bf7;
+}
+
+
+
+
+
+
+
+
+
+
+

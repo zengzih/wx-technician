@@ -41,7 +41,7 @@ export const getWeekTap = (data = {}) => request.post('week_tab', data)
 
 export const getTimeShow = (data = {}) => request.post('getTimeShow', data)
 
-export const submitOrderAdd = (data = {}) => request.post('add', data)
+export const submitOrderAdd = (data = {}) => request.post('add', data, { all: true })
 
 export const submitOrderReady = (data = {}) => request.post('ready', data, { all: true })
 

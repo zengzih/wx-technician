@@ -1,7 +1,7 @@
 /* pages/orderDetail/index.wxss */
 .wrapper {
     position: relative;
-    height: 100%;
+    height: calc(100% - 120rpx);
     overflow: auto;
 }
 .wrapper .header {
@@ -141,6 +141,9 @@
 /*group*/
 .wrapper .groups {
     margin-top: 12rpx;
+    padding-bottom: 20rpx;
+    box-sizing: border-box;
+    overflow: auto;
 }
 .wrapper .groups .group {
     height: 80rpx;
@@ -891,6 +894,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
+}
+
+/*  商品描述 */
+.description {
+    background: #fff;
+    margin-top: 20rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
 }
 
 
