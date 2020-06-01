@@ -1,13 +1,15 @@
 {
   "pages": [
+    "pages/technicianList/index",
+    "pages/journeyState/index",
     "pages/confirmOrderForm/index",
+    "pages/myorderList/index",
+    "pages/orderFormDetail/index",
     "pages/orderDetail/index",
     "pages/orderStatus/index",
     "pages/index/index",
-    "pages/myorderList/index",
     "pages/serviceRegister/index",
     "pages/my/index",
-    "pages/orderFormDetail/index",
     "pages/manageAddress/index",
     "pages/addAddress/index",
     "pages/loginCheck/index",
@@ -17,7 +19,6 @@
     "pages/themeList/index",
     "pages/settingInfo/index",
     "pages/orderForm/index",
-    "pages/journeyState/index",
     "pages/detail/index",
     "pages/mysharpe/index",
     "pages/signUpPreview/index",
@@ -27,6 +28,7 @@
     "pages/userInfo/index",
     "pages/logs/logs",
     "pages/serviceIndex/index"
+
   ],
   "window": {
     "backgroundTextStyle": "dark",

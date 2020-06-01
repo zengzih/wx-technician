@@ -1,5 +1,6 @@
 const app = getApp().globalData;
-import { location } from '../../utils/util'
+import {location} from '../../utils/util'
+
 Page({
 
     /**
@@ -9,11 +10,11 @@ Page({
         rootLocation: location,
         formData: {},
         infoList: [
-            {label: '真实的总价', prop: 'realPrice'},
-            {label: 'VIP折扣', prop: 'vipDiscount'},
-            {label: '优惠券折扣', prop: 'couponPrice'},
-            {label: '购买数量', prop: 'classifyNum'},
-            {label: '服务时间', prop: 'classifyMin'},
+            {label: '商品总价', prop: 'realPrice', before: '￥'},
+            {label: 'VIP折扣', prop: 'vipDiscount', before: '￥'},
+            {label: '优惠券折扣', prop: 'couponPrice', before: '￥'},
+            {label: '应付总价', prop: 'payPrice', before: '￥'},
+            {label: '服务时长', prop: 'classifyMin', after: '分钟'},
             {label: '服务时间', prop: 'serviceTime'}
         ],
         formInfo: [
@@ -29,8 +30,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        const { id } = options;
-        this.getOrderDetailInfo(id)
+        const {id} = options;
+        this.getOrderDetailInfo(2)
     },
 
     getOrderDetailInfo(orderId) {

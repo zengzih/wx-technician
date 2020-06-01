@@ -24,7 +24,8 @@ Page({
             clientPhone: '',
             clientRemark: '',
             classifyId: '',
-            classifyNum: ''
+            classifyNum: '',
+            detailAddress: ''
         },
         serviceTime: '',
         classifyInfo: {},
@@ -52,13 +53,17 @@ Page({
     },
 
     init_member_address(options) {
-        const {id, clientName, clientPhone, clientAddress, clientRemark} = options;
-        if (clientName && clientPhone && clientAddress && clientRemark) {
+        const {id, clientName, clientPhone, clientAddress, remark} = options;
+        debugger;
+        if (!clientName) {
+            return this.getDefaultAddress();
+        }
+        if (clientName && clientPhone && clientAddress && remark) {
             this.setData({
                 'submitFormData.clientName': clientName,
                 'submitFormData.clientPhone': clientPhone,
                 'submitFormData.clientAddress': clientAddress,
-                'submitFormData.clientRemark': clientRemark,
+                'submitFormData.detailAddress': remark,
             });
         }
     },
@@ -67,15 +72,33 @@ Page({
         app.store.dispatch('getAddressList').then(data => {
             const {records} = data;
             if (records.length) {
+                let clientName, clientPhone, clientAddress, detailAddress = ''
                 records.forEach(elt => {
                     if (elt.defaultStatus) {
-                        this.setData({
+                        clientName = elt.name
+                        clientPhone = elt.phone
+                        clientAddress = elt.address
+                        detailAddress = elt.remark
+                       /* this.setData({
                             'submitFormData.clientName': elt.name,
                             'submitFormData.clientPhone': elt.phone,
                             'submitFormData.clientAddress': elt.address,
-                            // 'submitFormData.clientRemark': elt.remark
-                        })
+                            'submitFormData.detailAddress': elt.remark
+                        })*/
                     }
+                });
+                if (!clientName) {
+                    const firstRow = records[0];
+                    clientName = firstRow.name
+                    clientPhone = firstRow.phone
+                    clientAddress = firstRow.address
+                    detailAddress = firstRow.remark
+                }
+                this.setData({
+                    'submitFormData.clientName': clientName,
+                    'submitFormData.clientPhone': clientPhone,
+                    'submitFormData.clientAddress': clientAddress,
+                    'submitFormData.detailAddress': detailAddress
                 })
             }
         });
@@ -138,6 +161,7 @@ Page({
             const param = this.getRequestParams(submitFormData)
             param.serviceTime = serviceTime;
             this.formatParams(param)
+            param.clientAddress += submitFormData.detailAddress
             app.store.dispatch('submitOrderAdd', param).then(res => {
                 if (res.code == 200) {
                     const {id} = res.data;

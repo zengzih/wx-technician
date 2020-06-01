@@ -1,5 +1,4 @@
 {
-  "component": true,
   "usingComponents": {
     "v-header": "../../component/header/index"
   }

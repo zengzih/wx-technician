@@ -13,7 +13,7 @@
             <view class="detail">
                 <view class="product-box">
                     <view class="img-box">
-                        <image src="{{ rootLocation + formData.serviceImage }}"></image>
+                        <image src="{{ rootLocation + formData.classifyImage }}"></image>
                     </view>
                     <view class="product-info">
                         <view class="name-money">
@@ -29,7 +29,7 @@
 
                 <view class="info-list" wx:for="{{ infoList }}" wx:key="index">
                     <text class="label">{{ item.label }}</text>
-                    <text class="val">{{ formData[item.prop] }}</text>
+                    <text class="val">{{ item.before || '' }}{{ formData[item.prop] }}{{ item.after || '' }}</text>
                 </view>
 
                 <view class="order-address">

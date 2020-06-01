@@ -9,7 +9,7 @@
                     <text class="phone">{{ submitFormData.clientPhone || '' }}</text>
                     <i class="iconfont icon-fankui"></i>
                 </view>
-                <!--<view class="address">{{ submitFormData.clientRemark || '' }}</view>-->
+                <view class="address">{{ submitFormData.clientAddress + submitFormData.detailAddress  }}</view>
             </view>
         </view>
 
@@ -122,7 +122,7 @@
     </view>
 
     <view class="footer">
-        <view>待支付 <text class="price">￥{{ submitFormData.payPrice }}</text></view>
+        <!-- <view>待支付 <text class="price">￥{{ submitFormData.payPrice }}</text></view> -->
         <view class="btn" bindtap="handleSubmit">立即购买</view>
     </view>
 </view>

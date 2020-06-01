@@ -195,10 +195,10 @@
 .wrapper .footer view:last-child {
     position: absolute;
     top: 50%;
-    margin-top: -40rpx;
-    right: 35rpx;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: 80rpx;
-    border-radius: 14px;
+    border-radius: 10px;
     background: #fe4e7d;
     line-height: 80rpx;
     color: #fff;

@@ -65,7 +65,7 @@ Page({
     wx.setStorageSync('addressDetail', item)
     debugger;
     wx.navigateTo({
-      url: '../confirmOrderForm/index?clientAddress=' + item.address + '&clientName=' + item.name + '&clientPhone=' + item.phone + '&clientRemark=' + item.remark + '&addressId=' + item.id
+      url: '../confirmOrderForm/index?clientAddress=' + item.address + '&clientName=' + item.name + '&clientPhone=' + item.phone + '&remark=' + item.remark + '&addressId=' + item.id
     })
   },
 

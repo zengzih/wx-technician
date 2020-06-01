@@ -46,6 +46,7 @@ Page({
 
   onLoad() {
     this.getCurrentPos();
+    console.log(app)
     new Watch({
       func: (key, value)=> {
         if (key == 'userType') {
