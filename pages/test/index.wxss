@@ -1,0 +1,18 @@
+/* pages/test/index.wxss */
+.wrapper {
+    height: 100%;
+}
+
+.wrapper .head {
+    height: 150rpx;
+    background: #0a9dc7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.content {
+    margin-top: 150rpx;
+    height: calc(100% - 150rpx);
+}

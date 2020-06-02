@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "v-header": "../../component/header/index"
+    "v-header": "../../component/header/index",
+    "wux-refresher": "../../miniprogram_npm/wux-weapp/refresher/index"
   }
 }

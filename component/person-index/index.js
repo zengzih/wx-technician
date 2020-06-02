@@ -93,6 +93,7 @@ Component({
           app.mapLocations.lat = latitude;
           app.mapLocations.lng = longitude;
           app.mapLocations.text = formatted_address;
+          wx.setStorageSync('mapLocations', app.mapLocations);
         },
         fail() {
           // page.city = "获取定位失败"

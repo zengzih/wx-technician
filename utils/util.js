@@ -54,7 +54,7 @@ export const global = {
       )
     s = s * 6378.137 //地球半径
     s = Math.round(s * 10000) / 10000
-    return s
+    return s.toFixed(2)
   },
 }
 

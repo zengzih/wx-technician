@@ -1,13 +1,16 @@
 {
   "pages": [
     "pages/technicianList/index",
+    "pages/index/index",
+
+    "pages/test/index",
     "pages/journeyState/index",
     "pages/confirmOrderForm/index",
     "pages/myorderList/index",
     "pages/orderFormDetail/index",
     "pages/orderDetail/index",
     "pages/orderStatus/index",
-    "pages/index/index",
+
     "pages/serviceRegister/index",
     "pages/my/index",
     "pages/manageAddress/index",

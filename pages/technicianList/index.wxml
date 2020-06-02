@@ -1,28 +1,34 @@
 <!--pages/technicianList/index.wxml-->
 <view class="wrapper">
-    <v-header title="服务人员"></v-header>
-
-    <view class="content">
+    <view class="header-wrapper">
+        <v-header title="服务人员"></v-header>
         <view class="tabs">
             <view class="tab active">全部</view>
             <view class="tab">商品名称</view>
             <view class="tab">商品类别</view>
         </view>
-        <view class="body">
-            <view class="list" wx:for="{{ 10 }}" bindtap="handleServiceClick" data-item="{{ item }}">
-                <view class="icon-box">
-                    <image src=""></image>
-                </view>
+    </view>
+    <view class="content">
+        <wux-refresher  id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh" bind:loadmore="onLoadmore"
+                       scrollTop="{{scrollTop}}">
+            <view class="body">
 
-                <view class="detail">
-                    <view class="name">小红</view>
-                    <view class="sex-order-num">
-                        <text class="sex">男</text>
-                        <text class="order-num">已接555单</text>
+                <view class="list" wx:for="{{ serviceData }}" bindtap="handleServiceClick"
+                      data-item="{{ item }}">
+                    <view class="icon-box">
+                        <image src="{{ rootLocation + item.image }}"></image>
                     </view>
-                    <view class="distance">距离9527米</view>
+
+                    <view class="detail">
+                        <view class="name">{{ item.name }}</view>
+                        <view class="sex-order-num">
+                            <text class="sex">{{ item.sexShow }}</text>
+                            <text class="order-num">已接{{ item.orderNum }}单</text>
+                        </view>
+                        <view class="distance">距离{{ item.distance }}KM</view>
+                    </view>
                 </view>
             </view>
-        </view>
+        </wux-refresher>
     </view>
 </view>

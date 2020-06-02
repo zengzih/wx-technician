@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "v-header": "../../component/header/index",
+    "wux-sticky": "../../miniprogram_npm/wux-weapp/sticky/index",
+    "wux-sticky-item": "../../miniprogram_npm/wux-weapp/sticky-item/index"
+  }
+}
