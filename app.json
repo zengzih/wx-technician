@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/modifyUserInfo/index",
+    "pages/my/index",
     "pages/technicianList/index",
     "pages/index/index",
-
     "pages/test/index",
     "pages/journeyState/index",
     "pages/confirmOrderForm/index",
@@ -10,9 +11,7 @@
     "pages/orderFormDetail/index",
     "pages/orderDetail/index",
     "pages/orderStatus/index",
-
     "pages/serviceRegister/index",
-    "pages/my/index",
     "pages/manageAddress/index",
     "pages/addAddress/index",
     "pages/loginCheck/index",

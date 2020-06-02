@@ -78,6 +78,7 @@ const requestUrl = {
     addr_detail: 'addr/detail',
     addr_edit: 'addr/edit',
     addr_delete: 'addr/delete',
+    update: 'update'
   },
   theme: {
     preview: 'preview',

@@ -1,0 +1,38 @@
+<!--pages/modifyUserInfo/index.wxml-->
+<wux-toast id="wux-toast" />
+<view class="wrapper">
+    <v-header title="修改资料" back></v-header>
+
+    <view class="content">
+        <wux-cell-group>
+            <wux-cell hover-class="none">
+                <wux-input clear label="用户昵称" controlled bind:blur="handleInput" data-prop="name" value="{{ form.name }}" placeholder="请输入用户昵称"/>
+            </wux-cell>
+            <wux-cell hover-class="none">
+                <wux-input type="number" controlled bind:blur="handleInput" data-prop="mobile" value="{{ form.mobile }}" clear label="手机号码" placeholder="请输入手机号码"/>
+            </wux-cell>
+
+
+            <view class="sex-box">
+                <view class="content">
+                    <view class="label">性别</view>
+                    <view class="group">
+                        <radio-group bindchange="radioChange">
+                            <label class="radio" wx:for="{{ sexList }}" wx:key="{{item.value}}">
+                                <view>
+                                    <radio value="{{item.value}}" checked="{{ form.sex == item.value }}"/>
+                                    <text>{{item.name}}</text>
+                                </view>
+                            </label>
+                        </radio-group>
+                    </view>
+                </view>
+            </view>
+        </wux-cell-group>
+        <view class="footer">
+            <wux-button block type="positive"  bindtap="handleSave">保存</wux-button>
+        </view>
+    </view>
+</view>
+
+

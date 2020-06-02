@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "Input",
+  "usingComponents": {
+    "v-header": "../../component/header/index",
+    "wux-cell-group": "../../miniprogram_npm/wux-weapp/cell-group/index",
+    "wux-cell": "../../miniprogram_npm/wux-weapp/cell/index",
+    "wux-input": "../../miniprogram_npm/wux-weapp/input/index",
+    "wux-checkbox-group": "../../miniprogram_npm/wux-weapp/checkbox-group/index",
+    "wux-checkbox": "../../miniprogram_npm/wux-weapp/checkbox/index",
+    "wux-button": "../../miniprogram_npm/wux-weapp/button/index"
+  }
+}

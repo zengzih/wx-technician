@@ -1,0 +1,32 @@
+/* pages/modifyUserInfo/index.wxss */
+
+.sex-box {
+    padding: 0 30rpx;
+    box-sizing: border-box;
+    height: 44px;
+    border-bottom: 1px solid #d9d9d9;
+    border-top: 1px solid #d9d9d9;
+    line-height: 44px;
+}
+.sex-box .content {
+
+}
+
+.sex-box .content .label {
+    float: left;
+    width: 210rpx;
+}
+
+.sex-box .content .group {
+    float: left;
+}
+
+.sex-box .content label {
+    display: inline-block;
+    margin-right: 40rpx;
+}
+
+.footer {
+    width: 95%;
+    margin: 50rpx auto;
+}

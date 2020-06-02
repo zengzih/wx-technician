@@ -73,4 +73,4 @@ export const getOrderDetail = (data= {})=> request.post('order_detail', data)
 
 export const rejectOrder = (data= {})=> request.post('rejectOrder', data)
 
-
+export const updateUser = (data= {})=> request.post('update', data, { all: true })
