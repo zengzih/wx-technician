@@ -1,1 +1,54 @@
 /* pages/credit/index.wxss */
+.wrapper {
+
+}
+.wrapper .content {
+
+}
+
+.wrapper .content .body {
+    height: 400rpx;
+    width: 95%;
+    margin: 20rpx auto;
+    background: #fff;
+    padding : 28rpx;
+    box-sizing: border-box;
+}
+
+.wrapper .content .body .level-list {
+    margin-top: 40rpx;
+    display: flex;
+}
+
+.wrapper .content .body .level-list> view {
+    width: 150rpx;
+    height: 60rpx;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    flex: 1;
+}
+.wrapper .content .body .level-list> view.active {
+    border: 1px solid #ebd59c;
+    background: #fefbec;
+}
+
+.wrapper .content .body .level-list> view .name {
+    width: 98%;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

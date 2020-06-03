@@ -5,7 +5,6 @@
     "pages/my/index",
     "pages/modifyUserInfo/index",
     "pages/technicianList/index",
-
     "pages/test/index",
     "pages/journeyState/index",
     "pages/confirmOrderForm/index",

@@ -31,7 +31,7 @@ Page({
      */
     onLoad: function (options) {
         const {id} = options;
-        this.getOrderDetailInfo(2)
+        this.getOrderDetailInfo(id)
     },
 
     getOrderDetailInfo(orderId) {

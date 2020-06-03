@@ -1,12 +1,18 @@
 <!--pages/credit/index.wxml-->
 <view class="wrapper">
-    <v-header title="充值" back></v-header>
-    <wux-tabs defaultCurrent="tab1">
-        <wux-tab key="tab2" title="余额充值"></wux-tab>
-        <wux-tab key="tab1" title="VIP充值"></wux-tab>
+    <v-header title="充值中心" back></v-header>
+    <wux-tabs defaultCurrent="1" bindchange="onTabChange">
+        <wux-tab key="1" title="会员"></wux-tab>
+        <wux-tab key="2" title="超级会员"></wux-tab>
     </wux-tabs>
 
     <view class="content">
-
+        <view class="body">
+            <view class="level-list">
+                <view wx:for="{{ vipList }}">
+                    <view class="name">{{ item.vipName }}</view>
+                </view>
+            </view>
+        </view>
     </view>
 </view>

@@ -111,6 +111,7 @@ const requestUrl = {
     join: 'join'
   },
   recharge: {
+    vipList: 'vipList',
     recharge_list: 'list'
   }
 }

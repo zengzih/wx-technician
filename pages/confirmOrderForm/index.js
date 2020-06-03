@@ -54,7 +54,6 @@ Page({
 
     init_member_address(options) {
         const {id, clientName, clientPhone, clientAddress, remark} = options;
-        debugger;
         if (!clientName) {
             return this.getDefaultAddress();
         }

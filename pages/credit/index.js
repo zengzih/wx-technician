@@ -1,8 +1,17 @@
 const app = getApp().globalData;
 class mixinsCredit {
   constructor(self) {
+    this.self = self;
     this.getCreditJoin()
     this.getRechargeList()
+    this.getVipList()
+    self.onTabChange = this.onTabChange.bind(this)
+  }
+
+  onTabChange(event) {
+    const { key } = event.detail
+    this.self.setData({ 'vipForm.vipLevel': key })
+    this.getVipList()
   }
 
   getRechargeList() {
@@ -11,8 +20,16 @@ class mixinsCredit {
     })
   }
 
+  getVipList() {
+    const { vipForm } = this.self.data;
+    app.store.dispatch('getVipList', vipForm).then(res=> {
+      this.self.setData({ vipList: res })
+      console.log('----getVipList----', res)
+    })
+  }
+
   getCreditJoin() {
-    app.store.dispatch('getVipList').then(res=> {
+    app.store.dispatch('rechargeVip').then(res=> {
       console.log(res)
     })
   }
@@ -24,14 +41,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    vipList: [],
+    vipForm: {
+      vipLevel: 1
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    new mixinsCredit(self)
+    new mixinsCredit(this)
   },
 
   /**
