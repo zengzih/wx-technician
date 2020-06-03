@@ -5,27 +5,48 @@ class mixinsCredit {
     this.getCreditJoin()
     this.getRechargeList()
     this.getVipList()
-    self.onTabChange = this.onTabChange.bind(this)
+    self.onTabChange = this.onTabChange.bind(this);
+    self.handleVipLevel = this.handleVipLevel.bind(this);
+    self.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleVipLevel(event) {
+    const { index, item } = event.currentTarget.dataset;
+    this.self.setData({ activeIndex: index, vipName: item.vipName, amount: item.amount, vipLevel: item });
   }
 
   onTabChange(event) {
     const { key } = event.detail
     this.self.setData({ 'vipForm.vipLevel': key })
-    this.getVipList()
+    this.getVipList();
   }
 
   getRechargeList() {
     app.store.dispatch('getRechargeList').then(res=> {
-      console.log(res)
+      console.log(res);
     })
   }
 
   getVipList() {
     const { vipForm } = this.self.data;
     app.store.dispatch('getVipList', vipForm).then(res=> {
+      if (res.length) {
+        const first = res[0];
+        this.self.setData({ vipName: first.vipName, amount: first.amount, vipLevel: first });
+      }
       this.self.setData({ vipList: res })
-      console.log('----getVipList----', res)
     })
+  }
+
+  handleSubmit() {
+    const { id, amount } = this.self.data.vipLevel;
+    app.store.dispatch('rechargeVip', { id, vipPrice: amount }).then(res=> {
+        wx.showToast({
+          title: res,
+          icon: 'none',
+          duration: 3000
+        })
+    });
   }
 
   getCreditJoin() {
@@ -41,7 +62,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    amount: '',
+    vipName: '',
     vipList: [],
+    activeIndex: 0,
+    vipLevel: {},
     vipForm: {
       vipLevel: 1
     }

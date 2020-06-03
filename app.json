@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/credit/index",
+    "pages/index/index",
+
     "pages/my/index",
     "pages/modifyUserInfo/index",
     "pages/technicianList/index",

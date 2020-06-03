@@ -9,9 +9,13 @@
     <view class="content">
         <view class="body">
             <view class="level-list">
-                <view wx:for="{{ vipList }}">
-                    <view class="name">{{ item.vipName }}</view>
+                <view wx:for="{{ vipList }}" bindtap="handleVipLevel" data-item="{{ item }}" data-index="{{ index }}">
+                    <view class="name {{ index == activeIndex ? 'active' : '' }}">{{ item.vipName }}</view>
                 </view>
+            </view>
+            <view class="tip">购买{{ vipName }}会员</view>
+            <view class="operation">
+                <view class="btn" bindtap="handleSubmit">立即支付{{ amount }}元</view>
             </view>
         </view>
     </view>
