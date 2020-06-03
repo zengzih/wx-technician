@@ -1,0 +1,12 @@
+<!--pages/credit/index.wxml-->
+<view class="wrapper">
+    <v-header title="充值" back></v-header>
+    <wux-tabs defaultCurrent="tab1">
+        <wux-tab key="tab2" title="余额充值"></wux-tab>
+        <wux-tab key="tab1" title="VIP充值"></wux-tab>
+    </wux-tabs>
+
+    <view class="content">
+
+    </view>
+</view>

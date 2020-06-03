@@ -1,9 +1,11 @@
 {
   "pages": [
-    "pages/modifyUserInfo/index",
-    "pages/my/index",
-    "pages/technicianList/index",
     "pages/index/index",
+    "pages/credit/index",
+    "pages/my/index",
+    "pages/modifyUserInfo/index",
+    "pages/technicianList/index",
+
     "pages/test/index",
     "pages/journeyState/index",
     "pages/confirmOrderForm/index",
@@ -30,7 +32,6 @@
     "pages/userInfo/index",
     "pages/logs/logs",
     "pages/serviceIndex/index"
-
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "v-header": "../../component/header/index",
+    "wux-tabs": "../../miniprogram_npm/wux-weapp/tabs/index",
+    "wux-tab": "../../miniprogram_npm/wux-weapp/tab/index",
+    "wux-badge": "../../miniprogram_npm/wux-weapp/badge/index"
+  }
+}

@@ -74,3 +74,7 @@ export const getOrderDetail = (data= {})=> request.post('order_detail', data)
 export const rejectOrder = (data= {})=> request.post('rejectOrder', data)
 
 export const updateUser = (data= {})=> request.post('update', data, { all: true })
+
+export const getVipList = (data= {})=> request.post('join', data)
+
+export const getRechargeList = (data= {})=> request.post('recharge_list', data)

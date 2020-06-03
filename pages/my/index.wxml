@@ -88,7 +88,7 @@
     </view>
 
     <view class="list-content">
-        <view class="list-group" wx:for="{{ menuList }}" wx:key="index">
+        <view class="list-group" wx:for="{{ menuList }}" wx:key="index" bindtap="handleMenuClick" data-id="{{ item.id }}">
             <text>{{ item.label }}</text>
             <i class="iconfont icon-xiangyou1"></i>
         </view>
@@ -107,4 +107,41 @@
             </view>
         </view>
     </view>
+
+
+    <!--  选择项目项目详情  -->
+    <view class="project_detail" wx:if="{{ couponsShow }}">
+        <view class="mask"></view>
+        <!-- 优惠券 -->
+        <view class="coupons">
+            <view class="head">
+                优惠
+                <view class="close" bindtap="handleCloseCouponsShow">
+                    <i class="iconfont icon-guanbi1"></i>
+                </view>
+            </view>
+
+            <view class="content">
+                <view class="list" wx:for="{{ couponList }}" wx:key="index">
+                    <view class="price">
+                        <text class="num">{{ item.amount }}</text>元
+                    </view>
+
+                    <view class="detail">
+                        <view class="name">{{ item.name }}</view>
+                        <view class="tip">{{ item.condition }}</view>
+                        <view class="more">{{ item.validityShow }}</view>
+                    </view>
+                    <!--<view class="operation">
+                        <text bindtap="handleReceive" data-item="{{ item }}">{{ item.receive ? '已经领取' : '立即领取' }}</text>
+                    </view>-->
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+
+
+
 </view>

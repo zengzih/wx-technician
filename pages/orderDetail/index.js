@@ -275,7 +275,7 @@ Page({
     return new Promise((resolve)=>{
       app.store.dispatch('getClassifyDetail', { id: projectId }).then(res=> {
         wxParse.wxParse('description', 'html', res.description, this, 0)
-        res.evaluateList = res.evaluateList.slice(2);
+        // res.evaluateList = res.evaluateList.slice(2);
         this.setData({
           formData: res
         });

@@ -106,6 +106,12 @@ const requestUrl = {
   },
   coupon: {
     coupon_list: 'user/list'
+  },
+  vip: {
+    join: 'join'
+  },
+  recharge: {
+    recharge_list: 'list'
   }
 }
 const reg = /wx_login/g

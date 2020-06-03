@@ -18,7 +18,18 @@ Page({
     
     // 底部的菜单分类
     menuList: [],
-    token: ''
+    token: '',
+    couponsShow: false,
+    couponList: []
+  },
+
+
+  getCouponList() {
+    // 优惠券
+    app.store.dispatch('getCouponList').then(data=> {
+      console.log(data)
+      this.setData({ couponList: data });
+    })
   },
   
 
@@ -39,19 +50,38 @@ Page({
     ];
   
     const menuList = [
-      { label: '我的余额' },
-      { label: '我的代金券' },
+     /* { label: '我的余额' },*/
+      { label: '我的优惠券', id: 2 },
+      /*{ label: '我的代金券' },*/
+      { label: 'VIP重置', id: 3 },
       { label: '我的评价' },
       { label: '我的关注' },
       { label: '我的足迹' },
       { label: '联系客户' },
     ];
-    this.getUserInfo()
+    this.getUserInfo();
+    this.getCouponList();
     this.setData({
       orderFormGroup,
       menuList,
       headerList
     });
+  },
+
+  handleCloseCouponsShow() {
+    this.setData({ couponsShow: false });
+  },
+
+  handleMenuClick(event) {
+    const { id } = event.currentTarget.dataset;
+    switch (id) {
+      case 2:
+        this.setData({ couponsShow: true });
+        break;
+      case 3:
+        
+        break;
+    }
   },
 
   handleSignIn() {
