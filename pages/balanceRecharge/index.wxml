@@ -2,6 +2,73 @@
     <v-header title="余额充值" back></v-header>
 
     <view class="content">
+        <view class="head">
+            <image src="../../image/icon/cz.png"></image>
+            <view class="my-balance">
+                <view class="title">我的余额</view>
+                <view class="price">￥{{ balance }}</view>
+                <view class="tip">充值好礼送不停</view>
+            </view>
+        </view>
 
+        <view class="body">
+            <view class="title">充值金额</view>
+            <view class="content">
+                <view class="list" wx:for="{{ data }}" wx:key="index">
+                    <view class="icon">
+                        <image src="../../image/icon/hg.png"></image>
+                    </view>
+
+                    <view class="detail">
+                        <text class="price">充值金额￥</text>
+                        <text class="num">{{ item.incomeAmount }}</text>
+                        <text class="tip">送{{ item.giveAmount }}元</text>
+                    </view>
+
+                    <view class="operation" bindtap="handleRecharge" data-item="{{ item }}">
+                        <image src="../../image/icon/oper.png"></image>
+                    </view>
+                </view>
+
+                <view class="list">
+                    <view class="icon">
+                        <image src="../../image/icon/hg.png"></image>
+                    </view>
+
+                    <view class="detail custom">
+                        <view class="price">
+                            <text>其他金额￥</text>
+                            <input type="text"
+                                   placeholder="输入充值金额"
+                                   value="{{ currentRow.amount }}"
+                                   bindinput="handleAmount"/>
+                        </view>
+                    </view>
+
+                    <view class="operation" bindtap="handleCustomRecharge">
+                        <image src="../../image/icon/oper.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
     </view>
+
+
+    <view class="popup" wx:if="{{ maskShow }}">
+        <view class="mask"></view>
+        <view class="content">
+            <view class="title">
+                <text>支付详情</text>
+                <view class="close" bindtap="handleClose">
+                    <i class="iconfont icon-guanbi2"></i>
+                </view>
+            </view>
+
+            <view class="price">￥{{ currentRow.amount }}</view>
+
+            <view class="btn" bindtap="handleSubmit">立即支付</view>
+        </view>
+    </view>
+
+
 </view>

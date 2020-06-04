@@ -81,3 +81,5 @@ export const getRechargeList = (data= {})=> request.post('recharge_list', data)
 
 export const getVipList = (data= {})=> request.post('vipList', data)
 
+export const submitRecharge = (data= {})=> request.post('recharge', data)
+

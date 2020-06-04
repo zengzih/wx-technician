@@ -53,11 +53,12 @@ Page({
      /* { label: '我的余额' },*/
       { label: '我的优惠券', id: 2 },
       /*{ label: '我的代金券' },*/
-      { label: 'VIP重置', id: 3 },
-      { label: '我的评价' },
+      { label: 'VIP充值', id: 3 },
+      { label: '充值有礼', id: 4 }
+      /*{ label: '我的评价' },
       { label: '我的关注' },
       { label: '我的足迹' },
-      { label: '联系客户' },
+      { label: '联系客户' },*/
     ];
     this.getUserInfo();
     this.getCouponList();
@@ -68,6 +69,16 @@ Page({
     });
   },
 
+  handleHeaderClick(event) {
+    const { item } = event.currentTarget.dataset;
+    switch (item.prop) {
+      case 'balance':
+        wx.navigateTo({
+          url: '../myBalance/index'
+        });
+    }
+  },
+
   handleCloseCouponsShow() {
     this.setData({ couponsShow: false });
   },
@@ -76,10 +87,18 @@ Page({
     const { id } = event.currentTarget.dataset;
     switch (id) {
       case 2:
+        this.getCouponList()
         this.setData({ couponsShow: true });
         break;
       case 3:
-        
+        wx.navigateTo({
+          url: '../credit/index'
+        })
+        break;
+      case 4:
+        wx.navigateTo({
+          url: '../balanceRecharge/index'
+        })
         break;
     }
   },

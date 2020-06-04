@@ -108,7 +108,8 @@ const requestUrl = {
     coupon_list: 'user/list'
   },
   vip: {
-    join: 'join'
+    join: 'join',
+    recharge: 'recharge'
   },
   recharge: {
     vipList: 'vipList',

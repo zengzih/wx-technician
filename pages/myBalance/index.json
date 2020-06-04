@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "Input",
+  "usingComponents": {
+    "v-header": "../../component/header/index"
+  }
+}

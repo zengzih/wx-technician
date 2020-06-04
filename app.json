@@ -1,9 +1,10 @@
 {
   "pages": [
+    "pages/my/index",
+    "pages/myBalance/index",
     "pages/balanceRecharge/index",
     "pages/credit/index",
     "pages/index/index",
-    "pages/my/index",
     "pages/modifyUserInfo/index",
     "pages/technicianList/index",
     "pages/test/index",
@@ -30,8 +31,8 @@
     "pages/signUpDetail/index",
     "pages/note/index",
     "pages/userInfo/index",
-    "pages/logs/logs",
     "pages/serviceIndex/index"
+
   ],
   "window": {
     "backgroundTextStyle": "dark",

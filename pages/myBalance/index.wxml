@@ -1,0 +1,17 @@
+<!--pages/myBalance/index.wxml-->
+<view class="wrapper">
+    <v-header title="我的余额" back></v-header>
+
+    <view class="content">
+        <view class="head">
+            <image src="../../image/icon/my-blance.png"></image>
+            <view class="detail">
+                <view class="balance">￥{{ balance }}</view>
+                <view class="tip">金额不可提现</view>
+            </view>
+        </view>
+
+        <view class="btn" bindtap="handleRecharge">充值</view>
+    </view>
+
+</view>
