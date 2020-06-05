@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/journeyState/index",
     "pages/my/index",
     "pages/myBalance/index",
     "pages/balanceRecharge/index",
@@ -8,7 +9,6 @@
     "pages/modifyUserInfo/index",
     "pages/technicianList/index",
     "pages/test/index",
-    "pages/journeyState/index",
     "pages/confirmOrderForm/index",
     "pages/myorderList/index",
     "pages/orderFormDetail/index",
