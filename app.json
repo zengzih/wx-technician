@@ -1,11 +1,13 @@
 {
   "pages": [
+    "pages/setServiceTime/index",
+    "pages/index/index",
+    "pages/evaluationList/index",
     "pages/journeyState/index",
     "pages/my/index",
     "pages/myBalance/index",
     "pages/balanceRecharge/index",
     "pages/credit/index",
-    "pages/index/index",
     "pages/modifyUserInfo/index",
     "pages/technicianList/index",
     "pages/test/index",

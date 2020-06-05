@@ -1,0 +1,74 @@
+<!--pages/setServiceTime/index.wxml-->
+<view class="wrapper">
+    <v-header title="接单时间"></v-header>
+    <van-notify id="van-notify" />
+    <van-dialog id="van-dialog"></van-dialog>
+    <view class="content">
+        <view class="calender-content">
+            <van-calendar poppable="{{ poppable }}" row-height="{{ 40 }}" show-title="{{ false }}"
+                          default-date="{{ defaultDate }}"
+                          show-month-title="{{ false }}"
+                          show-confirm="{{ false }}"
+                          color="#409EFF"
+                          show-subtitle="{{ false }}"
+                          bind:select="calenderSelect"
+                          min-date="{{ minDate }}"
+                          max-date="{{ maxDate }}"/>
+        </view>
+
+        <view class="current-date">当前日期 {{ (month + 1) + '月' + currentDate.weekDay + '日' }}</view>
+
+        <view class="date-detail">
+            <view class="group">
+                <view class="title">工作</view>
+                <view class="tip">{{ currentDate.workType == '1' ? '工作时间默认是24小时' : '该工作状态不可接单' }}</view>
+                <view class="switch">
+                    <van-switch active-value="{{ 1 }}" inactive-value="{{ 2 }}" checked="{{ currentDate.workType }}" bind:change="switchChange" />
+                </view>
+            </view>
+            <view class="start-end-date" wx:if="{{ currentDate.workType == 1 }}">
+                <view class="icon">
+                    <i class="iconfont icon-gengduo"></i>
+                </view>
+                <view class="start list">
+                    <view class="icon"></view>
+                    <view class="date">
+                        <text>开始时间</text>
+                        <text>{{ currentDate.workStarTime }}</text>
+                    </view>
+                    <view class="edit" bindtap="editWorkTime" data-type="start">
+                        <i class="iconfont icon-fankui"></i>
+                    </view>
+                </view>
+                <view class="end list">
+                    <view class="icon"></view>
+                    <view class="date">
+                        <text>结束时间</text>
+                        <text>{{ currentDate.workEndTime }}</text>
+                    </view>
+                    <view class="edit" bindtap="editWorkTime" data-type="end">
+                        <i class="iconfont icon-fankui"></i>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+    <van-popup
+            show="{{ dateSelectShow }}"
+            position="bottom"
+            bind:close="onClose">
+        <van-datetime-picker
+                type="time"
+                min-hour="{{ minHour }}"
+                max-hour="{{ maxHour }}"
+                bind:confirm="dateSelectConfirm"
+        />
+    </van-popup>
+
+    <view class="footer" wx:if="{{ isEdit }}">
+        <view class="btn" bindtap="handleSave">保存</view>
+    </view>
+
+</view>

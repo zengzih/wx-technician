@@ -1,0 +1,126 @@
+/* pages/evaluationList/index.wxss */
+.wrapper {
+    height: 100%;
+}
+
+.wrapper .head {
+    height: 150rpx;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.wrapper>.content {
+    margin-top: 150rpx;
+    height: calc(100% - 150rpx);
+}
+
+.evaluate {
+    margin-top: 10rpx;
+    box-sizing: border-box;
+    padding-bottom: 10rpx;
+}
+
+.evaluate>.header {
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.evaluate .header text:first-child {
+    float: left;
+    font-size: 28rpx;
+}
+
+.evaluate .header text:last-child {
+    float: right;
+    font-size: 24rpx;
+    color: #e8e8e8;
+}
+
+.evaluate .list-content .list {
+    padding: 20rpx;
+    box-sizing: border-box;
+    border-bottom: 1px solid #EBEEF5;
+    background: #fff;
+}
+
+.evaluate .list-content .list .header {
+    height: 80rpx;
+}
+
+.evaluate .list-content .list .header .icon {
+    float: left;
+    height: 80rpx;
+    line-height: 80rpx;
+    width: 80rpx;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.evaluate .list-content .list .header .icon i {
+    font-size: 66rpx;
+    margin-right: 17rpx;
+}
+
+.evaluate .list-content .list .header .icon image {
+    width: 100%;
+    height: 100%;
+}
+
+.evaluate .list-content .list .header .name-date {
+    float: left;
+    margin-left: 20rpx;
+}
+
+
+.evaluate .list-content .list .header .name {
+    font-size: 24rpx;
+    height: 50rpx;
+    line-height: 60rpx;
+}
+
+.evaluate .list-content .list .header .date {
+
+    height: 26rpx;
+    line-height: 26rpx;
+}
+
+.evaluate .list-content .list .header .date text:first-child {
+    font-size: 20rpx;
+    color: #ccc;
+}
+
+
+.evaluate .list-content .list .header .date text:last-child {
+    font-size: 20rpx;
+    color: #606266;
+    margin-left: 20rpx;
+}
+
+
+.evaluate .list-content .list .label span {
+    display: inline-block;
+    padding: 6rpx 16rpx;
+    font-size: 24rpx;
+    background: #f2f2f2;
+    color: #838383;
+    margin-right: 20rpx;
+    border-radius: 2px;
+}
+.evaluate .list-content .list > .content {
+    padding: 12rpx 0;
+    padding-left: 100rpx;
+    font-size: 26rpx;
+}
+
+.temp {
+    color: #909399;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

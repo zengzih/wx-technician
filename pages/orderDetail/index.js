@@ -73,6 +73,13 @@ Page({
       projectDetailShow: false
     });
   },
+
+  handlerReadEvaluate() {
+    const { classifyId } = this.data.submitFormData
+    wx.navigateTo({
+      url: '../evaluateList/index?id=' + classifyId
+    });
+  },
   
   handleAdd() {
     let { projectNum } = this.data;

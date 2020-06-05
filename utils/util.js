@@ -91,6 +91,8 @@ const requestUrl = {
     service_list: 'list',
     week_list: 'week/list',
     register: 'register',
+    init_week: 'week/init',
+    update_week: 'update'
   },
   order: {
     ready: 'ready',
@@ -114,6 +116,9 @@ const requestUrl = {
   recharge: {
     vipList: 'vipList',
     recharge_list: 'list'
+  },
+  evaluate: {
+    evaluate_list: 'list'
   }
 }
 const reg = /wx_login/g

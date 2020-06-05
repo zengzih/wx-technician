@@ -68,9 +68,9 @@
         <view class="evaluate">
             <view class="header">
                 <text>用户评价</text>
-                <text class="total">{{ formData.evaluateNum }}条评论</text>
+                <text class="total" bindtap="handlerReadEvaluate">{{ formData.evaluateNum }}条评论</text>
             </view>
-            <view class="list-content" wx:for="{{ formData.evaluateList }}" wx:key="index">
+           <!-- <view class="list-content" wx:for="{{ formData.evaluateList }}" wx:key="index">
                 <view class="list">
                     <view class="header">
                         <view class="icon">
@@ -85,7 +85,7 @@
                     </view>
                     <view class="content">服务态度非常好</view>
                 </view>
-            </view>
+            </view>-->
         </view>
 
         <view class="description">

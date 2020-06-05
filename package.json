@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/zengzih/wx-technician#readme",
   "dependencies": {
+    "@vant/weapp": "^1.3.2",
     "wux-weapp": "^3.8.5"
   }
 }

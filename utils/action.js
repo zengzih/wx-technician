@@ -83,3 +83,11 @@ export const getVipList = (data= {})=> request.post('vipList', data)
 
 export const submitRecharge = (data= {})=> request.post('recharge', data)
 
+export const getEvaluateList = (data={})=> request.post('evaluate_list', data);
+
+export const initWeek = (data={})=> request.post('init_week', data);
+
+export const updateWeek = (data={})=> request.post('update_week', data, { all: true });
+
+
+

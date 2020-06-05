@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "Calendar",
+  "usingComponents": {
+    "v-header": "../../component/header/index",
+    "van-calendar": "../../@vant/weapp/dist/calendar/index",
+    "van-dialog": "../../@vant/weapp/dist/dialog/index",
+    "van-switch": "../../@vant/weapp/dist/switch/index",
+    "van-popup": "../../@vant/weapp/dist/popup/index",
+    "van-datetime-picker": "../../@vant/weapp/dist/datetime-picker/index",
+    "van-notify": "../../@vant/weapp/dist/notify/index"
+  }
+}

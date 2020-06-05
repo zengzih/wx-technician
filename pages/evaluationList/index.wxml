@@ -1,0 +1,40 @@
+<!--pages/evaluationList/index.wxml-->
+<view class="wrapper">
+    <view class="head">
+        <v-header title="用户评价" back></v-header>
+    </view>
+    <view class="content">
+        <view class="evaluate">
+            <wux-refresher  id="wux-refresher" bind:pulling="onPulling" bind:refresh="onRefresh" bind:loadmore="onLoadmore"
+                            scrollTop="{{scrollTop}}">
+            <view class="list-content" wx:for="{{ evaluateList }}" wx:key="index">
+                <view class="list">
+                    <view class="header">
+                        <view class="icon">
+                            <i wx:if='{{ !item.userImage }}' class="iconfont icon-yonghu"></i>
+                            <image src="{{ rootLocation + item.userImage }}"></image>
+                        </view>
+                        <view class="name-date">
+                            <view class="name">{{ item.userName }}</view>
+                            <view class="date">
+                                <text>{{ item.addTime }}</text>
+                                <text class="type">{{ item.grade }}</text>
+                            </view>
+                        </view>
+                    </view>
+                    <!--<view class="label">
+                        <span wx:for="{{ item.label ? item.label.split(',') : [] }}">准时到达</span>
+                        <span>准时到达</span>
+                        <span>准时到达</span>
+                        <span>准时到达</span>
+                    </view>-->
+                    <view class="content">{{ item.content }}</view>
+                </view>
+            </view>
+            </wux-refresher>
+
+            <view class="temp" wx:if="{{ !evaluateList.length }}">暂无评论~~</view>
+        </view>
+    </view>
+</view>
+

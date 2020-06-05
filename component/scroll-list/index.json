@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "wux-refresher": "../../miniprogram_npm/wux-weapp/refresher/index"
+  }
+}
