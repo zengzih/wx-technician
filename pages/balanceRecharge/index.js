@@ -33,7 +33,6 @@ Page({
     const { value } = event.detail;
     const { currentRow } = this.data;
     currentRow.id = '';
-    debugger;
     currentRow.amount = value
     this.setData({ currentRow });
   },

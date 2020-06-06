@@ -95,7 +95,6 @@ Page({
         sourceType: ['album', 'camera'],
         success(res) {
           const { tempFilePaths } = res
-          debugger;
           wx.uploadFile({
             header: {
               Authorization: token,

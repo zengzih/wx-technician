@@ -122,7 +122,6 @@ Page({
      */
     onLoad: function (options) {
         const { id, type } = options;
-        debugger;
         this.setData({ type, currentId: id });
         this.getAddressDetail(id)
     },

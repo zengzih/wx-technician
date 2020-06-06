@@ -47,7 +47,6 @@ Component({
     },
 
     getOrderList() {
-      debugger;
       const {params} = this.data;
       app.store.dispatch('getOrderList', params).then(data => {
         const {records} = data;

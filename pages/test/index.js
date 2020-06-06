@@ -32,7 +32,6 @@ Page({
   onLoadmore() {
     console.log('onLoadmore')
     setTimeout(() => {
-      debugger
       this.setData({
         items: [...this.data.items, ...getList(10, this.data.count)],
         count: this.data.count + 10,

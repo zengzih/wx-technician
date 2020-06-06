@@ -30,7 +30,6 @@ Page({
 
   handleEditAddress(event) {
     const { id } = event.currentTarget.dataset;
-    debugger;
     wx.navigateTo({
       url: '../addAddress/index?id=' + id + '&type=edit'
     })
@@ -63,7 +62,6 @@ Page({
   handleSelect(event){
     const { item } = event.currentTarget.dataset;
     wx.setStorageSync('addressDetail', item)
-    debugger;
     wx.navigateTo({
       url: '../confirmOrderForm/index?clientAddress=' + item.address + '&clientName=' + item.name + '&clientPhone=' + item.phone + '&remark=' + item.remark + '&addressId=' + item.id
     })

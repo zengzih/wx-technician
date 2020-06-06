@@ -46,9 +46,7 @@ Page({
 
   getOrderList() {
     const { params } = this.data;
-    debugger;
     app.store.dispatch('getOrderList', params).then(data=>{
-      debugger;
       const { records } = data;
       this.setData({ orderData: records });
     })

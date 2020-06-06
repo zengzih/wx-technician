@@ -29,7 +29,6 @@ Component({
   methods: {
     handleBack() {
       const { backFunc } = this.data;
-      debugger;
       if (typeof(backFunc) == 'function') {
         return backFunc()
       }

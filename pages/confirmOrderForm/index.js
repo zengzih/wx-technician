@@ -56,10 +56,10 @@ Page({
 
     init_member_address(options) {
         const {id, clientName, clientPhone, clientAddress, remark} = options;
+        this.setData({ projectId: id })  // 这个id在退回上个页面的时候需要使用
         if (!clientName) {
             return this.getDefaultAddress();
         }
-        this.setData({ projectId: id })  // 这个id在退回上个页面的时候需要使用
         if (clientName && clientPhone && clientAddress && remark) {
             this.setData({
                 'submitFormData.clientName': clientName,
