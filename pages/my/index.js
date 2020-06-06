@@ -40,7 +40,7 @@ Page({
     const headerList = [
       { label: '余额', prop: 'balance' },
       { label: '未提现金额', prop: 'noPayCommission' },
-      { label: '订单数', prop: 'orderNum' },
+      { label: '优惠券数量', prop: 'orderNum' },
     ]
     const orderFormGroup = [
       { label: '全部', icon: 'icon-dingdan', prop: '' },

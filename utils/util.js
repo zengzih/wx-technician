@@ -159,7 +159,7 @@ function requestTntercept(data) {
 
 let handler = {
   get(target, property) {
-    ;['get', 'post', 'delete'].forEach((methods) => {
+    ['get', 'post', 'delete'].forEach((methods) => {
       target[methods] = (url, params = {}, header = {}) => {
         const reqUrl = getRequestUrl(url)
         if (!reqUrl) return

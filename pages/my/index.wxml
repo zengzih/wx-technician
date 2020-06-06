@@ -12,7 +12,7 @@
                     <view class="phone">{{ userInfo.mobile }}</view>
                 </view>
             </view>
-            <view class="con-list" wx:if="{{ userType == 1 }}">
+            <view class="con-list" wx:if="{{ userType != 2 }}">
                 <view class="list">
                     <view wx:for="{{ headerList }}" bindtap="handleHeaderClick" data-item="{{ item }}">
                         <view class="num">{{ !userInfo[item.prop] && userInfo[item.prop] !== 0  ? '--' : userInfo[item.prop] }}</view>
