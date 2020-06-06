@@ -19,7 +19,8 @@ Page({
     triggered: false,
     scrollTop: 0,
     scrollLower: false,
-    backFunc: ''
+    backFunc: '',
+    classId: ''
   },
 
   /**
@@ -28,9 +29,10 @@ Page({
   onLoad: function (options) {
     const { id } = options;
     const { queryData } = this.data;
-    queryData.oneId = 1; //id;
+    queryData.oneId = id;
     this.setData({
       queryData,
+      classId: id,
       backFunc: this.backFunc
     });
     this.init();
@@ -38,7 +40,7 @@ Page({
   },
 
   backFunc() {
-    wx.navigateTo({
+    wx.switchTab({
       url: '../index/index'
     });
   },
@@ -76,7 +78,8 @@ Page({
   handleSkipDetail(event) {
     const { item } = event.currentTarget.dataset;
     // const token = wx.getStorageSync('token');
-    let url = '../orderDetail/index?id=' + item.id;
+    const { classId } = this.data;
+    let url = '../orderDetail/index?id=' + item.id + '&classId=' + classId;
     // if (!token) {
     //   url = '../login/index'
     // }

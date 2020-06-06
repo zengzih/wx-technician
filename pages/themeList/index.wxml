@@ -1,6 +1,6 @@
 <!--pages/themeList/index.wxml-->
 <view class="wrapper">
-    <v-header back="{{back}}" back-func="backFunc"></v-header>
+    <v-header back="{{back}}" back-func="{{ backFunc }}"></v-header>
     <view class='content'>
         <view class='tabs'>
             <view class='tab {{ index == activeIndex ? "active" : "" }}'

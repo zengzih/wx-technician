@@ -60,7 +60,8 @@ Page({
     showServiceBox: false,
     couponList: [],
     currentService: {},
-    dateStatus: []
+    dateStatus: [],
+    classId: ''
   },
   
   // 选择项目
@@ -155,8 +156,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let { id } = options;
-    this.init(id);
+    let { id, classId } = options;
+    this.init(id, classId);
     getLocation()
     this.getCouponList()
     this.getWeekList();
@@ -274,7 +275,7 @@ Page({
     });
   },
   
-  init(id) {
+  init(id, classId) {
     const { submitFormData } = this.data;
     const token = wx.getStorageSync('token');
     submitFormData.uid = wx.getStorageSync('uid');
@@ -286,6 +287,7 @@ Page({
     ]
     this.setData({
       submitFormData,
+      classId,
       isSignIn: token ? true : false,
       projectId: id,
       dateStatus,
@@ -379,8 +381,9 @@ Page({
   },
 
   handleBack() {
+    const { classId } = this.data;
     wx.navigateTo({
-      url: '../themeList/index'
+      url: '../themeList/index?id='+ classId
     });
   },
 
