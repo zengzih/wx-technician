@@ -96,7 +96,7 @@ const requestUrl = {
     service_info: 'info',
     service_address: 'address',
     getPublicPictures: 'getPublicPictures',
-    getVideo: 'getVideo',
+    getVideo: 'getServiceVideo',
     serviceTimeAll: 'serviceTimeAll'
   },
   order: {

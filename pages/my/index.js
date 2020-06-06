@@ -108,7 +108,8 @@ Page({
 
   handleLogOut() {
     wx.clearStorage();
-    this.onLoad();
+    this.onReady();
+    this.getUserInfo();
   },
 
   
