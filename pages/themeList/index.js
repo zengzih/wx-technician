@@ -18,7 +18,8 @@ Page({
     scrollType: '',
     triggered: false,
     scrollTop: 0,
-    scrollLower: false
+    scrollLower: false,
+    backFunc: ''
   },
 
   /**
@@ -29,10 +30,17 @@ Page({
     const { queryData } = this.data;
     queryData.oneId = 1; //id;
     this.setData({
-      queryData
+      queryData,
+      backFunc: this.backFunc
     });
     this.init();
     this.getClassificationList()
+  },
+
+  backFunc() {
+    wx.navigateTo({
+      url: '../index/index'
+    });
   },
   
   getClassificationList() {

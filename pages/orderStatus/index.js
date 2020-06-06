@@ -23,10 +23,10 @@ Page({
   onLoad: function (options) {
     const { msg, status, orderId } = options;
     let url = '../../image/icon/loginicon.png';
-    let btnText = '去支付';
+    let btnText = '查看订单';
     if (status == 0) {
       url = '../../image/icon/orderStatus.png';
-      btnText = '查看订单';
+      btnText = '去支付';
     }
     this.setData({ msg, status, url, btnText, orderId });
   },
