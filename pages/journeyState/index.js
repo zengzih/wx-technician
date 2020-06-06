@@ -26,7 +26,7 @@ Page({
       color: "#FF0000DD",
       width: 2,
       dottedLine: true,
-      userType: 1
+      userType: ''
     }]
   },
   regionchange(e) {
@@ -55,5 +55,21 @@ Page({
       }
     });
     this.setData({ userType: app.publicParams.userType })
+  },
+  onShow() {
+    const userInfo = wx.getStorageSync('userInfo');
+    this.setData({ userType: userInfo.utype });
+    if (userInfo.utype == 2) {
+      wx.setTabBarItem({
+        index: 0,
+        text: '订单时间',
+      })
+    }
+    if (userInfo.utype == 1) {
+      wx.setTabBarItem({
+        index: 0,
+        text: '附近的人',
+      })
+    }
   }
 })

@@ -92,7 +92,12 @@ const requestUrl = {
     week_list: 'week/list',
     register: 'register',
     init_week: 'week/init',
-    update_week: 'update'
+    update_week: 'update',
+    service_info: 'info',
+    service_address: 'address',
+    getPublicPictures: 'getPublicPictures',
+    getVideo: 'getVideo',
+    serviceTimeAll: 'serviceTimeAll'
   },
   order: {
     ready: 'ready',

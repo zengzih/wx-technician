@@ -1,6 +1,6 @@
 <!--pages/confirmOrderForm/index.wxml-->
 <view class="wrapper">
-    <v-header back="{{back}}" title="确认订单"></v-header>
+    <v-header back="{{back}}" title="确认订单" back-func="{{ backFunc }}"></v-header>
     <view class="content">
         <view class="address-content">
             <view class="group address" bindtap="handleAddAddress">

@@ -1,55 +1,3 @@
-<!-- <view class='wrapper'>
-    <view class='header'>
-        <view class='setting'>
-            <i class='iconfont icon-shezhi'></i>
-        </view>
-        <view class='user-head' bindtap="handleSign">
-            <image src="{{ userInfo.avatarUrl }}"></image>
-            <view class='user_name'>{{ name || '匿名'}}</view>
-        </view>
-        <view class='group-info'>
-            <view class='group'>
-                <view class='num'>{{ orderNum ||}}</view>
-                <view class='label'>订单数</view>
-            </view>
-            <view class='group'>
-                <view class='num'>{{ balance || }}</view>
-                <view class='label'>账户余额</view>
-            </view>
-            <view class='group'>
-                <view class='num'</view>
-                <view class='label'>代金券数</view>
-            </view>
-        </view>
-    </view>
-
-
-    <view class='menu_content'>
-        <view class='order-form'>
-            <text>我的订单</text>
-            <text class='read-all' bindtap="handleReadAllOrderForm">查看全部></text>
-        </view>
-
-        <view class='order-form-panel'>
-            <view class='group' wx:for='{{ orderFormGroup }}' bindtap="handleOrderPanelEvent" data-item="{{ item }}" wx:key="index">
-                <view class='icon'>
-                    <i class='iconfont {{ item.icon }}'></i>
-                </view>
-                <view class='name'>{{ item.label }}</view>
-            </view>
-        </view>
-
-        <view class="menu-panel">
-            <view class="panel" wx:for="{{ menuList }}" wx:key="index">
-                <view class="img-box">
-                    <image src=""></image>
-                </view>
-                <view class="label">{{ item.label }}</view>
-            </view>
-        </view>
-    </view>
-</view>-->
-
 <view class="wrapper">
     <v-header title="我的"></v-header>
     <view class="head">
@@ -64,7 +12,7 @@
                     <view class="phone">{{ userInfo.mobile }}</view>
                 </view>
             </view>
-            <view class="con-list">
+            <view class="con-list" wx:if="{{ userType == 1 }}">
                 <view class="list">
                     <view wx:for="{{ headerList }}" bindtap="handleHeaderClick" data-item="{{ item }}">
                         <view class="num">{{ !userInfo[item.prop] && userInfo[item.prop] !== 0  ? '--' : userInfo[item.prop] }}</view>

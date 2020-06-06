@@ -2,6 +2,6 @@
   "usingComponents": {
     "v-header": "../../component/header/index",
     "service-order": "../../component/service-order/index",
-    "service-time": "../../component/service-time/index"
+    "service-time": "../../component/set-service-time/index"
   }
 }

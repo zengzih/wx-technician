@@ -89,5 +89,16 @@ export const initWeek = (data={})=> request.post('init_week', data);
 
 export const updateWeek = (data={})=> request.post('update_week', data, { all: true });
 
+export const getServiceInfo = (data={})=> request.post('service_info', data);
+
+export const getServiceAddress = (data={})=> request.post('service_address', data);
+
+export const getPublicPictures = (data={})=> request.post('getPublicPictures', data);
+
+export const getVideo = (data={})=> request.post('getVideo', data);
+
+export const getServiceTimeAll = (data={})=> request.post('serviceTimeAll', data);
+
+
 
 

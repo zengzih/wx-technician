@@ -14,7 +14,7 @@ Page({
     projectNum: 1,
     defaultImage: '',
     formData: {},
-    projectId: 100,
+    projectId: '',
     technicianShow: false,
     couponsShow: false,
     weeks: [],
@@ -58,7 +58,9 @@ Page({
     },
     showTimerBox: false,
     showServiceBox: false,
-    couponList: []
+    couponList: [],
+    currentService: {},
+    dateStatus: []
   },
   
   // 选择项目
@@ -77,7 +79,7 @@ Page({
   handlerReadEvaluate() {
     const { classifyId } = this.data.submitFormData
     wx.navigateTo({
-      url: '../evaluateList/index?id=' + classifyId
+      url: '../evaluationList/index?id=' + classifyId
     });
   },
   
@@ -110,7 +112,7 @@ Page({
         url: '../login/index'
       });
     }
-    if (!this.checkFormSubmit()) {
+    if (!this.checkFormSubmit(true)) {
       return false;
     }
     submitFormData.serviceTime = weeks[weekActiveIndex].date;
@@ -133,7 +135,7 @@ Page({
       }
     }
     const { yearMonth, classifyDict } = this.data;
-    form.serviceTime = yearMonth + ' ' + classifyDict.date;
+    form.serviceTime = yearMonth + ' ' + classifyDict.date.local;
     app.store.dispatch('submitOrderReady', form).then(res=> {
       if (res.code == 200) {
         wx.setStorageSync('orderFormInfo', res.data);
@@ -153,12 +155,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    debugger;
     let { id } = options;
-    id = 100;
+    this.init(id);
     getLocation()
     this.getCouponList()
-    this.init(id);
-    // this.getDetail();
     this.getWeekList();
     this.getWeekTap();
   },
@@ -181,23 +182,28 @@ Page({
   handleClassifyClick(event) {
     const { item, index } = event.currentTarget.dataset;
     this.setData({
-      classifyActiveIndex: index
+      classifyActiveIndex: index,
+      currentService: item
     });
   },
 
   // 具体时间的点击事件
   handleTimeClick(event) {
     const { index } = event.currentTarget.dataset;
+    const detail = this.data.timeDetail[index];
+    // if (detail.type != 2) {
+    //   return
+    // }
     this.setData({
       timeActiveIndex: index,
       'classifyDict.date': this.data.timeDetail[index],
-      date: this.data.timeDetail[index]
+      date: detail.local
     });
-    this.getServiceList();
   },
   
   // 星期的点击事件
   handleWeekClick(event) {
+    console.log('handleWeekClick', event)
     const { week, index } = event.currentTarget.dataset;
     const { weeks, classifyDict } = this.data;
     classifyDict.weekDay = weeks[index].weekDay;
@@ -208,12 +214,17 @@ Page({
     });
     classifyDict.date = '';
     this.setData({ weeks });
-    app.store.dispatch('getTimeShow', { date: week.date }).then(res=> {
+    const { id } = this.data.currentService;
+    app.store.dispatch('getServiceTimeAll', { date: week.date, serviceId: id }).then(res=> {
+      console.log(res);
+      this.setData({ timeDetail: res, classifyDict });
+    });
+    /*app.store.dispatch('getTimeShow', { date: week.date }).then(res=> {
       classifyDict.date = res[0];
       this.setData({ timeDetail: res, classifyDict });
       // 服务人员列表
       this.getServiceList()
-    });
+    });*/
   },
   
   // 获取星期
@@ -227,7 +238,7 @@ Page({
       this.setData({
         weeks: res
       });
-      this.handleWeekClick({ currentTarget: { dataset: { index: 0, week: res[0] } } });
+      // this.handleWeekClick({ currentTarget: { dataset: { index: 0, week: res[0] } } });
       this.setData({
         'classifyDict.weekDay': res[0].weekDay,
         'classifyDict.date': res[0].date,
@@ -269,10 +280,16 @@ Page({
     const token = wx.getStorageSync('token');
     submitFormData.uid = wx.getStorageSync('uid');
     submitFormData.classifyId = id;
+    const dateStatus = [
+      { label: '过期', id: 1 },
+      { label: '可约', id: 2 },
+      { label: '休息', id: 3 },
+    ]
     this.setData({
       submitFormData,
       isSignIn: token ? true : false,
       projectId: id,
+      dateStatus,
       'classifyDict.classifyId': id
     });
   },
@@ -315,18 +332,18 @@ Page({
     });
   },
   
-  checkFormSubmit() {
+  checkFormSubmit(type) {
     const { timeActiveIndex, classifyActiveIndex,  showTimerBox, showServiceBox } = this.data;
     let check = true;
 
-    if (showTimerBox && timeActiveIndex < 0) {
+    if ((showTimerBox || type) && timeActiveIndex < 0) {
       wx.showToast({
         icon: 'none',
         title: '请选择服务时间段！',
       });
       check = false;
     }
-    if (showServiceBox && classifyActiveIndex < 0) {
+    if ((showServiceBox || type) && classifyActiveIndex < 0) {
       wx.showToast({
         icon: 'none',
         title: '请选择服务技师！',
@@ -338,6 +355,7 @@ Page({
   
   handleShowTechnician(event) {
     const { type } = event.currentTarget.dataset;
+    const { currentService } = this.data;
     if (type == 'selectService') {
       this.setData({
         showServiceBox: true,
@@ -347,6 +365,12 @@ Page({
     }
 
     if (type == 'selectTime') {
+      if(!currentService.id) {
+        return wx.showToast({
+          icon: 'none',
+          title: '请先预约技师'
+        })
+      }
       this.setData({
         showServiceBox: false,
         showTimerBox: true,

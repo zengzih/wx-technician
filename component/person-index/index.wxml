@@ -43,7 +43,17 @@
             </view>
         </view>
 
-        <view class='banner_wrapper'>
+        <view class="service-preview">
+            <view class="service-photo">
+                <view class="photo-wrapper" style="width:{{ serviceData.length * 220 }}rpx">
+                    <view class="img-box" wx:for="{{ serviceData }}" wx:key="index" bindtap="handleServiceClick" data-item="{{ item }}">
+                        <image src="{{ rootLocation + item.image }}"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+       <!-- <view class='banner_wrapper'>
             <view class='left'>
                 <view class='item'></view>
             </view>
@@ -51,7 +61,7 @@
                 <view class='item'></view>
                 <view class='item'></view>
             </view>
-        </view>
+        </view>-->
 
         <!-- 最下面的分类列表 -->
         <view class="list-wrapper">

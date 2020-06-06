@@ -1,20 +1,21 @@
 {
   "pages": [
-    "pages/setServiceTime/index",
     "pages/index/index",
+    "pages/orderDetail/index",
+    "pages/my/index",
+    "pages/serviceDetail/index",
+    "pages/setServiceTime/index",
     "pages/evaluationList/index",
     "pages/journeyState/index",
-    "pages/my/index",
+
     "pages/myBalance/index",
     "pages/balanceRecharge/index",
     "pages/credit/index",
     "pages/modifyUserInfo/index",
     "pages/technicianList/index",
-    "pages/test/index",
     "pages/confirmOrderForm/index",
     "pages/myorderList/index",
     "pages/orderFormDetail/index",
-    "pages/orderDetail/index",
     "pages/orderStatus/index",
     "pages/serviceRegister/index",
     "pages/manageAddress/index",
@@ -34,7 +35,6 @@
     "pages/note/index",
     "pages/userInfo/index",
     "pages/serviceIndex/index"
-
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -58,7 +58,7 @@
       },
       {
         "pagePath": "pages/journeyState/index",
-        "text": "旅程",
+        "text": "附近的人",
         "iconPath": "image/icon/journey.png",
         "selectedIconPath": "image/icon/journey_active.png"
       },

@@ -17,9 +17,7 @@ Page({
 
   getUserInfo() {
     app.store.dispatch('getUserInfo').then(data=> {
-      console.log(data)
       let { serviceStatus, utype } = data;
-      serviceStatus = 3
       if (serviceStatus == 2) {
         return wx.navigateTo({
           url: '../loginCheck/index?type=check',
@@ -32,6 +30,7 @@ Page({
         })
       }
       app.publicParams.userType = utype
+      wx.setStorageSync('userInfo', data);
       this.setData({ userType: utype })
     });
   },
@@ -48,4 +47,19 @@ Page({
       }
     })
   },
+  onShow() {
+    const userType = wx.getStorageSync('userType');
+    if (userType == 2) {
+      wx.setTabBarItem({
+        index: 0,
+        text: '我的订单',
+      })
+    }
+    if (userType == 1) {
+      wx.setTabBarItem({
+        index: 0,
+        text: '首页',
+      })
+    }
+  }
 });

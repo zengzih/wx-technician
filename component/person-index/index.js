@@ -44,8 +44,18 @@ Component({
 
     // 首页图标
     menuList: [],
-    menuIcon: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588327739518&di=a8408d5b95418302ab96169377c0cf3e&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F35%2F23%2F79573bd94245f5a.jpg'
+    menuIcon: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1588327739518&di=a8408d5b95418302ab96169377c0cf3e&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F01%2F35%2F23%2F79573bd94245f5a.jpg',
 
+    // 服务人员
+    classifyDict: {
+      current: 1,
+      size: 10,
+      classifyId: '',
+      addrName: '',
+      weekDay: '',
+      date: ''
+    },
+    serviceData: []
     
   },
   onReady: function () {
@@ -53,9 +63,22 @@ Component({
   attached: function (options) {
     this.parsingLocation();
     this.getThemeList();
+    this.getServiceList();
     this.initWatch()
   },
   methods: {
+    handleServiceClick(event) {
+      const { item } = event.currentTarget.dataset;
+      wx.navigateTo({
+        url: '../serviceDetail/index?id=' + item.id
+      });
+    },
+    getServiceList() {
+      app.store.dispatch('getServiceList', this.data.classifyDict).then(res=> {
+        const { records } = res;
+        this.setData({ serviceData: records })
+      })
+    },
     initWatch() {
       new Watch({
         func: (key, value)=> {

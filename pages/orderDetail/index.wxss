@@ -618,20 +618,32 @@
     overflow-y: auto;
     padding: 10rpx 0;
     height: 460rpx;
+    height: calc(100% - 230rpx);
 }
 
 .project_detail .technician .times .time {
     height: 64rpx;
     line-height: 62rpx;
+    color: #FFF;
     width: 90%;
     border: 1px solid #ededed;
-    border-radius: 14px;
+    border-radius: 4px;
     font-size: 22rpx;
     text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.project_detail .technician .times .time.status-1 {
+    background: #cccccc;
+}
+.project_detail .technician .times .time.status-2 {
+    background: #9752ed;
+}
+.project_detail .technician .times .time.status-3 {
+    background: #badaf3;
 }
 
 
@@ -704,6 +716,11 @@
     border: 1px solid #ededed;
     float: left;
     margin-right: 10rpx;
+    box-sizing: border-box;
+}
+.project_detail .technician .service-box {
+    height: 69%;
+    overflow: auto;
 }
 
 .project_detail .technician  .person-list .person .head image {
@@ -713,11 +730,16 @@
 
 .project_detail .technician  .person-list .person .detail {
     float: left;
+    width: calc(100% - 110rpx);
 }
 
 .project_detail .technician  .person-list .person .detail .name {
     padding: 4rpx 0;
     font-size: 26rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }
 
 .project_detail .technician  .person-list .person .detail .num {
@@ -904,9 +926,65 @@
     box-sizing: border-box;
 }
 
+.status-wrapper {
+    height: 90rpx;
+    margin-top: 20rpx;
+    background: #fff;
+    line-height: 90rpx;
+    display: flex;
+}
+
+.status-wrapper .status {
+    flex: 2;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    position: relative;
+}
+
+.status-wrapper .status .detail {
+    position: absolute;
+    height: 90rpx;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
+.status-wrapper .status .label {
+    font-size: 24rpx;
+    margin-right: 13rpx;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+}
 
+.status-wrapper .status .box {
+    height: 36rpx;
+    width: 60rpx;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.status-wrapper .status .box.status-1 {
+    background: #cccccc;
+}
+
+.status-wrapper .status .box.status-2 {
+    background: #9752ed;
+}
+
+.status-wrapper .status .box.status-3 {
+    background: #badaf3;
+}
+
+.technician .timer-box {
+    height: 75%;
+}
 
 
 

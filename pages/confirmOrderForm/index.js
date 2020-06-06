@@ -27,12 +27,14 @@ Page({
             classifyNum: '',
             detailAddress: ''
         },
+        projectId: '',
         serviceTime: '',
         classifyInfo: {},
         productDetail: {},
         rootLocation: rootLocation,
         orderId: '',
-        payBoxShow: false
+        payBoxShow: false,
+        backFunc: ''
 
     },
 
@@ -57,6 +59,7 @@ Page({
         if (!clientName) {
             return this.getDefaultAddress();
         }
+        this.setData({ projectId: id })  // 这个id在退回上个页面的时候需要使用
         if (clientName && clientPhone && clientAddress && remark) {
             this.setData({
                 'submitFormData.clientName': clientName,
@@ -129,7 +132,14 @@ Page({
         const classifyInfo = wx.getStorageSync('classifyInfo');
         const {mapLocations} = app;
         const serviceTime = this.getServiceTime(orderFormInfo.serviceTime)
-        this.setData({submitFormData: orderFormInfo, location: mapLocations, classifyInfo, serviceTime});
+        this.setData({submitFormData: orderFormInfo, location: mapLocations, classifyInfo, serviceTime, backFunc: this.backFunc});
+    },
+
+    backFunc() {
+        const { projectId } = this.data;
+        wx.navigateTo({
+            url: '../orderDetail/index?id=' + projectId
+        });
     },
 
     getServiceTime(date_num) {
@@ -190,7 +200,7 @@ Page({
     getPayPrice(id, paytype) {
         app.store.dispatch('submitOrderPay', {orderId: id, payType: paytype}).then(res => {
             wx.navigateTo({
-                url: '../orderStatus/index?msg=' + res.msg + '&status=' + (res.code == 200 ? 1 : 0)
+                url: '../orderStatus/index?msg=' + res.message + '&status=' + (res.code == 200 ? 1 : 0)
             })
             /*if (res.code == 200) {
               // ...

@@ -49,22 +49,9 @@ Page({
       { label: '已完成', icon: 'icon-dingdan', prop: 4 },
     ];
   
-    const menuList = [
-     /* { label: '我的余额' },*/
-      { label: '我的优惠券', id: 2 },
-      /*{ label: '我的代金券' },*/
-      { label: 'VIP充值', id: 3 },
-      { label: '充值有礼', id: 4 }
-      /*{ label: '我的评价' },
-      { label: '我的关注' },
-      { label: '我的足迹' },
-      { label: '联系客户' },*/
-    ];
-    this.getUserInfo();
     this.getCouponList();
     this.setData({
       orderFormGroup,
-      menuList,
       headerList
     });
   },
@@ -100,6 +87,12 @@ Page({
           url: '../balanceRecharge/index'
         })
         break;
+
+      case 8:
+        wx.switchTab({
+          url: '../journeyState/index'
+        });
+        break;
     }
   },
 
@@ -124,12 +117,30 @@ Page({
     this.setData({token});
     if (!token) return;
     app.store.dispatch('getUserInfo').then(res=> {
+      console.log(res)
       const { name, balance, noPayCommission } = res;
+      this.setMenuList(res)
       this.setData({
         userInfo: res,
         name, balance, noPayCommission
       });
     });
+  },
+
+  setMenuList(res) {
+    const { utype } = res;
+    let menuList = [
+      { label: '我的优惠券', id: 2 },
+      { label: 'VIP充值', id: 3 },
+      { label: '充值有礼', id: 4 }
+    ];
+    if (utype == 2) {
+      menuList = [
+        /*{ label: '我的收入', id: 9 },*/
+        { label: '接单时间', id: 8 }
+      ]
+    }
+    this.setData({ menuList, userType: utype  })
   },
 
   handleOrderPanelEvent(event) {

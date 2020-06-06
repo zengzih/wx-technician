@@ -56,7 +56,7 @@
         <view class="group">
             <text>预约时间</text>
             <text class="classify_info">{{ classifyInfo.month }}</text>
-            <text class="classify_info">{{ classifyInfo.date}}</text>
+            <text class="classify_info">{{ classifyInfo.date.local }}</text>
             <view bindtap="handleShowTechnician" data-type="selectTime"><i class="iconfont icon-xiangyou1"></i></view>
         </view>
 
@@ -160,9 +160,20 @@
                     </view>
                 </scroll-view>
             </view>
+
+            <view class="status-wrapper">
+                <view class="status" wx:for="{{ dateStatus }}">
+                    <view class="detail">
+                        <text class="label">{{ item.label }}</text>
+                        <view class="box status-{{ item.id }}"></view>
+                    </view>
+
+                </view>
+            </view>
+
             <view class="times">
-                <view class="time-box {{ index == timeActiveIndex ? 'active' : '' }}" bindtap="handleTimeClick" data-index="{{ index }}" wx:for="{{ timeDetail }}">
-                    <view class="time">{{ item }}</view>
+                <view class="time-box {{ index == timeActiveIndex && item.type == 2 ? 'active' : '' }}" bindtap="handleTimeClick" data-index="{{ index }}" wx:for="{{ timeDetail }}">
+                    <view class="time status-{{ item.type }}">{{ item.local }}</view>
                 </view>
             </view>
         </view>
