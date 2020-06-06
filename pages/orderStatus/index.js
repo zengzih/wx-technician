@@ -13,7 +13,9 @@ Page({
   },
 
   handlePayOrder() {
-
+    wx.navigateTo({
+      url: '../myorderList/index'
+    });
   },
 
 

@@ -115,10 +115,9 @@ Page({
   
   getUserInfo() {
     const token = wx.getStorageSync('token');
-    this.setData({token});
+    this.setData({token, userInfo: {}});
     if (!token) return;
     app.store.dispatch('getUserInfo').then(res=> {
-      console.log(res)
       const { name, balance, noPayCommission } = res;
       this.setMenuList(res)
       this.setData({
@@ -161,6 +160,7 @@ Page({
 
   handleSwitchRole() {
     const { utype } = this.data.userInfo;
+    this.setData({ userType: '' })
     wx.navigateTo({
       url: '../login/index?source=' + utype
     });
